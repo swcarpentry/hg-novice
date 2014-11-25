@@ -1,10 +1,9 @@
 ---
-layout: lesson
-root: ../..
-title: A Better Kind of Backup
+layout: page
+title: Version Control with Mercurial
+subtitle: A Better Kind of Backup
+minutes: 30
 ---
-<div class="objectives" markdown="1">
-
 #### Objectives
 * Explain which initialization and configuration steps are required once per machine,
   and which are required once per repository.
@@ -16,8 +15,6 @@ title: A Better Kind of Backup
 * Restore old versions of files.
 * Configure Mercurial to ignore specific files,
   and explain why it is sometimes useful to do so.
-
-</div>
 
 We'll start by exploring how version control can be used
 to keep track of what one person did and when.
@@ -93,8 +90,8 @@ $ cd planets
 ~~~
 {:class="in"}
 
-and tell Mercurial to make it a [repository](../../gloss.html#repository)&mdash;a place where
-Mercurial can store old versions of our files:
+and tell Mercurial to make it a **repository** ---
+a place where Mercurial can store old versions of our files:
 
 ~~~
 $ hg init
@@ -259,7 +256,7 @@ summary:     Starting to think about Mars
 
 `hg log` lists all changes committed to a repository
 in reverse chronological order.
-The listing for each [changeset](../../gloss.html#change-set) includes:
+The listing for each **changeset** includes:
 
 * the changeset's revision number and identifier
   (`0` and `72ab25fa99a1` in this case,

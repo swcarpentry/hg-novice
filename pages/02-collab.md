@@ -1,16 +1,13 @@
 ---
-layout: lesson
-root: ../..
-title: Collaborating
+layout: page
+title: Version Control with Mercurial
+subtitle: Collaborating
+minutes: 30
 ---
-<div class="objectives" markdown="1">
-
 #### Objectives
 * Explain what remote repositories are and why they are useful.
 * Explain what happens when a remote repository is cloned.
 * Explain what happens when changes are pushed to or pulled from a remote repository.
-
-</div>
 
 Version control really comes into its own
 when we begin to collaborate with other people.
@@ -56,14 +53,14 @@ but the remote repository on BitBucket doesn't contain any files yet:
 <img src="img/hg-freshly-made-bitbucket-repo.svg" alt="Freshly-Made BitBucket Repository" />
 
 The next step is to connect the two repositories.
-We do this by making the BitBucket repository a [remote](../../gloss.html#repository-remote)
+We do this by making the BitBucket repository a **remote**
 for the local repository.
 The home page of the repository on BitBucket includes
 the string we need to identify it after clicking on "I have an existing project to push up":
 
 <img src="img/bitbucket-find-repo-string.png" width="800px" alt="Where to Find Repository URL on BitBucket" />
 
-Change the 'ssh://' string to 'https://' in the url [protocol](../../gloss.html#protocol).
+Change the 'ssh://' string to 'https://' in the url **protocol**.
 It's slightly less convenient for day-to-day use,
 but much less work for beginners to set up.
 
@@ -137,7 +134,7 @@ To do this,
 (Note the absolute path:
 don't make `tmp` a subdirectory of the existing repository).
 Instead of creating a new repository here with `hg init`,
-we will [clone](../../gloss.html#repository-clone) the existing repository from BitBucket:
+we will **clone** the existing repository from BitBucket:
 
 ~~~
 $ cd /tmp
@@ -292,7 +289,7 @@ to share work between different people and machines.
     clone it,
     add a file,
     push those changes to BitBucket,
-    and then look at the [timestamp](../../gloss.html#timestamp) of the change on BitBucket.
+    and then look at the **timestamp** of the change on BitBucket.
     How does BitBucket record times, and why?
 
 </div>

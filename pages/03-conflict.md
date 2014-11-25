@@ -1,23 +1,20 @@
 ---
-layout: lesson
-root: ../..
-title: Conflicts
+layout: page
+title: Version Control with Mercurial
+subtitle: Conflicts
+minutes: 30
 ---
-<div class="objectives" markdown="1">
-
 #### Objectives
 * Explain what conflicts are and when they can occur.
 * Resolve conflicts resulting from a merge.
-
-</div>
 
 As soon as people can work in parallel,
 someone's going to step on someone else's toes.
 This will even happen with a single person:
 if we are working on a piece of software on both our laptop and a server in the lab,
 we could make different changes to each copy.
-Version control helps us manage these [conflicts](../../gloss.html#conflict)
-by giving us tools to [resolve](../../gloss.html#resolve) overlapping changes.
+Version control helps us manage these **conflicts**
+by giving us tools to **resolve** overlapping changes.
 
 To see how we can resolve conflicts,
 we must first create one.
@@ -117,7 +114,7 @@ abort: push creates new remote head 9f82bc5a1e80!
 Mercurial detects that our changes conflict with the changes
 in the remote server and stops us from creating a
 confusing situation in that server. What we have to do is pull the
-changes from Bitbucket, [merge](../../gloss.html#repository-merge)
+changes from Bitbucket, **merge**
 them into the copy we're currently working in, and then push that.
 Let's start by pulling:
 
