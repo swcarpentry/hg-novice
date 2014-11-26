@@ -271,19 +271,6 @@ or on someone else's computer.
 Pushing and pulling changes gives us a reliable way
 to share work between different people and machines.
 
-<div class="keypoints" markdown="1">
-
-#### Key Points
-* A local Mercurial repository can be connected to one or more remote repositories.
-* Use the HTTPS protocol to connect to remote repositories until you have learned how to set up SSH.
-* `hg push` copies changes from a local repository to a remote repository.
-* `hg pull` copies changes from a remote repository to a local repository.
-* `hg clone` copies a remote repository to create a local repository with a remote called `default` automatically set up.
-
-</div>
-
-<div class="challenges" markdown="1">
-
 #### Challenges
 
 1.  Create a repository on BitBucket,
@@ -292,5 +279,3 @@ to share work between different people and machines.
     push those changes to BitBucket,
     and then look at the **timestamp** of the change on BitBucket.
     How does BitBucket record times, and why?
-
-</div>

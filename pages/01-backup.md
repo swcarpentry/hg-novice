@@ -718,27 +718,6 @@ I results/b.out
 ~~~
 {:class="out"}
 
-<div class="keypoints" markdown="1">
-
-#### Key Points
-* Create a `~/.hgrc`
-  (or `%USERPROFILE%\Mercurial.ini` on Windows) to configure a user name,
-  email address, editor, and other preferences once per machine.
-* `hg init` initializes a repository.
-* `hg status` shows the status of a repository.
-* Files are stored in a project's working directory (which users see),
-  and the local repository (where committed snapshots are permanently recorded).
-* `hg add` tells Mercurial to track files.
-* `hg commit` creates a snapshot of the changes to 1 or more files in the local repository.
-* Always write a log message when committing changes.
-* `hg diff` displays differences between revisions.
-* `hg revert` recovers old versions of files.
-* The `.hgignore` file tells Mercurial what files to ignore.
-
-</div>
-
-<div class="challenges" markdown="1">
-
 #### Challenges
 
 1.  Create a new Mercurial repository on your computer called `bio`.
@@ -746,5 +725,3 @@ I results/b.out
     commit your changes,
     then modify one line and add a fourth and display the differences
     between its updated state and its original state.
-
-</div>
