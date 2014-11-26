@@ -1,6 +1,6 @@
 ---
 layout: slides
-title: Why Topic?
+title: Why Version Control with Mercurial?
 ---
 <section class="slide">
 ## Why Topic?
