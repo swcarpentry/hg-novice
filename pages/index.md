@@ -1,6 +1,5 @@
 ---
 layout: lesson
-root: ../..
 title: Version Control with Mercurial
 ---
 Version control is the lab notebook of the digital world:

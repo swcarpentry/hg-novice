@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Lesson Title
+title: Version Control with Mercurial
 subtitle: Reference
 ---
 ## A Better Kind of Backup
@@ -56,8 +56,35 @@ subtitle: Reference
 
 ## Glossary
 
-Key Word 1
-:   Definition of first term
+changeset
+:   FIXME
 
-Key Word 2
-:   Definition of second term
+clone
+:   FIXME
+
+conflicts
+:   FIXME
+
+infective
+:   FIXME
+
+Internet Service Provider (ISP)
+:   FIXME
+
+merge
+:   FIXME
+
+protocol
+:   FIXME
+
+remote
+:   FIXME
+
+repository
+:   FIXME
+
+resolve
+:   FIXME
+
+timestamp
+:   FIXME
