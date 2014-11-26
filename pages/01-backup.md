@@ -22,12 +22,9 @@ to keep track of what one person did and when.
 Even if you aren't collaborating with other people,
 version control is much better for that than this:
 
-<div>
-  <a href="http://www.phdcomics.com"><img src="fig/phd101212s.gif" alt="Piled Higher and Deeper by Jorge Cham, http://www.phdcomics.com" /></a>
-  <p>"Piled Higher and Deeper" by Jorge Cham, http://www.phdcomics.com</p>
-</div>
+![Piled Higher and Deeper by Jorge Cham (http://www.phdcomics.com - used with permission)](fig/phd101212s.gif)
 
-#### Setting Up
+### Setting Up
 
 The first time we use Mercurial on a new machine,
 we need to configure a few things.
@@ -79,7 +76,7 @@ our home directory means that they will be used for every project on this
 machine.
 This bit of setup only needs to be done once.
 
-#### Creating a Repository
+### Creating a Repository
 
 Once Mercurial is configured,
 we can start using it.
@@ -135,7 +132,7 @@ checking files
 0 files, 0 changesets, 0 total revisions
 ~~~
 
-#### Tracking Changes to Files
+### Tracking Changes to Files
 
 Let's create a file called `mars.txt` that contains some notes
 about the Red Planet's suitability as a base.
@@ -250,7 +247,7 @@ The listing for each **changeset** includes:
 The revision number is a convenient integer shorthand for the hexidecimal
 identifier.
 
-> #### Where Are My Changes?
+> ## Where Are My Changes? {.callout}
 >
 > If we run `ls` at this point, we will still see just one file called `mars.txt`.
 > That's because Mercurial saves information about files' history
@@ -258,7 +255,7 @@ identifier.
 > so that our filesystem doesn't become cluttered
 > (and so that we can't accidentally edit or delete an old version).
 
-#### Changing a File
+### Changing a File
 
 Now suppose Dracula adds more information to the file.
 (Again, we'll edit with `nano` and then `cat` the file to show its contents;
@@ -433,7 +430,7 @@ summary:     Starting to think about Mars
 
 ~~~
 
-#### Exploring History
+### Exploring History
 
 If we want to see what we changed when,
 we use `hg diff` again,
@@ -485,7 +482,7 @@ diff -r 72ab25fa99a1 -r 9b3b65e50b8c mars.txt
 +The two moons may be a problem for Wolfman
 ~~~
 
-#### Recovering Old Versions
+### Recovering Old Versions
 
 All right:
 we can save changes to files and see what we've changed---how
@@ -569,7 +566,7 @@ If the introduction and conclusion are stored in separate files,
 on the other hand,
 moving backward and forward in time becomes much easier.
 
-#### Ignoring Things
+### Ignoring Things
 
 What if we have files that we do not want Mercurial to track for us,
 like backup files created by our editor

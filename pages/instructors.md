@@ -5,34 +5,24 @@ subtitle: Instructor's Guide
 ---
 ## Legend
 
-One or more paragraphs laying out the lesson's legend (i.e., the story
-behind its running example).
+FIXME
 
 ## Overall
 
-*   FIXME
+FIXME
 
-*   FIXME
+## [A Better Kind of Backup](01-backup.html)
 
-## [Topic Title One](01-one.html)
+* FIXME
 
-* Point
+## [Collaborating](02-collab.html)
 
-* Point
+* FIXME
 
-* Be sure to describe what learners are expected to do during the
-  topic (watch, type along, pair program, etc.)
+## [Conflicts](03-conflict.html)
 
-1.  Discussion of first challenge.
+* FIXME
 
-2.  Discussion of second challenge.
+## [Open Science](04-open.html)
 
-## [Topic Title Two](02-two.html)
-
-* Point
-
-* Point
-
-1.  Discussion of first challenge.
-
-2.  Discussion of second challenge.
+* FIXME

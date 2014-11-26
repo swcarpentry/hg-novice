@@ -62,7 +62,7 @@ added 1 changesets with 1 changes to 1 files
 
 Our repositories are now in this state:
 
-<img src="fig/hg-after-first-conflicting-change.svg" alt="After Making First Change" />
+![After Making First Change](fig/hg-after-first-conflicting-change.svg)
 
 Now let's switch to the copy under `/tmp`
 and make a different change there
@@ -203,7 +203,7 @@ merging mars.txt
 It may take a few seconds for Mercurial to pass the necessary information
 to `kdiff3`, but soon you should see a window that looks like this:
 
-<img src="fig/hg-kdiff3-conflict-windows.png" alt="Kdiff3 on Windows" />
+![Kdiff3 on Windows](fig/hg-kdiff3-conflict-windows.png)
 
 The pane labelled `base` refers to how this file looked like at
 revision `4`, where our conflicting revisions `5` and `6` are based
@@ -221,7 +221,7 @@ this branch, keep the change made in the other, write something new to
 replace both, or get rid of the change entirely. Let's resolve the
 conflict so it looks like this:
 
-<img src="fig/hg-kdiff3-conflict-windows-resolved.png" alt="Resolving on Windows" />
+![Resolving on Windows](fig/hg-kdiff3-conflict-windows-resolved.png)
 
 Once we've finished merging, let us inspect the working directory
 before we finalize the merge:
@@ -282,7 +282,7 @@ $ hg commit -m "Merging changes from Bitbucket"
 
 Our repositories now look like this:
 
-<img src="fig/hg-after-second-conflicting-change.svg" alt="After Making Second (Conflicting) Change" />
+![After Making Second (Conflicting) Change](fig/hg-after-second-conflicting-change.svg)
 
 or in terms of the graph,
 
@@ -332,7 +332,7 @@ added 2 changesets with 2 changes to 1 files
 
 to get this:
 
-<img src="fig/hg-after-merging.svg" alt="After Merging Changes Locally" />
+![After Merging Changes Locally](fig/hg-after-merging.svg)
 
 Mercurial keeps track of what we've merged with what, so we don't have
 to fix things by hand again if we switch back to the repository in our

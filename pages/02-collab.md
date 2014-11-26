@@ -28,16 +28,16 @@ Let's start by sharing the changes we've made to our current project with the wo
 Log in to BitBucket,
 then click on the icon in the top right corner to create a new repository called `planets`:
 
-<img src="fig/bitbucket-create-repo-01.png" width="600px" alt="Creating a Repository on BitBucket (Step 1)" />
+![Creating a Repository on BitBucket (Step 1)](fig/bitbucket-create-repo-01.png)
 
 Name your repository "planets" and then click "Create Repository":
 
-<img src="fig/bitbucket-create-repo-02.png" width="600px" alt="Creating a Repository on BitBucket (Step 2)" />
+![Creating a Repository on BitBucket (Step 2)](fig/bitbucket-create-repo-02.png)
 
 As soon as the repository is created,
 BitBucket displays a page with a URL and some information on how to configure your local repository:
 
-<img src="fig/bitbucket-create-repo-03.png" width="800px" alt="Creating a Repository on BitBucket (Step 3)" />
+![Creating a Repository on BitBucket (Step 3)](fig/bitbucket-create-repo-03.png)
 
 This effectively does the following on BitBucket's servers:
 
@@ -50,7 +50,7 @@ $ hg init
 Our local repository still contains our earlier work on `mars.txt`,
 but the remote repository on BitBucket doesn't contain any files yet:
 
-<img src="fig/hg-freshly-made-bitbucket-repo.svg" alt="Freshly-Made BitBucket Repository" />
+![Freshly-Made BitBucket Repository](fig/hg-freshly-made-bitbucket-repo.svg)
 
 The next step is to connect the two repositories.
 We do this by making the BitBucket repository a **remote**
@@ -58,7 +58,7 @@ for the local repository.
 The home page of the repository on BitBucket includes
 the string we need to identify it after clicking on "I have an existing project to push up":
 
-<img src="fig/bitbucket-find-repo-string.png" width="800px" alt="Where to Find Repository URL on BitBucket" />
+![Where to Find Repository URL on BitBucket](fig/bitbucket-find-repo-string.png)
 
 Change the 'ssh://' string to 'https://' in the url **protocol**.
 It's slightly less convenient for day-to-day use,
@@ -103,7 +103,7 @@ added 1 changesets with 1 changes to 1 files
 
 Our local and remote repositories are now in this state:
 
-<img src="fig/bitbucket-repo-after-first-push.svg" alt="BitBucket Repository After First Push" />
+![BitBucket Repository After First Push](fig/bitbucket-repo-after-first-push.svg)
 
 We can pull changes from the remote repository to the local one as well:
 
@@ -139,7 +139,7 @@ $ hg clone https://bitbucket.org/vlad/planets
 (We did it in `/tmp` or some other directory so that we don't overwrite our existing `planets` directory.)
 Our computer now has two copies of the repository:
 
-<img src="fig/hg-after-duplicate-clone.svg" alt="After Creating Duplicate Clone of Repository" />
+![After Creating Duplicate Clone of Repository](fig/hg-after-duplicate-clone.svg)
 
 Let's make a change in the copy in `/tmp/planets`:
 
@@ -179,7 +179,7 @@ when we were setting up remotes by hand.)
 
 Our three repositories now look like this:
 
-<img src="fig/hg-after-change-to-duplicate-repo.svg" alt="After Pushing Change from Duplicate Repository" />
+![After Pushing Change from Duplicate Repository](fig/hg-after-change-to-duplicate-repo.svg)
 
 We can now download changes into the original repository on our machine:
 
@@ -240,7 +240,7 @@ You can use `hg log --graph` again to that the `@` has been moved to changeset 3
 Here is what our 2 local repositories and our Bitbucket repository look like now,
 showing how the `pluto.txt` file has been copied from Bitbucket to our `planets/` repository clone:
 
-<img src="fig/hg-after-pulling-to-local-repo.svg" alt="After Pulling Change to Local Repository" />
+![After Pulling Change to Local Repository](fig/hg-after-pulling-to-local-repo.svg)
 
 In practice,
 we would probably never have two copies of the same remote repository
