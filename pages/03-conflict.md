@@ -23,43 +23,35 @@ The file `mars.txt` currently looks like this
 in both local copies of our `planets` repository
 (the one in our home directory and the one in `/tmp`):
 
-~~~
+~~~ {.input}
 $ cat mars.txt
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 Cold and dry, but everything is my favorite color
 The two moons may be a problem for Wolfman
 But the Mummy will appreciate the lack of humidity
 ~~~
-{:class="out"}
 
 Let's add a line to the copy under our home directory:
 
-~~~
+~~~ {.input}
 $ nano mars.txt
 $ cat mars.txt
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 Cold and dry, but everything is my favorite color
 The two moons may be a problem for Wolfman
 But the Mummy will appreciate the lack of humidity
 This line added to our home copy
 ~~~
-{:class="out"}
 
 and then push the change to Bitbucket:
 
-~~~
+~~~ {.input}
 $ hg commit -m "Adding a line in our home copy"
-~~~
-{:class="in"}
-~~~
 $ hg push
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 pushing to https://bitbucket.org/vlad/planets
 searching for changes
 adding changesets
@@ -67,7 +59,6 @@ adding manifests
 adding file changes
 added 1 changesets with 1 changes to 1 files
 ~~~
-{:class="out"}
 
 Our repositories are now in this state:
 
@@ -77,40 +68,35 @@ Now let's switch to the copy under `/tmp`
 and make a different change there
 *without* updating from Bitbucket:
 
-~~~
+~~~ {.input}
 $ cd /tmp/planets
 $ nano mars.txt
 $ cat mars.txt
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 Cold and dry, but everything is my favorite color
 The two moons may be a problem for Wolfman
 But the Mummy will appreciate the lack of humidity
 We added a different line in the temporary copy
 ~~~
-{:class="out"}
 
 We can commit the change locally:
 
-~~~
+~~~ {.input}
 $ hg commit -m "Adding a line in the temporary copy"
 ~~~
-{:class="in"}
 
 but hg won't let us push it to Bitbucket:
 
-~~~
+~~~ {.input}
 $ hg push
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 pushing to https://bitbucket.org/vlad/planets
 searching for changes
 abort: push creates new remote head 9f82bc5a1e80!
 (merge or see "hg help push" for details about pushing new heads)
 ~~~
-{:class="out"}
 
 Mercurial detects that our changes conflict with the changes
 in the remote server and stops us from creating a
@@ -119,11 +105,10 @@ changes from Bitbucket, **merge**
 them into the copy we're currently working in, and then push that.
 Let's start by pulling:
 
-~~~
+~~~ {.input}
 $ hg pull
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 pulling from https://bitbucket.org/vlad/planets
 searching for changes
 adding changesets
@@ -132,17 +117,15 @@ adding file changes
 added 1 changesets with 1 changes to 1 files (+1 heads)
 (run 'hg heads' to see heads, 'hg merge' to merge)
 ~~~
-{:class="out"}
 
 `hg pull` tells us there's an extra head and suggests that we use `hg
 heads` to inspect the situation and `hg merge` to resolve it. Let's
 first attempt to understand the situation:
 
-~~~
+~~~ {.input}
 $ hg heads
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 changeset:   6:721158ca243d
 user:        Vlad Dracula <vlad@tran.sylvan.ia>
 date:        Sun May 18 12:40:33 2014 -0400
@@ -155,17 +138,15 @@ user:        Vlad Dracula <vlad@tran.sylvan.ia>
 date:        Sun May 18 12:41:10 2014 -0400
 summary:     Adding a line in the temporary copy
 ~~~
-{:class="out"}
 
 This shows us that our repository currently has two heads. Looking at
 the graph of our log with `hg log --graph` or `hg log -G` may be more
 informative:
 
-~~~
+~~~ {.input}
 $ hg log -G
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 o  changeset:   6:721158ca243d
 |  tag:         tip
 |  parent:      4:2e9c23a9090d
@@ -189,7 +170,6 @@ o  changeset:   3:4f37bac61e73
 |  summary:     Add the ignore file
 |
 ~~~
-{:class="out"}
 
 With the graph, we can see more details at a glance. The `@` marker
 shows the commit we're currently standing on, `5:9f82bc5a1e80`. We
@@ -213,14 +193,12 @@ To do that we'll use the [`kdiff3`](http://kdiff3.sourceforge.net/)
 merge tool which gives us an interface that makes it easier to
 understand what it happening.
 
-~~~
+~~~ {.input}
 $ hg merge --tool=kdiff3
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 merging mars.txt
 ~~~
-{:class="out"}
 
 It may take a few seconds for Mercurial to pass the necessary information
 to `kdiff3`, but soon you should see a window that looks like this:
@@ -248,11 +226,10 @@ conflict so it looks like this:
 Once we've finished merging, let us inspect the working directory
 before we finalize the merge:
 
-~~~
+~~~ {.input}
 $ hg summary
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 parent: 5:9f82bc5a1e80
  Adding a line in the temporary copy
 parent: 6:721158ca243d tip
@@ -261,7 +238,6 @@ branch: default
 commit: 1 modified (merge)
 update: (current)
 ~~~
-{:class="out"}
 
 This tells us that right now our working directory is in a merge state.
 We see that the working directory has two parents, and one file is
@@ -269,11 +245,10 @@ about to get merged.
 
 Let us look at the graph again:
 
-~~~
+~~~ {.input}
 $ hg log -G
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 @  changeset:   6:721158ca243d
 |  tag:         tip
 |  parent:      4:2e9c23a9090d
@@ -297,15 +272,13 @@ o  changeset:   3:4f37bac61e73
 |  summary:     Add the ignore file
 |
 ~~~
-{:class="out"}
 
 The `@` marker is now at *two* locations at once. This indicates that
 our working directory is in a merge state. Let us finalise this merge:
 
-~~~
+~~~ {.input}
 $ hg commit -m "Merging changes from Bitbucket"
 ~~~
-{:class="in"}
 
 Our repositories now look like this:
 
@@ -313,11 +286,10 @@ Our repositories now look like this:
 
 or in terms of the graph,
 
-~~~
+~~~ {.input}
 $ hg log -G
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 @    changeset:   7:84eea3b489a6
 |\   tag:         tip
 | |  parent:      5:9f82bc5a1e80
@@ -343,15 +315,13 @@ o  changeset:   4:2e9c23a9090d
 |  summary:     Some notes about Pluto
 |
 ~~~
-{:class="out"}
 
 so we push our changes to Bitbucket:
 
-~~~
+~~~ {.input}
 $ hg push
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 pushing to https://bitbucket.org/vlad/planets
 searching for changes
 adding changesets
@@ -359,7 +329,6 @@ adding manifests
 adding file changes
 added 2 changesets with 2 changes to 1 files
 ~~~
-{:class="out"}
 
 to get this:
 
@@ -369,12 +338,11 @@ Mercurial keeps track of what we've merged with what, so we don't have
 to fix things by hand again if we switch back to the repository in our
 home directory and pull from Bitbucket:
 
-~~~
+~~~ {.input}
 $ cd ~/planets
 $ hg pull
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 pulling from https://bitbucket.org/vlad/planets
 searching for changes
 adding changesets
@@ -383,34 +351,29 @@ adding file changes
 added 2 changesets with 2 changes to 1 files
 (run 'hg update' to get a working copy)
 ~~~
-{:class="out"}
 
 This only pulled new changes into our history, but did not touch our
 files. After we run `hg update` to update the files to the new
 changes,
 
-~~~
+~~~ {.input}
 $ hg update
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 1 files updated, 0 files merged, 0 files removed, 0 files unresolved
 ~~~
-{:class="out"}
 
 we get the merged file:
 
-~~~
+~~~ {.input}
 $ cat mars.txt
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 Cold and dry, but everything is my favorite color
 The two moons may be a problem for Wolfman
 But the Mummy will appreciate the lack of humidity
 We removed the conflict on this line
 ~~~
-{:class="out"}
 
 We don't need to merge again because Bitbucket knows someone has
 already done that.

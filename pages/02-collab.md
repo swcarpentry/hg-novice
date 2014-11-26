@@ -41,12 +41,11 @@ BitBucket displays a page with a URL and some information on how to configure yo
 
 This effectively does the following on BitBucket's servers:
 
-~~~
+~~~ {.input}
 $ mkdir planets
 $ cd planets
 $ hg init
 ~~~
-{:class="in"}
 
 Our local repository still contains our earlier work on `mars.txt`,
 but the remote repository on BitBucket doesn't contain any files yet:
@@ -79,24 +78,21 @@ the only difference should be your username instead of `vlad`.
 
 We can check that the command has worked by running `hg paths`:
 
-~~~
+~~~ {.input}
 $ hg paths
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 default = https://bitbucket.org/vlad/planets
 ~~~
-{:class="out"}
 
 Once the default path is set up,
 this command will push the changes from our local repository
 to the repository on BitBucket:
 
-~~~
+~~~ {.input}
 $ hg push
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 pushing to https://bitbucket.org/vlad/planets
 searching for changes
 adding changesets
@@ -104,7 +100,6 @@ adding manifests
 adding file changes
 added 1 changesets with 1 changes to 1 files
 ~~~
-{:class="out"}
 
 Our local and remote repositories are now in this state:
 
@@ -112,16 +107,14 @@ Our local and remote repositories are now in this state:
 
 We can pull changes from the remote repository to the local one as well:
 
-~~~
+~~~ {.input}
 $ hg pull
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 pulling from https://bitbucket.org/vlad/planets
 searching for changes
 no changes found
 ~~~
-{:class="out"}
 
 Pulling has no effect in this case
 because the two repositories are already synchronized.
@@ -137,11 +130,10 @@ don't make `tmp` a subdirectory of the existing repository).
 Instead of creating a new repository here with `hg init`,
 we will **clone** the existing repository from BitBucket:
 
-~~~
+~~~ {.input}
 $ cd /tmp
 $ hg clone https://bitbucket.org/vlad/planets
 ~~~
-{:class="in"}
 
 `hg clone` creates a fresh local copy of a remote repository.
 (We did it in `/tmp` or some other directory so that we don't overwrite our existing `planets` directory.)
@@ -151,29 +143,25 @@ Our computer now has two copies of the repository:
 
 Let's make a change in the copy in `/tmp/planets`:
 
-~~~
+~~~ {.input}
 $ cd /tmp/planets
 $ nano pluto.txt
 $ cat pluto.txt
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 It is so a planet!
 ~~~
-{:class="out"}
-~~~
+~~~ {.input}
 $ hg add pluto.txt
 $ hg commit -m "Some notes about Pluto"
 ~~~
-{:class="in"}
 
 then push the change to BitBucket:
 
-~~~
+~~~ {.input}
 $ hg push
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 pushing to https://bitbucket.org/vlad/planets
 searching for changes
 adding changesets
@@ -181,7 +169,6 @@ adding manifests
 adding file changes
 added 1 changesets with 1 changes to 1 files
 ~~~
-{:class="out"}
 
 Note that we didn't have to create a remote called `default`:
 Mercurial does this automatically,
@@ -196,12 +183,11 @@ Our three repositories now look like this:
 
 We can now download changes into the original repository on our machine:
 
-~~~
+~~~ {.input}
 $ cd ~/planets
 $ hg pull
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 pulling from https://bitbucket.org/vlad/planets
 searching for changes
 adding changesets
@@ -210,16 +196,14 @@ adding file changes
 added 1 changesets with 1 changes to 1 files
 (run 'hg update' to get a working copy)
 ~~~
-{:class="out"}
 
 If we look at our repository history now with the `hg log --graph` command we can see that the `@` character marks the revision that our working copy of the files is at and the revision that we pulled from Bitbucket is above that,
 meaning it has not yet been applied to our working files:
 
-~~~
+~~~ {.input}
 $ hg log --graph
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 o  changeset:   3:2e9c23a9090d
 |  user:        Vlad Dracula <vlad@tran.sylvan.ia>
 |  date:        Mon Apr 14 16:56:42 2014 -0400
@@ -240,19 +224,16 @@ o  changeset:   0:72ab25fa99a1
    date:        Mon Apr 14 14:41:58 2014 -0400
    summary:     Starting to think about Mars
 ~~~
-{:class="out"}
 
 To apply those changes we use `hg update`
 (as Mercurial helpfully suggested at the end of the `hg pull` process):
 
-~~~
+~~~ {.input}
 $ hg update
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 1 files updated, 0 files merged, 0 files removed, 0 files unresolved
 ~~~
-{:class="out"}
 
 You can use `hg log --graph` again to that the `@` has been moved to changeset 3 which tells us that our working copy is up to date.
 

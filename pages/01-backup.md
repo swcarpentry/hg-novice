@@ -85,19 +85,17 @@ Once Mercurial is configured,
 we can start using it.
 Let's create a directory for our work:
 
-~~~
+~~~ {.input}
 $ mkdir planets
 $ cd planets
 ~~~
-{:class="in"}
 
 and tell Mercurial to make it a **repository** ---
 a place where Mercurial can store old versions of our files:
 
-~~~
+~~~ {.input}
 $ hg init
 ~~~
-{:class="in"}
 
 Mercurial commands are written `hg verb`,
 where `verb` is what we actually want it to do.
@@ -105,22 +103,19 @@ where `verb` is what we actually want it to do.
 If we use `ls` to show the directory's contents,
 it appears that nothing has changed:
 
-~~~
+~~~ {.input}
 $ ls
 ~~~
-{:class="in"}
 
 But if we add the `-a` flag to show everything,
 we can see that Mercurial has created a hidden directory called `.hg`:
 
-~~~
+~~~ {.input}
 $ ls -a
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 .	..	.hg
 ~~~
-{:class="out"}
 
 Mercurial stores information about the project in this special sub-directory.
 If we ever delete it,
@@ -129,18 +124,16 @@ we will lose the project's history.
 We can check that everything is set up correctly
 by asking Mercurial to verify the structure of our repository:
 
-~~~
+~~~ {.input}
 $ hg verify
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 checking changesets
 checking manifests
 crosschecking files in changesets and manifests
 checking files
 0 files, 0 changesets, 0 total revisions
 ~~~
-{:class="out"}
 
 #### Tracking Changes to Files
 
@@ -151,73 +144,62 @@ you can use whatever editor you like.
 In particular, this does not have to be the editor that you set in your
 Mercurial global configuration earlier.)
 
-~~~
+~~~ {.input}
 $ nano mars.txt
 ~~~
-{:class="in"}
 
 `mars.txt` has now been created and it contains a single line:
 
-~~~
+~~~ {.input}
 $ ls
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 mars.txt
 ~~~
-{:class="out"}
-~~~
+~~~ {.input}
 $ cat mars.txt
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 Cold and dry, but everything is my favorite color
 ~~~
-{:class="out"}
 
 
 We can ask Mercurial to tell us what it knows about the files in our project
 with the `hg status` command.
 Mercurial tells us that it's noticed the new file:
 
-~~~
+~~~ {.input}
 $ hg status
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 ? mars.txt
 ~~~
-{:class="out"}
 
 The `?` at the beginning of the line means that Mercurial isn't keeping
 track of the file.
 We can tell Mercurial that it should do so using `hg add`:
 
-~~~
+~~~ {.input}
 $ hg add mars.txt
 ~~~
-{:class="in"}
 
 and then check that the right thing happened:
 
-~~~
+~~~ {.input}
 $ hg status
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 A mars.txt
 ~~~
-{:class="out"}
 
 Mercurial now knows that it's supposed to keep track of `mars.txt`,
 but it hasn't yet recorded any changes for posterity as a commit.
 To get it to do that,
 we need to run one more command:
 
-~~~
+~~~ {.input}
 $ hg commit -m "Starting to think about Mars"
 ~~~
-{:class="in"}
 
 When we run `hg commit`,
 Mercurial takes the file we have told it about by using `hg add`
@@ -231,21 +213,19 @@ so that we can write a longer message.
 
 If we run `hg status` now:
 
-~~~
+~~~ {.input}
 $ hg status
 ~~~
-{:class="in"}
 
 we get no output because everything is up to date.
 
 If we want to know what we've done recently,
 we can ask Mercurial to show us the project's history using `hg log`:
 
-~~~
+~~~ {.input}
 $ hg log
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 changeset:   0:72ab25fa99a1
 tag:         tip
 user:        Vlad Dracula <vlad@tran.sylvan.ia>
@@ -253,7 +233,6 @@ date:        Mon Apr 14 14:41:58 2014 -0400
 summary:     Starting to think about Mars
 
 ~~~
-{:class="out"}
 
 `hg log` lists all changes committed to a repository
 in reverse chronological order.
@@ -285,28 +264,24 @@ Now suppose Dracula adds more information to the file.
 (Again, we'll edit with `nano` and then `cat` the file to show its contents;
 you may use a different editor, and don't need to `cat`.)
 
-~~~
+~~~ {.input}
 $ nano mars.txt
 $ cat mars.txt
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 Cold and dry, but everything is my favorite color
 The two moons may be a problem for Wolfman
 ~~~
-{:class="out"}
 
 When we run `hg status` now,
 it tells us that a file it already knows about has been modified:
 
-~~~
+~~~ {.input}
 $ hg status
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 M mars.txt
 ~~~
-{:class="out"}
 
 The `M` at the beginning of the line means that Mercurial has noticed that
 we have modified the `mars.txt` file.
@@ -316,11 +291,10 @@ which shows us the differences between
 the current state of the file
 and the most recently committed version:
 
-~~~
+~~~ {.input}
 $ hg diff
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 diff -r 72ab25fa99a1 mars.txt
 --- a/mars.txt  Mon Apr 14 14:41:58 2014 -0400
 +++ b/mars.txt  Mon Apr 14 15:48:53 2014 -0400
@@ -328,7 +302,6 @@ diff -r 72ab25fa99a1 mars.txt
  Cold and dry, but everything is my favorite color
 +The two moons may be a problem for Wolfman
 ~~~
-{:class="out"}
 
 The output is cryptic because
 it is actually a series of commands for tools like editors and `patch`
@@ -346,26 +319,23 @@ If we can break it down into pieces:
 
 Let's commit our change:
 
-~~~
+~~~ {.input}
 $ hg commit -m "Concerns about Mars's moons on my furry friend"
 ~~~
-{:class="in"}
 
 Checking our project's status:
 
-~~~
+~~~ {.input}
 $ hg status
 ~~~
-{:class="in"}
 
 we get no output because all of the changes have been committed.
 We can see our commits with `hg log`:
 
-~~~
+~~~ {.input}
 $ hg log
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 changeset:   1:9b3b65e50b8c
 tag:         tip
 user:        Vlad Dracula <vlad@tran.sylvan.ia>
@@ -378,7 +348,6 @@ date:        Mon Apr 14 14:41:58 2014 -0400
 summary:     Starting to think about Mars
 
 ~~~
-{:class="out"}
 
 Of course sometimes we may not want to commit everything at once.
 For example,
@@ -395,14 +364,13 @@ separate commits,
 listing the names of the files to be included in each commit in the `hg commit`
 command:
 
-~~~
+~~~ {.input}
 $ hg commit -m "Cite Frankenstein(2010) and Frankenstein, etal(2011)." methods.txt biblio.txt
 ...
 <later>
 ...
 $ hg commit conclusions.txt -m "Update conclusions re: sunlight."
 ~~~
-{:class="in"}
 
 Notice that the list of file names can come before or after the commit comment
 in the `hg commit` command.
@@ -410,22 +378,19 @@ in the `hg commit` command.
 Let's add another line to the file for practice and to make our revision
 history more interesting:
 
-~~~
+~~~ {.input}
 $ nano mars.txt
 $ cat mars.txt
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 Cold and dry, but everything is my favorite color
 The two moons may be a problem for Wolfman
 But the Mummy will appreciate the lack of humidity
 ~~~
-{:class="out"}
-~~~
+~~~ {.input}
 $ hg diff
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 diff -r 9b3b65e50b8c mars.txt
 --- a/mars.txt  Mon Apr 14 15:52:43 2014 -0400
 +++ b/mars.txt  Mon Apr 14 16:33:57 2014 -0400
@@ -434,25 +399,22 @@ diff -r 9b3b65e50b8c mars.txt
  The two moons may be a problem for Wolfman
 +But the Mummy will appreciate the lack of humidity
 ~~~
-{:class="out"}
 
 So far, so good:
 we've added one line to the end of the file
 (shown with a `+` in the first column).
 Now, let's commit our changes:
 
-~~~
+~~~ {.input}
 $ hg commit mars.txt -m "Thoughts about the climate"
 ~~~
-{:class="in"}
 
 and look at the history of what we've done so far:
 
-~~~
+~~~ {.input}
 $ hg log
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 changeset:   2:43da31fb96ec
 tag:         tip
 user:        Vlad Dracula <vlad@tran.sylvan.ia>
@@ -470,7 +432,6 @@ date:        Mon Apr 14 14:41:58 2014 -0400
 summary:     Starting to think about Mars
 
 ~~~
-{:class="out"}
 
 #### Exploring History
 
@@ -479,11 +440,10 @@ we use `hg diff` again,
 but refer to old versions
 using the `--rev` or `-r` flag and the revision numbers:
 
-~~~
+~~~ {.input}
 $ hg diff --rev 1:2 mars.txt
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 diff -r 9b3b65e50b8c mars.txt
 --- a/mars.txt  Mon Apr 14 15:52:43 2014 -0400
 +++ b/mars.txt  Mon Apr 14 16:44:06 2014 -0400
@@ -492,12 +452,10 @@ diff -r 9b3b65e50b8c mars.txt
  The two moons may be a problem for Wolfman
 +But the Mummy will appreciate the lack of humidity
 ~~~
-{:class="out"}
-~~~
+~~~ {.input}
 $ hg diff -r 0:2 mars.txt
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 diff -r 72ab25fa99a1 -r 43da31fb96ec mars.txt
 --- a/mars.txt  Mon Apr 14 14:41:58 2014 -0400
 +++ b/mars.txt  Mon Apr 14 16:37:12 2014 -0400
@@ -506,7 +464,6 @@ diff -r 72ab25fa99a1 -r 43da31fb96ec mars.txt
 +The two moons may be a problem for Wolfman
 +But the Mummy will appreciate the lack of humidity
 ~~~
-{:class="out"}
 
 In this way,
 we build up a chain of revisions.
@@ -516,11 +473,10 @@ number.
 To see what changes were made between a particular changeset and its parent
 use the `--change` or `-c` flag:
 
-~~~
+~~~ {.input}
 hg diff --change 1
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 diff -r 72ab25fa99a1 -r 9b3b65e50b8c mars.txt
 --- a/mars.txt  Mon Apr 14 14:41:58 2014 -0400
 +++ b/mars.txt  Mon Apr 14 15:52:43 2014 -0400
@@ -528,7 +484,6 @@ diff -r 72ab25fa99a1 -r 9b3b65e50b8c mars.txt
  Cold and dry, but everything is my favorite color
 +The two moons may be a problem for Wolfman
 ~~~
-{:class="out"}
 
 #### Recovering Old Versions
 
@@ -537,42 +492,36 @@ we can save changes to files and see what we've changed---how
 can we restore older versions of things?
 Let's suppose we accidentally overwrite our file:
 
-~~~
+~~~ {.input}
 $ nano mars.txt
 $ cat mars.txt
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 We will need to manufacture our own oxygen
 ~~~
-{:class="out"}
 
 `hg status` now tells us that the file has been changed,
 but those changes haven't been committed:
 
-~~~
+~~~ {.input}
 $ hg status
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 M mars.txt
 ~~~
-{:class="out"}
 
 We can put things back the way they were
 by using `hg revert`:
 
-~~~
+~~~ {.input}
 $ hg revert mars.txt
 $ cat mars.txt
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 Cold and dry, but everything is my favorite color
 The two moons may be a problem for Wolfman
 But the Mummy will appreciate the lack of humidity
 ~~~
-{:class="out"}
 
 As you might guess from its name,
 `hg revert` reverts to (i.e., restores) an old version of a file.
@@ -582,22 +531,19 @@ of the file.
 If we want to go back even further,
 we can use the `--rev` or `-r` flag and a revision number instead:
 
-~~~
+~~~ {.input}
 $ hg revert --rev 0 mars.txt
 ~~~
-{:class="in"}
 
 Mercurial really doesn't want to cause us to lose our work,
 so it defaults to making a backup when we use `hg revert`:
 
-~~~
+~~~ {.input}
 $ hg status
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 ? mars.txt.orig
 ~~~
-{:class="out"}
 
 The `mars.txt.orig` file is a copy of `mars.txt` as it stood before the `hg revert` command.
 It's not tracked by Mercurial.
@@ -630,26 +576,23 @@ like backup files created by our editor
 or intermediate files created during data analysis?
 Let's create a few dummy files:
 
-~~~
+~~~ {.input}
 $ mkdir results
 $ touch a.dat b.dat c.dat results/a.out results/b.out
 ~~~
-{:class="in"}
 
 and see what Mercurial says:
 
-~~~
+~~~ {.input}
 $ hg status
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 ? a.dat
 ? b.dat
 ? c.dat
 ? results/a.out
 ? results/b.out
 ~~~
-{:class="out"}
 
 Putting these files under version control would be a waste of disk space.
 What's worse,
@@ -658,17 +601,15 @@ so let's tell Mercurial to ignore them.
 
 We do this by creating a file in the root directory of our project called `.hgignore`.
 
-~~~
+~~~ {.input}
 $ nano .hgignore
 $ cat .hgignore
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 syntax: glob
 *.dat
 results/
 ~~~
-{:class="out"}
 
 The `syntax: glob` line at the top of the file tells Mercurial that
 we want to use the same kind of pattern matching that we use in the shell
@@ -681,14 +622,12 @@ Mercurial would continue to track them.)
 Once we have created this file,
 the output of `hg status` is much cleaner:
 
-~~~
+~~~ {.input}
 $ hg status
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 ? .hgignore
 ~~~
-{:class="out"}
 
 The only thing Mercurial notices now is the newly-created `.hgignore` file.
 You might think we wouldn't want to track it,
@@ -696,27 +635,24 @@ but everyone we're sharing our repository with will probably want to ignore
 the same things that we're ignoring.
 Let's add and commit `.hgignore`:
 
-~~~
+~~~ {.input}
 $ hg add .hgignore
 $ hg commit -m "Add the ignore file"
 $ hg status
 ~~~
-{:class="in"}
 
 We can also always see the status of ignored files if we want:
 
-~~~
+~~~ {.input}
 $ hg status --ignored
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 I a.dat
 I b.dat
 I c.dat
 I results/a.out
 I results/b.out
 ~~~
-{:class="out"}
 
 #### Challenges
 
