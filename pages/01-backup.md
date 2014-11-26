@@ -4,17 +4,18 @@ title: Version Control with Mercurial
 subtitle: A Better Kind of Backup
 minutes: 30
 ---
-#### Objectives
-* Explain which initialization and configuration steps are required once per machine,
-  and which are required once per repository.
-* Add files to Mercurial's collection of tracked files.
-* Go through the modify-commit cycle for single and multiple files
-  and explain where information is stored before and after the commit.
-* Identify and use Mercurial revision numbers and changeset identifiers.
-* Compare files with old versions of themselves.
-* Restore old versions of files.
-* Configure Mercurial to ignore specific files,
-  and explain why it is sometimes useful to do so.
+> ## Learning Objectives {.objectives}
+>
+> *   Explain which initialization and configuration steps are required
+>     once per machine, and which are required once per repository.
+> *   Add files to Mercurial's collection of tracked files.
+> *   Go through the modify-commit cycle for single and multiple files
+>     and explain where information is stored before and after the commit.
+> *   Identify and use Mercurial revision numbers and changeset identifiers.
+> *   Compare files with old versions of themselves.
+> *   Restore old versions of files.
+> *   Configure Mercurial to ignore specific files,
+>     and explain why it is sometimes useful to do so.
 
 We'll start by exploring how version control can be used
 to keep track of what one person did and when.

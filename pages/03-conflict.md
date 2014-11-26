@@ -4,9 +4,10 @@ title: Version Control with Mercurial
 subtitle: Conflicts
 minutes: 30
 ---
-#### Objectives
-* Explain what conflicts are and when they can occur.
-* Resolve conflicts resulting from a merge.
+> ## Learning Objectives {.objectives}
+>
+> *   Explain what conflicts are and when they can occur.
+> *   Resolve conflicts resulting from a merge.
 
 As soon as people can work in parallel,
 someone's going to step on someone else's toes.

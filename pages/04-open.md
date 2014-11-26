@@ -4,11 +4,12 @@ title: Version Control with Mercurial
 subtitle: Open Science
 minutes: 30
 ---
-#### Objectives
-*   Explain how the GNU Public License (GPL) differs from most other open licenses.
-*   Explain the four kinds of restrictions that can be combined in a Creative Commons license.
-*   Correctly add licensing and citation information to a project repository.
-*   Outline options for hosting code and data and the pros and cons of each.
+> ## Learning Objectives {.objectives}
+>
+> *   Explain how the GNU Public License (GPL) differs from most other open licenses.
+> *   Explain the four kinds of restrictions that can be combined in a Creative Commons license.
+> *   Correctly add licensing and citation information to a project repository.
+> *   Outline options for hosting code and data and the pros and cons of each.
 
 > The opposite of "open" isn't "closed".
 > The opposite of "open" is "broken".
