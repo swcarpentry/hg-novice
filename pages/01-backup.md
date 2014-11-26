@@ -23,7 +23,7 @@ Even if you aren't collaborating with other people,
 version control is much better for that than this:
 
 <div>
-  <a href="http://www.phdcomics.com"><img src="img/phd101212s.gif" alt="Piled Higher and Deeper by Jorge Cham, http://www.phdcomics.com" /></a>
+  <a href="http://www.phdcomics.com"><img src="fig/phd101212s.gif" alt="Piled Higher and Deeper by Jorge Cham, http://www.phdcomics.com" /></a>
   <p>"Piled Higher and Deeper" by Jorge Cham, http://www.phdcomics.com</p>
 </div>
 
@@ -654,10 +654,10 @@ I results/a.out
 I results/b.out
 ~~~
 
-#### Challenges
-
-1.  Create a new Mercurial repository on your computer called `bio`.
-    Write a three-line biography for yourself in a file called `me.txt`,
-    commit your changes,
-    then modify one line and add a fourth and display the differences
-    between its updated state and its original state.
+> ## FIXME {.challenge}
+>
+> Create a new Mercurial repository on your computer called `bio`.
+> Write a three-line biography for yourself in a file called `me.txt`,
+> commit your changes,
+> then modify one line and add a fourth and display the differences
+> between its updated state and its original state.

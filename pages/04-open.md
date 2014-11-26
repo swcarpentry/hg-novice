@@ -215,14 +215,16 @@ but many institutions may not allow researchers to do this,
 either because they want to protect future patent applications
 or simply because what's new is frightening.
 
-#### Challenges
+> ## FIXME {.challenge}
+>
+> Find out whether you are allowed to apply an open license to your software.
+> Can you do this unilaterally,
+> or do you need permission from someone in your institution?
+> If so, who?
 
-1.  Find out whether you are allowed to apply an open license to your software.
-    Can you do this unilaterally,
-    or do you need permission from someone in your institution?
-    If so, who?
-
-2.  Find out whether you are allowed to host your work openly on a public forge.
-    Can you do this unilaterally,
-    or do you need permission from someone in your institution?
-    If so, who?
+> ## FIXME {.challenge}
+>
+> Find out whether you are allowed to host your work openly on a public forge.
+> Can you do this unilaterally,
+> or do you need permission from someone in your institution?
+> If so, who?
