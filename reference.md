@@ -65,11 +65,24 @@ clone
 :   To make a local copy of a [version control repository](#repository).
 See also: [fork](#repository-fork).
 
+commit
+:   CHECKME To record the current state of a set of files (a [changeset](#changeset))
+in a [version control](#version-control) [repository](#repository).
+
+
 conflict
 :   A change made by one user of a [version control system](#version-control)
 that is incompatible with changes made by other users.
 Helping users [resolve](#resolve) conflicts
 is one of version control's major tasks.
+
+fork
+:   To [clone](#repository-clone) a [version control](#version-control) [repository](#repository)
+on a server.
+
+HTTP
+:   The Hypertext Transfer [Protocol](#protocol) used for sharing web pages and other data
+on the World Wide Web.
 
 infective license
 :   A license such as the [GPL](http://opensource.org/licenses/GPL-3.0)
@@ -101,6 +114,15 @@ resolve
 :   
 To eliminate the [conflicts](#conflict) between two or more incompatible changes to a file or set of files
 being managed by a [version control](#version-control) system.
+
+revsion
+:
+A recorded state of a [version control](#version-control) [repository](#repository).
+
+SSH
+:
+The Secure Shell [protocol](#protocol) used for secure communication between computers.
+SSH is often used for [remote login](#remote-login) between computers.
 
 timestamp
 :   A record of when a particular event occurred.
