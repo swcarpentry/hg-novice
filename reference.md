@@ -57,34 +57,50 @@ subtitle: Reference
 ## Glossary
 
 changeset
-:   FIXME
+:   A group of changes to one or more files
+that are [committed](#commit) to a [version control](#version-control) [repository](#repository)
+in a single operation.
 
 clone
-:   FIXME
+:   To make a local copy of a [version control repository](#repository).
+See also: [fork](#repository-fork).
 
-conflicts
-:   FIXME
+conflict
+:   A change made by one user of a [version control system](#version-control)
+that is incompatible with changes made by other users.
+Helping users [resolve](#resolve) conflicts
+is one of version control's major tasks.
 
-infective
-:   FIXME
+infective license
+:   A license such as the [GPL](http://opensource.org/licenses/GPL-3.0)
+that compels people who incorporate material into their own work
+to place similar sharing requirements on it.
 
 Internet Service Provider (ISP)
-:   FIXME
+:   CHECKME A company or other organization that provides access to
+the Internet. Many ISPs provide hosting services for websites.
 
 merge
-:   FIXME
+:    (a repository):
+To reconcile two sets of change to a [repository](#repository).
 
 protocol
-:   FIXME
+:   A set of rules that define how one computer communicates with another.
+Common protocols on the Internet include [HTTP](#http) and [SSH](#ssh).
 
 remote
-:   FIXME
+:   A version control [repository](#repository) other than the current one
+that the current one is somehow connected to or mirroring.
 
 repository
-:   FIXME
+:   A storage area where a [version control](#version-control) system
+stores old [revisions](#revision) of files
+and information about who changed what, when.
 
 resolve
-:   FIXME
+:   
+To eliminate the [conflicts](#conflict) between two or more incompatible changes to a file or set of files
+being managed by a [version control](#version-control) system.
 
 timestamp
-:   FIXME
+:   A record of when a particular event occurred.
