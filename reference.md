@@ -119,7 +119,6 @@ revision
 
 SSH
 :   The Secure Shell [protocol](#protocol) used for secure communication between computers.
-SSH is often used for [remote login](#remote-login) between computers.
 
 timestamp
 :   A record of when a particular event occurred.
