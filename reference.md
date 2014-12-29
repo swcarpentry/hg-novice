@@ -95,7 +95,7 @@ the Internet. Many ISPs provide hosting services for websites.
 
 merge
 :    (a repository):
-To reconcile two sets of change to a [repository](#repository).
+To reconcile two sets of changes to a [repository](#repository).
 
 protocol
 :   A set of rules that define how one computer communicates with another.
@@ -111,17 +111,14 @@ stores old [revisions](#revision) of files
 and information about who changed what, when.
 
 resolve
-:   
-To eliminate the [conflicts](#conflict) between two or more incompatible changes to a file or set of files
+:   To eliminate the [conflicts](#conflict) between two or more incompatible changes to a file or set of files
 being managed by a [version control](#version-control) system.
 
-revsion
-:
-A recorded state of a [version control](#version-control) [repository](#repository).
+revision
+:   A recorded state of a [version control](#version-control) [repository](#repository).
 
 SSH
-:
-The Secure Shell [protocol](#protocol) used for secure communication between computers.
+:   The Secure Shell [protocol](#protocol) used for secure communication between computers.
 SSH is often used for [remote login](#remote-login) between computers.
 
 timestamp
