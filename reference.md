@@ -63,7 +63,7 @@ changeset
 
 clone
 :   To make a local copy of a [version control repository](#repository).
-    See also: [fork](#repository-fork).
+    See also: [fork](#fork).
 
 commit
 :   CHECKME To record the current state of a set of files (a [changeset](#changeset))
@@ -76,7 +76,7 @@ conflict
     Helping users [resolve](#resolve) conflicts is one of version control's major tasks.
 
 fork
-:   To [clone](#repository-clone) a [version control](#version-control) [repository](#repository)
+:   To [clone](#clone) a [version control](#version-control) [repository](#repository)
     on a server.
 
 HTTP
@@ -120,3 +120,9 @@ SSH
 
 timestamp
 :   A record of when a particular event occurred.
+
+version control
+:   A tool for managing changes to a set of files.
+    Each set of changes creates a new [revision](#revision) of the files;
+    the version control system allows users to recover old revisions reliably,
+    and helps manage conflicting changes made by different users.
