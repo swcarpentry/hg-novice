@@ -40,10 +40,7 @@ the most important thing to learn is not the details of their more obscure comma
 but the workflow that they encourage.
 
 > ## Prerequisites
->
-> FIXME
-> A short paragraph describing what learners need to know
-> before tackling this lesson.
+Students should understand how to interact with the UNIX shell - e.g. changing the working directory - to begin learning this lesson.
 
 ## Topics
 
