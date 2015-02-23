@@ -39,8 +39,11 @@ No matter which version control system you use,
 the most important thing to learn is not the details of their more obscure commands,
 but the workflow that they encourage.
 
-> ## Prerequisites
-Students should understand how to interact with the UNIX shell - e.g. changing the working directory - to begin learning this lesson.
+> ## Prerequisites {.prereq}
+>
+> Students should understand how to interact with the Unix shell
+> (e.g., how to change their working directory)
+> before beginning this lesson.
 
 ## Topics
 
