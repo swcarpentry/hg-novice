@@ -66,9 +66,8 @@ clone
     See also: [fork](#fork).
 
 commit
-:   CHECKME To record the current state of a set of files (a [changeset](#changeset))
+:   To record the current state of a set of files (a [changeset](#changeset))
     in a [version control](#version-control) [repository](#repository).
-
 
 conflict
 :   A change made by one user of a [version control system](#version-control)
@@ -89,12 +88,11 @@ infective license
     to place similar sharing requirements on it.
 
 Internet Service Provider (ISP)
-:   CHECKME A company or other organization that provides access to
+:   A company or other organization that provides access to
     the Internet. Many ISPs provide hosting services for websites.
 
 merge
-:    (a repository):
-    To reconcile two sets of changes to a [repository](#repository).
+:   To reconcile two sets of changes to a [repository](#repository).
 
 protocol
 :   A set of rules that define how one computer communicates with another.
