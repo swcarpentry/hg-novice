@@ -7,10 +7,8 @@
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css" />
-    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-responsive.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-theme.css" />
     <link rel="stylesheet" type="text/css" href="css/swc.css" />
-    <link rel="stylesheet" type="text/css" href="css/swc-workshop-and-lesson.css" />
-    <link rel="stylesheet" type="text/css" href="css/lesson.css" />
     <link rel="alternate" type="application/rss+xml" title="Software Carpentry Blog" href="http://software-carpentry.org/feed.xml"/>
     <meta charset="UTF-8" />
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -19,23 +17,27 @@
     <![endif]-->
   </head>
   <body class="lesson">
-    <div class="container container-full-width card">
+    <div class="container card">
       <div class="banner">
         <a href="http://software-carpentry.org" title="Software Carpentry">
           <img alt="Software Carpentry banner" src="img/software-carpentry-banner.png" />
         </a>
       </div>
-      <div class="row-fluid">
-        <div class="span10 offset1">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
           <h1 class="title">Version Control with Mercurial</h1>
           <h2 class="subtitle">Collaborating</h2>
-<div id="learning-objectives" class="objectives">
-<h2>Learning Objectives</h2>
+<div id="learning-objectives" class="objectives panel panel-warning">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
+</div>
+<div class="panel-body">
 <ul>
 <li>Explain what remote repositories are and why they are useful.</li>
 <li>Explain what happens when a remote repository is cloned.</li>
 <li>Explain what happens when changes are pushed to or pulled from a remote repository.</li>
 </ul>
+</div>
 </div>
 <p>Version control really comes into its own when we begin to collaborate with other people. We already have most of the machinery we need to do this; the only thing missing is to copy changes from one person's repository to another.</p>
 <p>Systems like Mercurial allow us to move work between any two repositories. In practice, though, it's easiest to use one copy as a central hub, and to keep it on the web rather than on someone's laptop. Most programmers use hosting services like <a href="http://bitbucket.org">BitBucket</a> and similar to hold those master copies; we'll explore the pros and cons of this in the final section of this lesson.</p>
@@ -156,9 +158,13 @@ o  changeset:   0:72ab25fa99a1
 <img src="fig/hg-after-pulling-to-local-repo.svg" alt="After Pulling Change to Local Repository" /><p class="caption">After Pulling Change to Local Repository</p>
 </div>
 <p>In practice, we would probably never have two copies of the same remote repository on our laptop at once. Instead, one of those copies would be on our laptop, and the other on a lab machine, or on someone else's computer. Pushing and pulling changes gives us a reliable way to share work between different people and machines.</p>
-<div id="fixme" class="challenge">
-<h2>FIXME</h2>
+<div id="fixme" class="challenge panel panel-success">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pencil"></span>FIXME</h2>
+</div>
+<div class="panel-body">
 <p>Create a repository on BitBucket, clone it, add a file, push those changes to BitBucket, and then look at the <strong>timestamp</strong> of the change on BitBucket. How does BitBucket record times, and why?</p>
+</div>
 </div>
         </div>
       </div>
@@ -171,6 +177,6 @@ o  changeset:   0:72ab25fa99a1
     </div>
     <!-- Javascript placed at the end of the document so the pages load faster -->
     <script src="http://software-carpentry.org/v5/js/jquery-1.9.1.min.js"></script>
-    <script src="http://software-carpentry.org/v5/js/bootstrap/bootstrap.min.js"></script>
+    <script src="css/bootstrap/bootstrap-js/bootstrap.js"></script>
   </body>
 </html>
