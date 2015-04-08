@@ -5,36 +5,24 @@ subtitle: Instructor's Guide
 ---
 ## Legend
 
-One or more paragraphs laying out the lesson's legend (i.e., the story
-behind its running example).
+FIXME
 
 ## Overall
 
 *   Time estimate @douglatornell: 2 hours
 
-*   FIXME
+## [A Better Kind of Backup](01-backup.html)
 
-*   FIXME
+FIXME
 
-## [Topic Title One](01-one.html)
+## [Collaborating](02-collab.html)
 
-* Point
+FIXME
 
-* Point
+## [Conflicts](03-conflict.html)
 
-* Be sure to describe what learners are expected to do during the
-  topic (watch, type along, pair program, etc.)
+FIXME
 
-1.  Discussion of first challenge.
+## [Open Science](04-open.html)
 
-2.  Discussion of second challenge.
-
-## [Topic Title Two](02-two.html)
-
-* Point
-
-* Point
-
-1.  Discussion of first challenge.
-
-2.  Discussion of second challenge.
+FIXME
