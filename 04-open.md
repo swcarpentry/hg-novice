@@ -164,6 +164,15 @@ Greg Wilson: "Software Carpentry: Lessons Learned". arXiv:1307.5448, July 2013.
 }
 ~~~
 
+
+> ## Can I Use an Open License? {.challenge}
+>
+> Find out whether you are allowed to apply an open license to your software.
+> Can you do this unilaterally,
+> or do you need permission from someone in your institution?
+> If so, who?
+
+
 ### Hosting
 
 The second big question for groups that want to open up their work
@@ -214,13 +223,6 @@ Sharing might seem like the only valid choice for science,
 but many institutions may not allow researchers to do this,
 either because they want to protect future patent applications
 or simply because what's new is frightening.
-
-> ## FIXME {.challenge}
->
-> Find out whether you are allowed to apply an open license to your software.
-> Can you do this unilaterally,
-> or do you need permission from someone in your institution?
-> If so, who?
 
 > ## FIXME {.challenge}
 >
