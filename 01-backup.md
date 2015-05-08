@@ -430,6 +430,17 @@ summary:     Starting to think about Mars
 
 ~~~
 
+
+> ## `bio` Repository {.challenge}
+>
+> Create a new Mercurial repository on your computer called `bio`.
+> Write a three-line biography for yourself in a file called `me.txt`,
+> commit your changes,
+> then modify one line,
+> add a fourth line,
+> and display the differences between the file's updated state and its original state.
+
+
 ### Exploring History
 
 If we want to see what we changed when,
@@ -650,11 +661,3 @@ I c.dat
 I results/a.out
 I results/b.out
 ~~~
-
-> ## FIXME {.challenge}
->
-> Create a new Mercurial repository on your computer called `bio`.
-> Write a three-line biography for yourself in a file called `me.txt`,
-> commit your changes,
-> then modify one line and add a fourth and display the differences
-> between its updated state and its original state.
