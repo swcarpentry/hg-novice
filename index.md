@@ -45,6 +45,10 @@ but the workflow that they encourage.
 > (e.g., how to change their working directory)
 > before beginning this lesson.
 
+> ## Getting ready {.getready}
+>
+> **You are ready to go.**
+
 ## Topics
 
 1.  [A Better Kind of Backup](01-backup.html)
