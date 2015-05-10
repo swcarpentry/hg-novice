@@ -2,7 +2,7 @@
 layout: page
 title: Version Control with Mercurial
 subtitle: Collaborating
-minutes: 30
+minutes: 45
 ---
 > ## Learning Objectives {.objectives}
 >
