@@ -16,8 +16,7 @@ We already have most of the machinery we need to do this;
 the only thing missing is to copy changes from one person's repository to another.
 
 Systems like Mercurial allow us to move work between any two repositories.
-In practice,
-though,
+In practice, though,
 it's easiest to use one copy as a central hub,
 and to keep it on the web rather than on someone's laptop.
 Most programmers use hosting services like [BitBucket](http://bitbucket.org)
@@ -39,42 +38,31 @@ BitBucket displays a page with a URL and some information on how to configure yo
 
 ![Creating a Repository on BitBucket (Step 3)](fig/bitbucket-create-repo-03.png)
 
-This effectively does the following on BitBucket's servers:
+Select "I have an existing project" and follow its instructions. 
+From within your `planets` directory, issue
 
-~~~ {.input}
-$ mkdir planets
-$ cd planets
-$ hg init
-~~~
+    hg push ssh://hg@bitbucket.org/vlad/planets
 
-Our local repository still contains our earlier work on `mars.txt`,
-but the remote repository on BitBucket doesn't contain any files yet:
-
-![Freshly-Made BitBucket Repository](fig/hg-freshly-made-bitbucket-repo.svg)
+This brings the repository on BitBucket's server up-to-date with
+the one on our own machine.
 
 The next step is to connect the two repositories.
 We do this by making the BitBucket repository a **remote**
 for the local repository.
-The home page of the repository on BitBucket includes
-the string we need to identify it after clicking on "I have an existing project to push up":
 
-![Where to Find Repository URL on BitBucket](fig/bitbucket-find-repo-string.png)
-
-Change the 'ssh://' string to 'https://' in the url **protocol**.
-It's slightly less convenient for day-to-day use,
-but much less work for beginners to set up.
-
-Copy that URL from the browser,
-go into the local `planets` repository,
-and use your text editor to add the following lines to `.hg/hgrc`:
+You'll need the URL for the BitBucket repository, which is the
+same URL from the `hg push` statement above, but with the leading
+`ssh://hg@` replaced with `https://`.  Create a file `.hg/hgrc` in your
+local repository, and use your text editor to create a 
+`[paths]` section in it, like so:
 
 ~~~
 [paths]
 default = https://bitbucket.org/vlad/planets
 ~~~
 
-Make sure to use the URL for your repository rather than Vlad's;
-the only difference should be your username instead of `vlad`.
+Make sure to use the URL for your repository rather than Vlad's
+and to prefix the URL with `https://`, not `ssh://hg@`.
 
 We can check that the command has worked by running `hg paths`:
 
@@ -85,8 +73,9 @@ $ hg paths
 default = https://bitbucket.org/vlad/planets
 ~~~
 
-Once the default path is set up,
-this command will push the changes from our local repository
+Now that the default path is set up, we won't need to specify the
+target when we run `hg push` in the future; running `hg push`
+will automatically push the changes from our local repository
 to the repository on BitBucket:
 
 ~~~ {.input}
