@@ -19,7 +19,7 @@ Version control is better than mailing files back and forth because:
 *   Nothing that is committed to version control is ever lost.
     This means it can be used like the "undo" feature in an editor,
     and since all old versions of files are saved
-    it's always possible to go back in time to see 
+    it's always possible to go back in time to see
     exactly who wrote what on a particular day,
     or what version of a program was used to generate a particular set of results.
 *   It keeps a record of who made what changes when,
@@ -44,6 +44,10 @@ but the workflow that they encourage.
 > Students should understand how to interact with the Unix shell
 > (e.g., how to change their working directory)
 > before beginning this lesson.
+
+> ## Getting ready {.getready}
+>
+> **You are ready to go.**
 
 ## Topics
 
