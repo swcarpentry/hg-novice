@@ -252,7 +252,7 @@ or on someone else's computer.
 Pushing and pulling changes gives us a reliable way
 to share work between different people and machines.
 
-> ## FIXME {.challenge}
+> ## Bitbucket Timestamp {.challenge}
 >
 > Create a repository on BitBucket,
 > clone it,
