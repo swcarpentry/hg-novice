@@ -66,7 +66,7 @@ and to prefix the URL with `https://`, not `ssh://hg@`.
 
 We can check that the command has worked by running `hg paths`:
 
-~~~ {.input}
+~~~ {.bash}
 $ hg paths
 ~~~
 ~~~ {.output}
@@ -78,7 +78,7 @@ target when we run `hg push` in the future; running `hg push`
 will automatically push the changes from our local repository
 to the repository on BitBucket:
 
-~~~ {.input}
+~~~ {.bash}
 $ hg push
 ~~~
 ~~~ {.output}
@@ -96,7 +96,7 @@ Our local and remote repositories are now in this state:
 
 We can pull changes from the remote repository to the local one as well:
 
-~~~ {.input}
+~~~ {.bash}
 $ hg pull
 ~~~
 ~~~ {.output}
@@ -119,7 +119,7 @@ don't make `tmp` a subdirectory of the existing repository).
 Instead of creating a new repository here with `hg init`,
 we will **clone** the existing repository from BitBucket:
 
-~~~ {.input}
+~~~ {.bash}
 $ cd /tmp
 $ hg clone https://bitbucket.org/vlad/planets
 ~~~
@@ -132,7 +132,7 @@ Our computer now has two copies of the repository:
 
 Let's make a change in the copy in `/tmp/planets`:
 
-~~~ {.input}
+~~~ {.bash}
 $ cd /tmp/planets
 $ nano pluto.txt
 $ cat pluto.txt
@@ -140,14 +140,14 @@ $ cat pluto.txt
 ~~~ {.output}
 It is so a planet!
 ~~~
-~~~ {.input}
+~~~ {.bash}
 $ hg add pluto.txt
 $ hg commit -m "Some notes about Pluto"
 ~~~
 
 then push the change to BitBucket:
 
-~~~ {.input}
+~~~ {.bash}
 $ hg push
 ~~~
 ~~~ {.output}
@@ -172,7 +172,7 @@ Our three repositories now look like this:
 
 We can now download changes into the original repository on our machine:
 
-~~~ {.input}
+~~~ {.bash}
 $ cd ~/planets
 $ hg pull
 ~~~
@@ -189,7 +189,7 @@ added 1 changesets with 1 changes to 1 files
 If we look at our repository history now with the `hg log --graph` command we can see that the `@` character marks the revision that our working copy of the files is at and the revision that we pulled from Bitbucket is above that,
 meaning it has not yet been applied to our working files:
 
-~~~ {.input}
+~~~ {.bash}
 $ hg log --graph
 ~~~
 ~~~ {.output}
@@ -217,7 +217,7 @@ o  changeset:   0:72ab25fa99a1
 To apply those changes we use `hg update`
 (as Mercurial helpfully suggested at the end of the `hg pull` process):
 
-~~~ {.input}
+~~~ {.bash}
 $ hg update
 ~~~
 ~~~ {.output}
@@ -241,7 +241,7 @@ or on someone else's computer.
 Pushing and pulling changes gives us a reliable way
 to share work between different people and machines.
 
-> ## FIXME {.challenge}
+> ## Bitbucket Timestamp {.challenge}
 >
 > Create a repository on BitBucket,
 > clone it,

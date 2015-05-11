@@ -23,7 +23,7 @@ The file `mars.txt` currently looks like this
 in both local copies of our `planets` repository
 (the one in our home directory and the one in `/tmp`):
 
-~~~ {.input}
+~~~ {.bash}
 $ cat mars.txt
 ~~~
 ~~~ {.output}
@@ -34,7 +34,7 @@ But the Mummy will appreciate the lack of humidity
 
 Let's add a line to the copy under our home directory:
 
-~~~ {.input}
+~~~ {.bash}
 $ nano mars.txt
 $ cat mars.txt
 ~~~
@@ -47,7 +47,7 @@ This line added to our home copy
 
 and then push the change to Bitbucket:
 
-~~~ {.input}
+~~~ {.bash}
 $ hg commit -m "Adding a line in our home copy"
 $ hg push
 ~~~
@@ -68,7 +68,7 @@ Now let's switch to the copy under `/tmp`
 and make a different change there
 *without* updating from Bitbucket:
 
-~~~ {.input}
+~~~ {.bash}
 $ cd /tmp/planets
 $ nano mars.txt
 $ cat mars.txt
@@ -82,13 +82,13 @@ We added a different line in the temporary copy
 
 We can commit the change locally:
 
-~~~ {.input}
+~~~ {.bash}
 $ hg commit -m "Adding a line in the temporary copy"
 ~~~
 
 but hg won't let us push it to Bitbucket:
 
-~~~ {.input}
+~~~ {.bash}
 $ hg push
 ~~~
 ~~~ {.output}
@@ -105,7 +105,7 @@ changes from Bitbucket, **merge**
 them into the copy we're currently working in, and then push that.
 Let's start by pulling:
 
-~~~ {.input}
+~~~ {.bash}
 $ hg pull
 ~~~
 ~~~ {.output}
@@ -122,7 +122,7 @@ added 1 changesets with 1 changes to 1 files (+1 heads)
 heads` to inspect the situation and `hg merge` to resolve it. Let's
 first attempt to understand the situation:
 
-~~~ {.input}
+~~~ {.bash}
 $ hg heads
 ~~~
 ~~~ {.output}
@@ -143,7 +143,7 @@ This shows us that our repository currently has two heads. Looking at
 the graph of our log with `hg log --graph` or `hg log -G` may be more
 informative:
 
-~~~ {.input}
+~~~ {.bash}
 $ hg log -G
 ~~~
 ~~~ {.output}
@@ -193,7 +193,7 @@ To do that we'll use the [`kdiff3`](http://kdiff3.sourceforge.net/)
 merge tool which gives us an interface that makes it easier to
 understand what it happening.
 
-~~~ {.input}
+~~~ {.bash}
 $ hg merge --tool=kdiff3
 ~~~
 ~~~ {.output}
@@ -226,7 +226,7 @@ conflict so it looks like this:
 Once we've finished merging, let us inspect the working directory
 before we finalize the merge:
 
-~~~ {.input}
+~~~ {.bash}
 $ hg summary
 ~~~
 ~~~ {.output}
@@ -245,7 +245,7 @@ about to get merged.
 
 Let us look at the graph again:
 
-~~~ {.input}
+~~~ {.bash}
 $ hg log -G
 ~~~
 ~~~ {.output}
@@ -276,7 +276,7 @@ o  changeset:   3:4f37bac61e73
 The `@` marker is now at *two* locations at once. This indicates that
 our working directory is in a merge state. Let us finalise this merge:
 
-~~~ {.input}
+~~~ {.bash}
 $ hg commit -m "Merging changes from Bitbucket"
 ~~~
 
@@ -286,7 +286,7 @@ Our repositories now look like this:
 
 or in terms of the graph,
 
-~~~ {.input}
+~~~ {.bash}
 $ hg log -G
 ~~~
 ~~~ {.output}
@@ -318,7 +318,7 @@ o  changeset:   4:2e9c23a9090d
 
 so we push our changes to Bitbucket:
 
-~~~ {.input}
+~~~ {.bash}
 $ hg push
 ~~~
 ~~~ {.output}
@@ -338,7 +338,7 @@ Mercurial keeps track of what we've merged with what, so we don't have
 to fix things by hand again if we switch back to the repository in our
 home directory and pull from Bitbucket:
 
-~~~ {.input}
+~~~ {.bash}
 $ cd ~/planets
 $ hg pull
 ~~~
@@ -356,7 +356,7 @@ This only pulled new changes into our history, but did not touch our
 files. After we run `hg update` to update the files to the new
 changes,
 
-~~~ {.input}
+~~~ {.bash}
 $ hg update
 ~~~
 ~~~ {.output}
@@ -365,7 +365,7 @@ $ hg update
 
 we get the merged file:
 
-~~~ {.input}
+~~~ {.bash}
 $ cat mars.txt
 ~~~
 ~~~ {.output}
@@ -386,7 +386,7 @@ file, the version control system is essentially trying to tell its
 users that they ought to clarify who's responsible for what, or find a
 way to divide the work up differently.
 
-> ## FIXME {.challenge}
+> ## Solving Conflicts that You Create {.challenge}
 >
 > Clone the repository created by your instructor.
 > Add a new file to it,
@@ -395,7 +395,7 @@ way to divide the work up differently.
 > pull her changes from the repository to create a conflict,
 > then resolve it.
 
-> ## FIXME {.challenge}
+> ## Conflicts on Non-Text Files {.challenge}
 >
 > What does hg do
 > when there is a conflict in an image or some other non-textual file
