@@ -164,7 +164,70 @@ and that shell wildcard characters can also be used.
 
 ## [Collaborating](02-collab.html)
 
-FIXME
+*   Make it clear that Mercurial and Bitbucket are not the same thing:
+    Mercurial is an open source version control tool,
+    Bitbucket is a company that hosts Mercurial repositories on the web and provides a web interface to interact with repos that they host.
+
+*   If your learners are advanced enough to be comfortable with SSH,
+    tell them they can use keys to authenticate on GitHub instead of passwords,
+    but don't try to set this up during class: it takes too long,
+    and is a distraction from the core ideas of the lesson.
+
+*   It is very useful to draw a diagram showing the different repositories involved.
+
+*   Role playing between two instructors can be effective when teaching the collaboration and conflict sections of the lesson.
+    One instructor can play the role of the repository owner,
+    while the second instructor can play the role of the collaborator.
+    If it is possible,
+    try to use two projectors so that the computer screens of both instructors can be seen.
+    This makes for a very clear illustration to the students as to who does what.
+
+*   It is also effective to pair up students during this lesson and assign one member of the pair to take the role of the owner and the other the role of the collaborator.
+    In this setup,
+    challenges can include asking the collaborator to make a change,
+    commit it,
+    and push the change to the remote repository so that the owner can then retrieve it,
+    and vice-versa.
+    The role playing between the instructors can get a bit "dramatic" in the conflicts part of the lesson if the instructors want to inject some humor into the room.
+
+*   If you don't have two projectors,
+have two instructors at the front of the room.
+    Each instructor does their piece of the collaboration demonstration on their own computer and then passes the projector cord back and forth with the other instructor when it's time for them to do the other part of the collaborative workflow.
+    It takes less than 10 seconds for each switchover,
+    so it doesn't interrupt the flow of the lesson.
+    And of course it helps to give each of the instructors a different-colored hat,
+    or put different-colored sticky notes on their foreheads.
+
+*   If you're the only instructor,
+    the best way to create is clone the two repos in your Desktop,
+    but under different names,
+    e.g., pretend one is your computer at work:
+
+    ~~~{.input}
+    $ hg clone https://bitbucket.org/vlad/planets planets-at-work
+    ~~~
+
+*   It's very common that learners mistype the remote alias or the remote URL
+    when adding a remote,
+    so they cannot `push`.
+    You can diagnose this with `hg paths` and checking carefully for typos.
+    To fix typos you can open the repo `.hg/hgrc` file for editing with `hg config --local`.
+
+*   Before cloning the repo, be sure that nobody is inside another repo.
+    The best way to achieve this is moving to the `Desktop` before cloning:
+    `cd && cd Desktop`.
+
+*   If both repos are in the `Desktop`,
+    have them to clone their collaborator repo under a given directory using a second argument:
+
+    ~~~{.input}
+    $ hg clone https://bitbucket.org/vlad/planets vlad-planet`
+    ~~~
+
+*   Conflicts,
+    sometimes weird,
+    will start to arise. Stay tight: conflicts are next.
+
 
 ## [Conflicts](03-conflict.html)
 
