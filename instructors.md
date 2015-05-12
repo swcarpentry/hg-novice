@@ -47,6 +47,26 @@ but the workflow that they encourage.
 
 *   Time estimate @douglatornell: 2 hours 45 minutes
 
+Version control may be the most important topic that we teach.
+We're teaching Mercurial because it offers a consistent user interface,
+and the basic workflow requires only a few easy to remember commands.
+
+There are lots of advanced features in Mercurial and other distributed version control systems such as branching,
+hashes,
+rebasing,
+etc.
+that we don't teach.
+The goal is to introduce the basics so that the learners leave the workshop able to create and use repositories for themselves with confidence,
+and that they are aware that version control can also be used to collaborate with other people.
+
+In other words,
+try to convince the learners that version control is useful for researchers
+working alone or in teams because it is
+
+- a better way to "undo" changes,
+- a better way to collaborate than mailing files back and forth, and
+- a better way to share your code and other scientific work with the world.
+
 ## [A Better Kind of Backup](01-backup.html)
 
 FIXME
