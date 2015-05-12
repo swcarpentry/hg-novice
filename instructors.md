@@ -231,7 +231,41 @@ have two instructors at the front of the room.
 
 ## [Conflicts](03-conflict.html)
 
-FIXME
+*   Explain that conflict are not a very common occurrence.
+    Mercurial is good at merging changes made by different people,
+    or changes that you make in different clones of a repo;
+    e.g. on your office workstation,
+    on your laptop at home,
+    on a lab computer,
+    or on a remote HPC or cloud platform.
+    A conflict arises when changes have been made to the same lines in a file or to binary files;
+    Mercurial can't figure out which of the conflicting version to choose so it makes you decide.
+
+*   Expect the learners to make mistakes.
+    Expect *yourself* to make mistakes.
+    This happens because it is late in the lesson and everyone is tired.
+
+*   If you're the only instructor,
+    the best way to create a conflict is:
+
+    - Clone your repo in a different directory,
+      pretending is your computer at
+      work:
+      `hg clone https://bitbucket.org/vlad/planets planets-at-work`.
+    - At the office,
+      you make a change,
+      commit and push.
+    - At your laptop repo,
+      you (forget to pull and) make a change,
+      commit and try to push.
+    - `hg pull` now and show the conflict.
+
+*   The commands `hg heads`,
+    `hg log --graph` or `hg log -G`,
+    and `hg summary`
+    all provide views of the repository state that can be helpful in explaining conflicts and how they are resolved.
+
+*   Use `hg merge --tool=kdiff3` to ensure that the KDiff3 GUI diff/merge tool is launched to handle resolution of the conflict.
 
 ## [Open Science](04-open.html)
 
