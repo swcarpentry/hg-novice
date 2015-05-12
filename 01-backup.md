@@ -231,8 +231,8 @@ summary:     Starting to think about Mars
 
 ~~~
 
-`hg log` lists all changes committed to a repository
-in reverse chronological order.
+`hg log` lists all changes committed to a repository,
+starting with the most recent.
 The listing for each **changeset** includes:
 
 * the changeset's revision number and identifier
