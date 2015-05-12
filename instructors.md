@@ -9,7 +9,7 @@ FIXME
 
 ## Overall
 
-*   Time estimate @douglatornell: 2 hours
+*   Time estimate @douglatornell: 2 hours 45 minutes
 
 ## [A Better Kind of Backup](01-backup.html)
 

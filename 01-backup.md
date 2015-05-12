@@ -2,7 +2,7 @@
 layout: page
 title: Version Control with Mercurial
 subtitle: A Better Kind of Backup
-minutes: 30
+minutes: 60
 ---
 > ## Learning Objectives {.objectives}
 >

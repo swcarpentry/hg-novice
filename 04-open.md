@@ -2,7 +2,7 @@
 layout: page
 title: Version Control with Mercurial
 subtitle: Open Science
-minutes: 30
+minutes: 15
 ---
 > ## Learning Objectives {.objectives}
 >
