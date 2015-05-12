@@ -67,6 +67,44 @@ working alone or in teams because it is
 - a better way to collaborate than mailing files back and forth, and
 - a better way to share your code and other scientific work with the world.
 
+## Teaching Notes
+
+*   Make sure the network is working *before* starting the [Collaborating](02-collab.html) section of this lesson.
+    [A Better Kind of Backup](01-backup.html) focuses on individual use of Mercurial on and can be done without network access.
+    [Conflicts](03-conflict.html) can also be taught without network access and Bitbucket by creating 2 clones of the repository and pulling changes between them.
+
+*   Drawings are particularly useful in this lesson:
+    if you have a whiteboard,
+    use it!
+
+*   Version control is usually not the first subject in a workshop,
+    so get learners to create a Bitbucket account after the session before.
+
+*   [TortoiseHg](http://tortoisehg.bitbucket.org/) is the recommended means of installing Mercurial for Windows learners.
+    The workshop installation instructions should include that.
+
+*   We don't use a Mercurial GUI in these notes because we want learners to understand what commands are being run.
+    That said,
+    instructors may want to demo the [TortoiseHg](http://tortoisehg.bitbucket.org/) GUI
+    (which is available for Windows, OS/X, and Linux)
+    on their desktop at some point during this lesson.
+
+*   The [Conflicts](03-conflict.heml) section of the lesson uses the [KDiff3](http://kdiff3.sourceforge.net/) graphical diff/merge tool.
+    The workshop installation instructions should include directions for OS/X and Linux users to install KDiff3.
+    For Windows users it is bundled with TortoiseHg.
+
+*   When appropriate, explain that we teach Mercurial rather than CVS,
+    Subversion,
+    or Git primarily because of its consistent command-line interface,
+    easy to learn basic workflow,
+    and Bitbucket's policy of providing unlimited collaboration in private repositories for academic users.
+    CVS and Subversion are now seen as legacy systems.
+    Git is also very popular,
+    largely because of the GitHub service.
+    The differences between Mercurial and Git are largely syntactic,
+    so learning one provides the conceptual framework to use either.
+
+
 ## [A Better Kind of Backup](01-backup.html)
 
 FIXME
