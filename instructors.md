@@ -89,7 +89,7 @@ working alone or in teams because it is
     (which is available for Windows, OS/X, and Linux)
     on their desktop at some point during this lesson.
 
-*   The [Conflicts](03-conflict.heml) section of the lesson uses the [KDiff3](http://kdiff3.sourceforge.net/) graphical diff/merge tool.
+*   The [Conflicts](03-conflict.html) section of the lesson uses the [KDiff3](http://kdiff3.sourceforge.net/) graphical diff/merge tool.
     The workshop installation instructions should include directions for OS/X and Linux users to install KDiff3.
     For Windows users it is bundled with TortoiseHg.
 
@@ -107,7 +107,60 @@ working alone or in teams because it is
 
 ## [A Better Kind of Backup](01-backup.html)
 
-FIXME
+*   Ask, "Who uses 'undo' in their editor?"
+    All say "Me".
+    'Undo' is the simplest form of version control.
+
+*   Give learners a five-minute overview of what version control does for them
+    before diving into the watch-and-do practicals.
+    Most of them will have tried to co-author papers by emailing files back and forth,
+    or will have biked into the office only to realize that the USB key with last night's work is still on the kitchen table.
+    Instructors can also make jokes about directories with names like "final version",
+    "final version revised",
+    "final version with reviewer three's corrections",
+    "really final version",
+    and,
+    "come on this really has to be the last version" to motivate version control as a better way to collaborate and as a better way to back work up.
+
+**Setting Up Mercurial**
+
+*   We suggest instructors and students use `nano` as the text editor for this lessons because
+
+    - it runs in all three major operating systems,
+    - it runs inside the shell (switching windows can be confusing to students), and
+    - it has shortcut help at the bottom of the window.
+
+    Please point out to students during setup that they can and should use another text editor if they're already familiar with it.
+
+*   When setting up Mercurial,
+    be very clear what learners have to enter:
+    it is common for them to edit the instructor's details
+    (e.g. email).
+
+
+**Creating a Repository** and **Changing a File**
+
+*   When you do `hg status`,
+    Mac users may see a `.DS_Store` file showing as untracked.
+    This a file that Mac OS creates in each directory.
+
+
+**Tracking Changes to Files**
+
+*   It's important that learners do a full commit cycle by themselves
+    (make changes, `hg diff`, and `hg commit`).
+    The "`bio` repository" challenge does that.
+
+*   This is a good moment to show a diff with the KDiff3 graphical diff tool.
+    If you skip it because you're short on time,
+    show the graphical diff view of a commit on Bitbucket in the [Collaborating](02-collab.html) section.
+
+
+**Exploring History** and **Recovering Old Versions**
+
+*   Mention that you can revert more than one file at a time by listing the file names one after the other in the `hg revert` command,
+and that shell wildcard characters can also be used.
+
 
 ## [Collaborating](02-collab.html)
 
