@@ -269,4 +269,20 @@ have two instructors at the front of the room.
 
 ## [Open Science](04-open.html)
 
-FIXME
+**Licensing**
+
+We teach about licensing because questions about who owns what,
+or can use what,
+arise naturally once we start talking about using public services like
+Bitbucket to store files.
+Also,
+the discussion gives learners a chance to catch their breath after what is often a frustrating couple of hours.
+
+
+**Hosting**
+
+A common concern for learners is having their work publicly available on
+Bitbucket.
+While we encourage open science,
+sometimes private repos are the only choice.
+It's always interesting to mention the options to have web-hosted private repositories.
