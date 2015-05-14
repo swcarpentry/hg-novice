@@ -23,6 +23,7 @@
           <img alt="Software Carpentry banner" src="img/software-carpentry-banner.png" />
         </a>
       </div>
+      <article>
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
           <h1 class="title">Version Control with Mercurial</h1>
@@ -32,7 +33,7 @@
 <li>Create a <code>~/.hgrc</code> (or <code>%USERPROFILE%\Mercurial.ini</code> on Windows) to configure a user name, email address, editor, and other preferences once per machine.</li>
 <li><code>hg init</code> initializes a repository.</li>
 <li><code>hg status</code> shows the status of a repository.</li>
-<li>Files are stored in a project's working directory (which users see), and the local repository (where committed snapshots are permanently recorded).</li>
+<li>Files are stored in a project’s working directory (which users see), and the local repository (where committed snapshots are permanently recorded).</li>
 <li><code>hg add</code> tells Mercurial to track files.</li>
 <li><code>hg commit</code> creates a snapshot of the changes to 1 or more files in the local repository.</li>
 <li>Always write a log message when committing changes.</li>
@@ -51,12 +52,12 @@
 <h2 id="conflicts">Conflicts</h2>
 <ul>
 <li>Conflicts occur when two or more people change the same file(s) at the same time.</li>
-<li>The version control system does not allow people to blindly overwrite each other's changes. Instead, it highlights conflicts so that they can be resolved.</li>
+<li>The version control system does not allow people to blindly overwrite each other’s changes. Instead, it highlights conflicts so that they can be resolved.</li>
 </ul>
 <h2 id="open-science">Open Science</h2>
 <ul>
 <li>Open scientific work is more useful and more highly cited than closed.</li>
-<li>People who incorporate GPL'd software into theirs must make theirs open; most other open licenses do not require this.</li>
+<li>People who incorporate GPL’d software into theirs must make theirs open; most other open licenses do not require this.</li>
 <li>The Creative Commons family of licenses allow people to mix and match requirements and restrictions on attribution, creation of derivative works, further sharing, and commercialization.</li>
 <li>People who are not lawyers should not try to write licenses from scratch.</li>
 <li>Projects can be hosted on university servers, on personal domains, or on public forges.</li>
@@ -74,7 +75,7 @@
 <dd>To record the current state of a set of files (a <a href="#changeset">changeset</a>) in a <a href="#version-control">version control</a> <a href="#repository">repository</a>.
 </dd>
 <dt><span id="conflict">conflict</span></dt>
-<dd>A change made by one user of a <a href="#version-control">version control system</a> that is incompatible with changes made by other users. Helping users <a href="#resolve">resolve</a> conflicts is one of version control's major tasks.
+<dd>A change made by one user of a <a href="#version-control">version control system</a> that is incompatible with changes made by other users. Helping users <a href="#resolve">resolve</a> conflicts is one of version control’s major tasks.
 </dd>
 <dt><span id="fork">fork</span></dt>
 <dd>To <a href="#clone">clone</a> a <a href="#version-control">version control</a> <a href="#repository">repository</a> on a server.
@@ -118,6 +119,7 @@
 </dl>
         </div>
       </div>
+      </article>
       <div class="footer">
         <a class="label swc-blue-bg" href="http://software-carpentry.org">Software Carpentry</a>
         <a class="label swc-blue-bg" href="https://github.com/swcarpentry/hg-novice">Source</a>
