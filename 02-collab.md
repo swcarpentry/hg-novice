@@ -19,41 +19,41 @@ Systems like Mercurial allow us to move work between any two repositories.
 In practice, though,
 it's easiest to use one copy as a central hub,
 and to keep it on the web rather than on someone's laptop.
-Most programmers use hosting services like [BitBucket](http://bitbucket.org)
+Most programmers use hosting services like [Bitbucket](http://bitbucket.org)
 and similar to hold those master copies;
 we'll explore the pros and cons of this in the final section of this lesson.
 
 Let's start by sharing the changes we've made to our current project with the world.
-Log in to BitBucket,
+Log in to Bitbucket,
 then click on the icon in the top right corner to create a new repository called `planets`:
 
-![Creating a Repository on BitBucket (Step 1)](fig/bitbucket-create-repo-01.png)
+![Creating a Repository on Bitbucket (Step 1)](fig/bitbucket-create-repo-01.png)
 
 Name your repository "planets" and then click "Create Repository":
 
-![Creating a Repository on BitBucket (Step 2)](fig/bitbucket-create-repo-02.png)
+![Creating a Repository on Bitbucket (Step 2)](fig/bitbucket-create-repo-02.png)
 
 As soon as the repository is created,
-BitBucket displays a page with a URL and some information on how to configure your local repository:
+Bitbucket displays a page with a URL and some information on how to configure your local repository:
 
-![Creating a Repository on BitBucket (Step 3)](fig/bitbucket-create-repo-03.png)
+![Creating a Repository on Bitbucket (Step 3)](fig/bitbucket-create-repo-03.png)
 
-Select "I have an existing project" and follow its instructions. 
+Select "I have an existing project" and follow its instructions.
 From within your `planets` directory, issue
 
     hg push ssh://hg@bitbucket.org/vlad/planets
 
-This brings the repository on BitBucket's server up-to-date with
+This brings the repository on Bitbucket's server up-to-date with
 the one on our own machine.
 
 The next step is to connect the two repositories.
-We do this by making the BitBucket repository a **remote**
+We do this by making the Bitbucket repository a **remote**
 for the local repository.
 
-You'll need the URL for the BitBucket repository, which is the
+You'll need the URL for the Bitbucket repository, which is the
 same URL from the `hg push` statement above, but with the leading
 `ssh://hg@` replaced with `https://`.  Create a file `.hg/hgrc` in your
-local repository, and use your text editor to create a 
+local repository, and use your text editor to create a
 `[paths]` section in it, like so:
 
 ~~~
@@ -76,7 +76,7 @@ default = https://bitbucket.org/vlad/planets
 Now that the default path is set up, we won't need to specify the
 target when we run `hg push` in the future; running `hg push`
 will automatically push the changes from our local repository
-to the repository on BitBucket:
+to the repository on Bitbucket:
 
 ~~~ {.bash}
 $ hg push
@@ -92,7 +92,7 @@ added 1 changesets with 1 changes to 1 files
 
 Our local and remote repositories are now in this state:
 
-![BitBucket Repository After First Push](fig/bitbucket-repo-after-first-push.svg)
+![Bitbucket Repository After First Push](fig/bitbucket-repo-after-first-push.svg)
 
 We can pull changes from the remote repository to the local one as well:
 
@@ -107,7 +107,7 @@ no changes found
 
 Pulling has no effect in this case
 because the two repositories are already synchronized.
-If someone else had pushed some changes to the repository on BitBucket,
+If someone else had pushed some changes to the repository on Bitbucket,
 though,
 this command would download them to our local repository.
 
@@ -117,7 +117,7 @@ To do this,
 (Note the absolute path:
 don't make `tmp` a subdirectory of the existing repository).
 Instead of creating a new repository here with `hg init`,
-we will **clone** the existing repository from BitBucket:
+we will **clone** the existing repository from Bitbucket:
 
 ~~~ {.bash}
 $ cd /tmp
@@ -145,7 +145,7 @@ $ hg add pluto.txt
 $ hg commit -m "Some notes about Pluto"
 ~~~
 
-then push the change to BitBucket:
+then push the change to Bitbucket:
 
 ~~~ {.bash}
 $ hg push
@@ -243,9 +243,9 @@ to share work between different people and machines.
 
 > ## Bitbucket Timestamp {.challenge}
 >
-> Create a repository on BitBucket,
+> Create a repository on Bitbucket,
 > clone it,
 > add a file,
-> push those changes to BitBucket,
-> and then look at the **timestamp** of the change on BitBucket.
-> How does BitBucket record times, and why?
+> push those changes to Bitbucket,
+> and then look at the **timestamp** of the change on Bitbucket.
+> How does Bitbucket record times, and why?
