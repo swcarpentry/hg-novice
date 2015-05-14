@@ -38,23 +38,74 @@ Bitbucket displays a page with a URL and some information on how to configure yo
 
 ![Creating a Repository on Bitbucket (Step 3)](fig/bitbucket-create-repo-03.png)
 
-Select "I have an existing project" and follow its instructions.
-From within your `planets` directory, issue
+Select "I have an existing project".
+We're going to use a slight variation on those instructions.
+From within your `planets` directory,
+issue a command like:
 
-    hg push ssh://hg@bitbucket.org/vlad/planets
+~~~ {.bash}
+$ hg push https://bitbucket.org/vlad/planets
+~~~
+
+It's similar to the one shown under "I have an existing project" on the Bitbcucket page,
+but the URL should have your Bitbucket user name in it,
+and be prefixed with `https://`, not `ssh://hg@`.
+
+The output from that command should look like:
+
+~~~ {.output}
+pushing to https://bitbucket.org/vlad/planets
+searching for changes
+http authorization required for https://bitbucket.org/vlad/planets
+realm: Bitbucket.org HTTP
+user: vlad
+password:
+remote: adding changesets
+remote: adding manifests
+remote: adding file changes
+remote: added 3 changesets with 3 changes to 1 files
+~~~
+
+You will have to type your own Bitbucket user name and password.
 
 This brings the repository on Bitbucket's server up-to-date with
 the one on our own machine.
+Our local and remote repositories are now in this state:
 
-The next step is to connect the two repositories.
+![Bitbucket Repository After First Push](fig/bitbucket-repo-after-first-push.svg)
+
+The next step is to connect the two repositories so that we don't have to type the URL every time we do something with Bitbucket.
 We do this by making the Bitbucket repository a **remote**
 for the local repository.
-
 You'll need the URL for the Bitbucket repository, which is the
-same URL from the `hg push` statement above, but with the leading
-`ssh://hg@` replaced with `https://`.  Create a file `.hg/hgrc` in your
-local repository, and use your text editor to create a
-`[paths]` section in it, like so:
+same URL from the `hg push` statement above.
+
+Use the command:
+
+~~~ {.bash}
+$ hg config --local
+~~~
+
+to open your local repository's configuration file in your editor.
+You should see a template file that looks like:
+
+~~~
+# example repository config (see "hg help config" for more info)
+[paths]
+# path aliases to other clones of this repo in URLs or filesystem paths
+# (see "hg help config.paths" for more info)
+#
+# default      = http://example.com/hg/example-repo
+# default-push = ssh://jdoe@example.net/hg/jdoes-fork
+# my-fork      = ssh://jdoe@example.net/hg/jdoes-fork
+# my-clone     = /home/jdoe/jdoes-clone
+
+[ui]
+# name and email (local to this repository, optional), e.g.
+# username = Jane Doe <jdoe@example.com>
+~~~
+
+Edit the file so that it has just 2 lines:
 
 ~~~
 [paths]
@@ -62,7 +113,12 @@ default = https://bitbucket.org/vlad/planets
 ~~~
 
 Make sure to use the URL for your repository rather than Vlad's
-and to prefix the URL with `https://`, not `ssh://hg@`.
+(the one from the `hg push` command above),
+and that the prefix in the URL is `https://`,
+not `ssh://hg@`.
+
+Save the file.
+It will automatically be stored in `planets/.hg/hgrc`.
 
 We can check that the command has worked by running `hg paths`:
 
@@ -74,7 +130,7 @@ default = https://bitbucket.org/vlad/planets
 ~~~
 
 Now that the default path is set up, we won't need to specify the
-target when we run `hg push` in the future; running `hg push`
+target URL when we run `hg push` in the future; running `hg push`
 will automatically push the changes from our local repository
 to the repository on Bitbucket:
 
@@ -84,15 +140,10 @@ $ hg push
 ~~~ {.output}
 pushing to https://bitbucket.org/vlad/planets
 searching for changes
-adding changesets
-adding manifests
-adding file changes
-added 1 changesets with 1 changes to 1 files
+no changes found
 ~~~
 
-Our local and remote repositories are now in this state:
-
-![Bitbucket Repository After First Push](fig/bitbucket-repo-after-first-push.svg)
+This push has no effect because the two repositories are already synchronized.
 
 We can pull changes from the remote repository to the local one as well:
 
