@@ -18,9 +18,9 @@ it won't be covered by the instructor.
 In the [Setting Up](01-backup.html#setting-up) section we edited a Mercurial configuration file in our home directory called `$USERPROFILE/Mercurial.ini` or `~/.hgrc`.
 You can quickly open that file for editing with the command `hg config --edit`.
 
-If you want to know more about the many configuration options available you can use `hg help config` or visit [this page](http://www.selenic.com/mercurial/hgrc.5.html).
+If you want to know more about the many configuration options available you can use `hg help config` or visit [the Mercurial config documenttation](http://www.selenic.com/mercurial/hgrc.5.html).
 
-On configuration option that can be useful is adding aliases.
+One configuration option that can be useful is adding aliases.
 These are like shorcuts for longer `hg` commands.
 For example,
 if you want to create an `hg latest` command to show only the five most recent changesets,
@@ -100,8 +100,8 @@ Now see what Git thinks of your changes:
 $ hg diff
 ~~~
 ~~~ {.output}
-diff -r 0f3937fd3863 mars.odt
-Binary file mars.odt has changed
+diff -r 0f3937fd3863 mars.doc
+Binary file mars.doc has changed
 ~~~
 
 Compare this to the earlier `git diff` obtained when using text files:
@@ -123,7 +123,13 @@ However, most of the other problems boil down to whether or not a good diff is p
 
 This isn't to say you should *never* use Mercurial on binary files.
 A rule of thumb is that it's okay if the binary file won't change very often,
-and if it does change, you don't care about merging in small differences between versions.
+and if it does change,
+you don't care about merging in small differences between versions.
+
+Another thing to note about tracking binary files in Mercurial is that a new copy of the whole file is stored whenever a change to a binary file is committed.
+This can lead to the repository growing very large if the binary files are large,
+and/or numerous,
+and/or changed frequently.
 
 We've already seen how a word processed report will fail this test.
 An example that passes the test is a logo for your organization or project.
