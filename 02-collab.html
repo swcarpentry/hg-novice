@@ -41,49 +41,76 @@
 </div>
 </section>
 <p>Version control really comes into its own when we begin to collaborate with other people. We already have most of the machinery we need to do this; the only thing missing is to copy changes from one person’s repository to another.</p>
-<p>Systems like Mercurial allow us to move work between any two repositories. In practice, though, it’s easiest to use one copy as a central hub, and to keep it on the web rather than on someone’s laptop. Most programmers use hosting services like <a href="http://bitbucket.org">BitBucket</a> and similar to hold those master copies; we’ll explore the pros and cons of this in the final section of this lesson.</p>
-<p>Let’s start by sharing the changes we’ve made to our current project with the world. Log in to BitBucket, then click on the icon in the top right corner to create a new repository called <code>planets</code>:</p>
+<p>Systems like Mercurial allow us to move work between any two repositories. In practice, though, it’s easiest to use one copy as a central hub, and to keep it on the web rather than on someone’s laptop. Most programmers use hosting services like <a href="http://bitbucket.org">Bitbucket</a> and similar to hold those master copies; we’ll explore the pros and cons of this in the final section of this lesson.</p>
+<p>Let’s start by sharing the changes we’ve made to our current project with the world. Log in to Bitbucket, then click on the icon in the top right corner to create a new repository called <code>planets</code>:</p>
 <div class="figure">
-<img src="fig/bitbucket-create-repo-01.png" alt="Creating a Repository on BitBucket (Step 1)" /><p class="caption">Creating a Repository on BitBucket (Step 1)</p>
+<img src="fig/bitbucket-create-repo-01.png" alt="Creating a Repository on Bitbucket (Step 1)" /><p class="caption">Creating a Repository on Bitbucket (Step 1)</p>
 </div>
 <p>Name your repository “planets” and then click “Create Repository”:</p>
 <div class="figure">
-<img src="fig/bitbucket-create-repo-02.png" alt="Creating a Repository on BitBucket (Step 2)" /><p class="caption">Creating a Repository on BitBucket (Step 2)</p>
+<img src="fig/bitbucket-create-repo-02.png" alt="Creating a Repository on Bitbucket (Step 2)" /><p class="caption">Creating a Repository on Bitbucket (Step 2)</p>
 </div>
-<p>As soon as the repository is created, BitBucket displays a page with a URL and some information on how to configure your local repository:</p>
+<p>As soon as the repository is created, Bitbucket displays a page with a URL and some information on how to configure your local repository:</p>
 <div class="figure">
-<img src="fig/bitbucket-create-repo-03.png" alt="Creating a Repository on BitBucket (Step 3)" /><p class="caption">Creating a Repository on BitBucket (Step 3)</p>
+<img src="fig/bitbucket-create-repo-03.png" alt="Creating a Repository on Bitbucket (Step 3)" /><p class="caption">Creating a Repository on Bitbucket (Step 3)</p>
 </div>
-<p>Select “I have an existing project” and follow its instructions. From within your <code>planets</code> directory, issue</p>
-<pre><code>hg push ssh://hg@bitbucket.org/vlad/planets</code></pre>
-<p>This brings the repository on BitBucket’s server up-to-date with the one on our own machine.</p>
-<p>The next step is to connect the two repositories. We do this by making the BitBucket repository a <strong>remote</strong> for the local repository.</p>
-<p>You’ll need the URL for the BitBucket repository, which is the same URL from the <code>hg push</code> statement above, but with the leading <code>ssh://hg@</code> replaced with <code>https://</code>. Create a file <code>.hg/hgrc</code> in your local repository, and use your text editor to create a <code>[paths]</code> section in it, like so:</p>
+<p>Select “I have an existing project”. We’re going to use a slight variation on those instructions. From within your <code>planets</code> directory, issue a command like:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">hg</span> push https://bitbucket.org/vlad/planets</code></pre>
+<p>It’s similar to the one shown under “I have an existing project” on the Bitbcucket page, but the URL should have your Bitbucket user name in it instead of <code>vlad</code>, and be prefixed with <code>https://</code>, not <code>ssh://hg@</code>.</p>
+<p>The output from that command should look like:</p>
+<pre class="output"><code>pushing to https://bitbucket.org/vlad/planets
+searching for changes
+http authorization required for https://bitbucket.org/vlad/planets
+realm: Bitbucket.org HTTP
+user: vlad
+password:
+remote: adding changesets
+remote: adding manifests
+remote: adding file changes
+remote: added 3 changesets with 3 changes to 1 files</code></pre>
+<p>You will have to type your own Bitbucket user name and password.</p>
+<p>This brings the repository on Bitbucket’s server up-to-date with the one on our own machine. Our local and remote repositories are now in this state:</p>
+<div class="figure">
+<img src="fig/bitbucket-repo-after-first-push.svg" alt="Bitbucket Repository After First Push" /><p class="caption">Bitbucket Repository After First Push</p>
+</div>
+<p>The next step is to connect the two repositories so that we don’t have to type the URL every time we do something with Bitbucket. We do this by making the Bitbucket repository a <strong>remote</strong> for the local repository. You’ll need the URL for the Bitbucket repository, which is the same URL from the <code>hg push</code> statement above.</p>
+<p>Use the command:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">hg</span> config --local</code></pre>
+<p>to open your local repository’s configuration file in your editor. You should see a template file that looks like:</p>
+<pre><code># example repository config (see &quot;hg help config&quot; for more info)
+[paths]
+# path aliases to other clones of this repo in URLs or filesystem paths
+# (see &quot;hg help config.paths&quot; for more info)
+#
+# default      = http://example.com/hg/example-repo
+# default-push = ssh://jdoe@example.net/hg/jdoes-fork
+# my-fork      = ssh://jdoe@example.net/hg/jdoes-fork
+# my-clone     = /home/jdoe/jdoes-clone
+
+[ui]
+# name and email (local to this repository, optional), e.g.
+# username = Jane Doe &lt;jdoe@example.com&gt;</code></pre>
+<p>Edit the file so that it has just 2 lines:</p>
 <pre><code>[paths]
 default = https://bitbucket.org/vlad/planets</code></pre>
-<p>Make sure to use the URL for your repository rather than Vlad’s and to prefix the URL with <code>https://</code>, not <code>ssh://hg@</code>.</p>
+<p>Make sure to use the URL for your repository rather than Vlad’s (the one from the <code>hg push</code> command above), and that the prefix in the URL is <code>https://</code>, not <code>ssh://hg@</code>.</p>
+<p>Save the file. It will automatically be stored in <code>planets/.hg/hgrc</code>.</p>
 <p>We can check that the command has worked by running <code>hg paths</code>:</p>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">hg</span> paths</code></pre>
 <pre class="output"><code>default = https://bitbucket.org/vlad/planets</code></pre>
-<p>Now that the default path is set up, we won’t need to specify the target when we run <code>hg push</code> in the future; running <code>hg push</code> will automatically push the changes from our local repository to the repository on BitBucket:</p>
+<p>Now that the default path is set up, we won’t need to specify the target URL when we run <code>hg push</code> in the future; running <code>hg push</code> will automatically push the changes from our local repository to the repository on Bitbucket:</p>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">hg</span> push</code></pre>
 <pre class="output"><code>pushing to https://bitbucket.org/vlad/planets
 searching for changes
-adding changesets
-adding manifests
-adding file changes
-added 1 changesets with 1 changes to 1 files</code></pre>
-<p>Our local and remote repositories are now in this state:</p>
-<div class="figure">
-<img src="fig/bitbucket-repo-after-first-push.svg" alt="BitBucket Repository After First Push" /><p class="caption">BitBucket Repository After First Push</p>
-</div>
+no changes found</code></pre>
+<p>This push has no effect because the two repositories are already synchronized.</p>
 <p>We can pull changes from the remote repository to the local one as well:</p>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">hg</span> pull</code></pre>
 <pre class="output"><code>pulling from https://bitbucket.org/vlad/planets
 searching for changes
 no changes found</code></pre>
-<p>Pulling has no effect in this case because the two repositories are already synchronized. If someone else had pushed some changes to the repository on BitBucket, though, this command would download them to our local repository.</p>
-<p>We can simulate working with a collaborator using another copy of the repository on our local machine. To do this, <code>cd</code> to the directory <code>/tmp</code>. (Note the absolute path: don’t make <code>tmp</code> a subdirectory of the existing repository). Instead of creating a new repository here with <code>hg init</code>, we will <strong>clone</strong> the existing repository from BitBucket:</p>
+<p>Pulling has no effect in this case because the two repositories are already synchronized. If someone else had pushed some changes to the repository on Bitbucket, though, this command would download them to our local repository.</p>
+<p>We can simulate working with a collaborator using another copy of the repository on our local machine. To do this, <code>cd</code> to the directory <code>/tmp</code>. (Note the absolute path: don’t make <code>tmp</code> a subdirectory of the existing repository). Instead of creating a new repository here with <code>hg init</code>, we will <strong>clone</strong> the existing repository from Bitbucket:</p>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">cd</span> /tmp
 $ <span class="kw">hg</span> clone https://bitbucket.org/vlad/planets</code></pre>
 <p><code>hg clone</code> creates a fresh local copy of a remote repository. (We did it in <code>/tmp</code> or some other directory so that we don’t overwrite our existing <code>planets</code> directory.) Our computer now has two copies of the repository:</p>
@@ -97,7 +124,7 @@ $ <span class="kw">cat</span> pluto.txt</code></pre>
 <pre class="output"><code>It is so a planet!</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">hg</span> add pluto.txt
 $ <span class="kw">hg</span> commit -m <span class="st">&quot;Some notes about Pluto&quot;</span></code></pre>
-<p>then push the change to BitBucket:</p>
+<p>then push the change to Bitbucket:</p>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">hg</span> push</code></pre>
 <pre class="output"><code>pushing to https://bitbucket.org/vlad/planets
 searching for changes
@@ -155,7 +182,7 @@ o  changeset:   0:72ab25fa99a1
 <h2><span class="glyphicon glyphicon-pencil"></span>Bitbucket Timestamp</h2>
 </div>
 <div class="panel-body">
-<p>Create a repository on BitBucket, clone it, add a file, push those changes to BitBucket, and then look at the <strong>timestamp</strong> of the change on BitBucket. How does BitBucket record times, and why?</p>
+<p>Create a repository on Bitbucket, clone it, add a file, push those changes to Bitbucket, and then look at the <strong>timestamp</strong> of the change on Bitbucket. How does Bitbucket record times, and why?</p>
 </div>
 </section>
         </div>
