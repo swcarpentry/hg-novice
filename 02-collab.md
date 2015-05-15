@@ -48,7 +48,7 @@ $ hg push https://bitbucket.org/vlad/planets
 ~~~
 
 It's similar to the one shown under "I have an existing project" on the Bitbcucket page,
-but the URL should have your Bitbucket user name in it,
+but the URL should have your Bitbucket user name in it instead of `vlad`,
 and be prefixed with `https://`, not `ssh://hg@`.
 
 The output from that command should look like:
