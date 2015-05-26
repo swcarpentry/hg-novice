@@ -60,11 +60,11 @@ $ <span class="kw">hg</span> commit -m <span class="st">&quot;Starting to think 
 <p>Then make the same changes to <code>mars.doc</code> that we (or Vlad) previously made to <code>mars.txt</code>.</p>
 <pre class="output"><code>Cold and dry, but everything is my favorite color
 The two moons may be a problem for Wolfman</code></pre>
-<p>Save and close the word processor. Now see what Git thinks of your changes:</p>
+<p>Save and close the word processor. Now see what Hg thinks of your changes:</p>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">hg</span> diff</code></pre>
 <pre class="output"><code>diff -r 0f3937fd3863 mars.doc
 Binary file mars.doc has changed</code></pre>
-<p>Compare this to the earlier <code>git diff</code> obtained when using text files:</p>
+<p>Compare this to the earlier <code>hg diff</code> obtained when using text files:</p>
 <pre class="output"><code>diff -r 72ab25fa99a1 mars.txt
 --- a/mars.txt  Mon Apr 14 14:41:58 2014 -0400
 +++ b/mars.txt  Mon Apr 14 15:48:53 2014 -0400
