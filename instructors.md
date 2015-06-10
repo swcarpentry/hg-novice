@@ -3,45 +3,27 @@ layout: page
 title: Version Control with Mercurial
 subtitle: Instructor's Guide
 ---
-## Legend
+Using a software tool to handle the versions of your project files
+lets you focus on the more interesting/innovative aspects of your project.
 
-Wolfman and Dracula have been hired by Universal Missions
-(a space services spin-off of Euphoric State University)
-to figure out where the company should send its next planetary lander.
-They want to be able to work on the plans at the same time,
-but they have run into problems doing this in the past.
-If they take turns,
-each one will spend a lot of time waiting for the other to finish,
-but if they work on their own copies and email changes back and forth
-things will be lost, overwritten, or duplicated.
-
-The solution is to use [version control](reference.html#version-control)
-to manage their work.
-Version control is better than mailing files back and forth because:
-
-*   Nothing that is committed to version control is ever lost.
-    This means it can be used like the "undo" feature in an editor,
-    and since all old versions of files are saved
-    it's always possible to go back in time to see
-    exactly who wrote what on a particular day,
-    or what version of a program was used to generate a particular set of results.
-*   It keeps a record of who made what changes when,
-    so that if people have questions later on
-    they know who to ask.
-*   It's hard (but not impossible) to accidentally overlook or overwrite someone's changes:
-    the version control system automatically notifies users
-    whenever there's a conflict between one person's work and another's.
-
-This lesson shows how to use
-a popular open source version control system called [Mercurial](http://mercurial.selenic.com/)
-(also known as `hg`).
-It is widely used,
-both because it's easy to set up
-and because of a hosting site called [Bitbucket](http://bitbucket.org/).
-No matter which version control system you use,
-the most important thing to learn is not the details of their more obscure commands,
-but the workflow that they encourage.
-
+*   Version control's advantages:
+    *   Nothing that is committed to version control is ever lost.
+        This means it can be used like the "undo" feature in an editor,
+        and since all old versions of files are saved
+        it's always possible to go back in time to see
+        exactly who wrote what on a particular day,
+        or what version of a program was used to generate a particular set of results.
+    *   It keeps a record of who made what changes when,
+        so that if people have questions later on
+        they know who to ask.
+    *   It's hard (but not impossible) to accidentally overlook or overwrite someone's changes:
+        the version control system automatically notifies users
+        whenever there's a conflict between one person's work and another's.
+*   Mercurial's advantages
+    *   It's easy to set up
+    *   A few easy-to-remember commands are all you need for most day-to-day version control tasks
+    *   The [Bitbucket](https://bitbucket.org/) hosting service provides a web-based collaboration service
+    *   Every copy of a Mercurial repository is a full backup of a project and its history
 
 ## Overall
 
@@ -63,9 +45,9 @@ In other words,
 try to convince the learners that version control is useful for researchers
 working alone or in teams because it is
 
-- a better way to "undo" changes,
-- a better way to collaborate than mailing files back and forth, and
-- a better way to share your code and other scientific work with the world.
+*   a better way to "undo" changes,
+*   a better way to collaborate than mailing files back and forth, and
+*   a better way to share your code and other scientific work with the world.
 
 ## Teaching Notes
 
@@ -126,9 +108,9 @@ working alone or in teams because it is
 
 *   We suggest instructors and students use `nano` as the text editor for this lessons because
 
-    - it runs in all three major operating systems,
-    - it runs inside the shell (switching windows can be confusing to students), and
-    - it has shortcut help at the bottom of the window.
+    *   it runs in all three major operating systems,
+    *   it runs inside the shell (switching windows can be confusing to students), and
+    *   it has shortcut help at the bottom of the window.
 
     Please point out to students during setup that they can and should use another text editor if they're already familiar with it.
 
@@ -137,13 +119,11 @@ working alone or in teams because it is
     it is common for them to edit the instructor's details
     (e.g. email).
 
-
 **Creating a Repository** and **Changing a File**
 
 *   When you do `hg status`,
     Mac users may see a `.DS_Store` file showing as untracked.
     This a file that Mac OS creates in each directory.
-
 
 **Tracking Changes to Files**
 
@@ -155,18 +135,18 @@ working alone or in teams because it is
     If you skip it because you're short on time,
     show the graphical diff view of a commit on Bitbucket in the [Collaborating](02-collab.html) section.
 
-
 **Exploring History** and **Recovering Old Versions**
 
-*   Mention that you can revert more than one file at a time by listing the file names one after the other in the `hg revert` command,
-and that shell wildcard characters can also be used.
-
+*   Mention that you can revert more than one file at a time
+    by listing the file names one after the other in the `hg revert` command,
+    and that shell wildcard characters can also be used.
 
 ## [Collaborating](02-collab.html)
 
 *   Make it clear that Mercurial and Bitbucket are not the same thing:
     Mercurial is an open source version control tool,
-    Bitbucket is a company that hosts Mercurial repositories on the web and provides a web interface to interact with repos that they host.
+    Bitbucket is a company that hosts Mercurial repositories on the web
+    and provides a web interface to interact with repos that they host.
 
 *   If your learners are advanced enough to be comfortable with SSH,
     tell them they can use keys to authenticate on GitHub instead of passwords,
@@ -175,24 +155,30 @@ and that shell wildcard characters can also be used.
 
 *   It is very useful to draw a diagram showing the different repositories involved.
 
-*   Role playing between two instructors can be effective when teaching the collaboration and conflict sections of the lesson.
+*   Role playing between two instructors can be effective
+    when teaching the collaboration and conflict sections of the lesson.
     One instructor can play the role of the repository owner,
     while the second instructor can play the role of the collaborator.
     If it is possible,
     try to use two projectors so that the computer screens of both instructors can be seen.
     This makes for a very clear illustration to the students as to who does what.
 
-*   It is also effective to pair up students during this lesson and assign one member of the pair to take the role of the owner and the other the role of the collaborator.
+*   It is also effective to pair up students during this lesson
+    and assign one member of the pair to take the role of the owner
+    and the other the role of the collaborator.
     In this setup,
     challenges can include asking the collaborator to make a change,
     commit it,
     and push the change to the remote repository so that the owner can then retrieve it,
     and vice-versa.
-    The role playing between the instructors can get a bit "dramatic" in the conflicts part of the lesson if the instructors want to inject some humor into the room.
+    The role playing between the instructors can get a bit "dramatic" in the conflicts part of the lesson
+    if the instructors want to inject some humor into the room.
 
 *   If you don't have two projectors,
-have two instructors at the front of the room.
-    Each instructor does their piece of the collaboration demonstration on their own computer and then passes the projector cord back and forth with the other instructor when it's time for them to do the other part of the collaborative workflow.
+    have two instructors at the front of the room.
+    Each instructor does their piece of the collaboration demonstration on their own computer
+    and then passes the projector cord back and forth with the other instructor
+    when it's time for them to do the other part of the collaborative workflow.
     It takes less than 10 seconds for each switchover,
     so it doesn't interrupt the flow of the lesson.
     And of course it helps to give each of the instructors a different-colored hat,
@@ -228,7 +214,6 @@ have two instructors at the front of the room.
     sometimes weird,
     will start to arise. Stay tight: conflicts are next.
 
-
 ## [Conflicts](03-conflict.html)
 
 *   Explain that conflict are not a very common occurrence.
@@ -263,7 +248,8 @@ have two instructors at the front of the room.
 *   The commands `hg heads`,
     `hg log --graph` or `hg log -G`,
     and `hg summary`
-    all provide views of the repository state that can be helpful in explaining conflicts and how they are resolved.
+    all provide views of the repository state
+    that can be helpful in explaining conflicts and how they are resolved.
 
 *   Use `hg merge --tool=kdiff3` to ensure that the KDiff3 GUI diff/merge tool is launched to handle resolution of the conflict.
 

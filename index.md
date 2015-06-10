@@ -30,8 +30,8 @@ Version control is better than mailing files back and forth because:
     whenever there's a conflict between one person's work and another's.
 
 This lesson shows how to use
-a popular open source version control system called Mercurial
-(also known as hg).
+a popular open source version control system called [Mercurial](http://mercurial.selenic.com/)
+(also known as `hg`).
 It is widely used,
 both because it's easy to set up
 and because of a hosting site called [Bitbucket](http://bitbucket.org).
