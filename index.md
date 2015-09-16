@@ -65,6 +65,7 @@ but the workflow that they encourage.
 ## Topics
 
 1.  [Automated Version Control](01-basics.html)
+2.  [Configuring Mercurial](02-configuration.html)
 
 1.  [A Better Kind of Backup](01-backup.html)
 2.  [Collaborating](02-collab.html)
