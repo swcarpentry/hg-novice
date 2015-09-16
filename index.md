@@ -71,6 +71,7 @@ but the workflow that they encourage.
 5.  [Making Changes](05-changes.html)
 6.  [Exploring History](06-history.html)
 7.  [Recovering Old Versions](07-revert.html)
+8.  [Ignoring Things](08-ignore.html)
 
 1.  [A Better Kind of Backup](01-backup.html)
 2.  [Collaborating](02-collab.html)
