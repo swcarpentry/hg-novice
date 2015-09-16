@@ -64,6 +64,8 @@ but the workflow that they encourage.
 
 ## Topics
 
+1.  [Automated Version Control](01-basics.html)
+
 1.  [A Better Kind of Backup](01-backup.html)
 2.  [Collaborating](02-collab.html)
 3.  [Conflicts](03-conflict.html)
