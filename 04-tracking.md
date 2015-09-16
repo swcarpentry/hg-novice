@@ -143,12 +143,3 @@ identifier.
 > we will still see just one file called `plan.txt`.
 > That's because Mercurial saves information about files' history in the special `.hg` directory mentioned earlier so that our filesystem doesn't become cluttered
 > (and so that we can't accidentally edit or delete an old version).
-
-> ## `bio` Repository {.challenge}
->
-> Create a new Mercurial repository on your computer called `bio`.
-> Write a three-line biography for yourself in a file called `me.txt`,
-> commit your changes,
-> then modify one line,
-> add a fourth line,
-> and display the differences between its updated state and its original state.
