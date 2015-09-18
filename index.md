@@ -73,10 +73,14 @@ but the workflow that they encourage.
 6.  [Exploring History](06-history.html)
 7.  [Recovering Old Versions](07-revert.html)
 8.  [Ignoring Things](08-ignore.html)
-
-2.  [Collaborating](02-collab.html)
-3.  [Conflicts](03-conflict.html)
-4.  [Open Science](04-open.html)
+9.  [Remote Repositories](09-remote-repos.html)
+10. [Working with Clone Repositories](10-repo-clones.html)
+11. [Collaboration](11-collaboration.html)
+12. [Merging Changes from Different Clones](12-merges.html)
+13. [Merge Conflicts](13-conflicts.html)
+14. [Open Science](14-open.html)
+15. [Licensing](15-licensing.html)
+16. [Hosting](16-hosting.html)
 
 ## Other Resources
 
