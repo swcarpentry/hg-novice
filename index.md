@@ -78,7 +78,6 @@ but the workflow that they encourage.
 11. [Collaboration](11-collaboration.html)
 12. [Merging Changes from Different Clones](12-merges.html)
 
-2.  [Collaborating](02-collab.html)
 3.  [Conflicts](03-conflict.html)
 4.  [Open Science](04-open.html)
 
