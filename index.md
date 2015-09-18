@@ -74,7 +74,8 @@ but the workflow that they encourage.
 7.  [Recovering Old Versions](07-revert.html)
 8.  [Ignoring Things](08-ignore.html)
 9.  [Remote Repositories](09-remote-repos.html)
-10.  [Working with Clone Repositories](10-repo-clones.html)
+10. [Working with Clone Repositories](10-repo-clones.html)
+11. [Collaboration](11-collaboration.html)
 
 2.  [Collaborating](02-collab.html)
 3.  [Conflicts](03-conflict.html)
