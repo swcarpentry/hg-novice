@@ -198,8 +198,7 @@ but requires more time and effort to set up than either
 the option above or the option below.
 
 The third option is to use a public hosting service like [GitHub](http://github.com),
-[Bitbucket](http://bitbucket.org),
-[Google Code](http://code.google.com),
+[Bitbucket](http://bitbucket.org)
 or [SourceForge](http://sourceforge.net).
 All of these allow people to create repositories through a web interface,
 and also provide mailing lists,
