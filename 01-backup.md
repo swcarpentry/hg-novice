@@ -346,31 +346,33 @@ summary:     Starting to think about Mars
 
 ~~~
 
-Of course sometimes we may not want to commit everything at once.
-For example,
-suppose we're adding a few citations to our supervisor's work
-to our thesis.
-We might want to commit those additions,
-and the corresponding addition to the bibliography,
-but *not* commit the work we're doing on the conclusions
-(which we haven't finished yet).
-To handle that,
-simply do two
-(or more)
-separate commits,
-listing the names of the files to be included in each commit in the `hg commit`
-command:
-
-~~~ {.bash}
-$ hg commit -m "Cite Frankenstein(2010) and Frankenstein, etal(2011)." methods.txt biblio.txt
-...
-<later>
-...
-$ hg commit conclusions.txt -m "Update conclusions re: sunlight."
-~~~
-
-Notice that the list of file names can come before or after the commit comment
-in the `hg commit` command.
+> ## Committing only some of the changes {.callout}
+>
+> Of course sometimes we may not want to commit everything at once.
+> For example,
+> suppose we're adding a few citations to our supervisor's work
+> to our thesis.
+> We might want to commit those additions,
+> and the corresponding addition to the bibliography,
+> but *not* commit the work we're doing on the conclusions
+> (which we haven't finished yet).
+> To handle that,
+> simply do two
+> (or more)
+> separate commits,
+> listing the names of the files to be included in each commit in the `hg commit`
+> command:
+> 
+> ~~~ {.bash}
+> $ hg commit -m "Cite Frankenstein(2010) and Frankenstein, etal(2011)." methods.txt biblio.txt
+> ...
+> <later>
+> ...
+> $ hg commit conclusions.txt -m "Update conclusions re: sunlight."
+> ~~~
+> 
+> Notice that the list of file names can come before or after the commit comment
+> in the `hg commit` command.
 
 Let's add another line to the file for practice and to make our revision
 history more interesting:
