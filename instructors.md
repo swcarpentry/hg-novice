@@ -81,7 +81,7 @@ working alone or in teams because it is
     The default OS X Mercurial client has `merge` use the built-in
     (ie, system-default) `FileMerge` tool to do the default, and this
     might be preferrable to requiring a separate (and clearly _very_
-    non-platform-native tool.
+    non-platform-native tool.)
 
 *   When appropriate, explain that we teach Mercurial rather than CVS,
     Subversion,
