@@ -51,7 +51,7 @@ username =
 
 Edit the file to set `username` to your own name and email address and add your
 favourite editor in the `[ui]` section.
-Also uncomment the the `pager =`,
+Also uncomment the `pager =`,
 `progress =`,
 and `color =` lines in the `[extensions]` section.
 You can leave or delete the other comment lines (that start with `#`) as you wish.
@@ -96,5 +96,5 @@ The fact that these settings are in the Mercurial configuration file in our home
 directory means that they will be used for every Mercurial repository on this
 machine.
 
-The above configuration work only needs to be done tghe first time you use
+The above configuration work only needs to be done the first time you use
 Mercurial on a computer.
