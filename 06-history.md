@@ -43,7 +43,8 @@ In this way,
 we build up a chain of revisions.
 The most recent end of the chain is the changeset with the highest revision number.
 
-To see what changes were made between a particular changeset and its parent use the `--change` or `-c` flag:
+To see what changes were made between a particular changeset and its parent
+use the `--change` or `-c` flag:
 
 ~~~ {.bash}
 $ hg diff --change 1

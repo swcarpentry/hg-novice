@@ -43,7 +43,8 @@ to the project later on
 (e.g., a year later, when memory has faded).
 
 This lesson shows how to use
-a popular open source version control system called [Mercurial](http://mercurial.selenic.com/)
+a popular open source version control system called
+[Mercurial](http://mercurial.selenic.com/)
 (also known as `hg`).
 It is widely used,
 both because it's easy to set up

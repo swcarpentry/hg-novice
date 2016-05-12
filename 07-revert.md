@@ -69,7 +69,8 @@ $ hg status
 ? plan.txt.orig
 ~~~
 
-The `plan.txt.orig` file is a copy of `plan.txt` as it stood before the `hg revert` command.
+The `plan.txt.orig` file is a copy of `plan.txt` as it stood before the
+`hg revert` command.
 It's not tracked by Mercurial.
 It's just there in case we made a mistake and really didn't want to revert,
 or in case there's some content from before the revert that we decide that
@@ -81,9 +82,11 @@ If we really don't want Mercurial to create `*.orig` files when we use
 we can use the `--no-backup` option,
 or its short version `-C`.
 
-The fact that files can be reverted one by one tends to change the way people organize their work.
+The fact that files can be reverted one by one tends to change the way people
+organize their work.
 If everything is in one large document,
-it's hard (but not impossible) to undo changes to the introduction without also undoing changes made later to the conclusion.
+it's hard (but not impossible) to undo changes to the introduction without
+also undoing changes made later to the conclusion.
 If the introduction and conclusion are stored in separate files,
 on the other hand,
 moving backward and forward in time becomes much easier.

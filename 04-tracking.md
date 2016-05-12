@@ -5,10 +5,12 @@ subtitle: Tracking Changes to Files
 ---
 > ## Learning Objectives {.objectives}
 >
-> * Display the version control status of files in a repository and explain what those statuses mean.
+> * Display the version control status of files in a repository and explain
+>   what those statuses mean.
 > * Add files to Mercurial's collection of tracked files.
 > * Record metadata about changes to a file.
-> * Display the history of changes to files in a repository and explain the metadata that is recorded with each changeset.
+> * Display the history of changes to files in a repository and explain
+>   the metadata that is recorded with each changeset.
 
 Let's create a file called `plan.txt` in which Susan is going to write her
 initial ideas and notes about the Salish Sea NEMO daily forecast system.
@@ -45,7 +47,8 @@ $ cat plan.txt
 Goal: Run NEMO everyday to forecast storm surge water levels
 ~~~
 
-We can ask Mercurial to tell us what it knows about the files in our project with the `hg status` command.
+We can ask Mercurial to tell us what it knows about the files in our project
+with the `hg status` command.
 Mercurial tells us that it has noticed the new file:
 
 ~~~ {.bash}
@@ -55,7 +58,8 @@ $ hg status
 ? plan.txt
 ~~~
 
-The `?` at the beginning of the line means that Mercurial isn't keeping track of the file.
+The `?` at the beginning of the line means that Mercurial isn't keeping track
+of the file.
 We can tell Mercurial that it should do so using `hg add`:
 
 ~~~ {.bash}
@@ -81,18 +85,20 @@ $ hg commit -m "Starting to plan the daily NEMO forecast system."
 ~~~
 
 When we run `hg commit`,
-Mercurial takes the file we have told it about by using `hg add` and stores a copy permanently inside the special `.hg` directory.
+Mercurial takes the file we have told it about by using `hg add` and stores
+a copy permanently inside the special `.hg` directory.
 That permanent copy is called a [commit](reference.html#commit)
 (or [revision](reference.html#revision)).
 
-We use the `-m` flag (for "message") to record a comment that will help us remember later on what we did and why.
+We use the `-m` flag (for "message") to record a comment that will help us
+remember later on what we did and why.
 If we just run `hg commit` without the `-m` option,
 Mercurial will launch `nano`
 (or whatever other editor we configured at the start)
 so that we can write a longer message.
 
-[Good commit messages][commit-messages] start with a brief (<70 characters) summary of
-changes made in the commit.
+[Good commit messages][commit-messages] start with a brief (<70 characters)
+summary of changes made in the commit.
 If you want to go into more detail,
 add a blank line between the summary line and your additional notes.
 
@@ -141,5 +147,7 @@ identifier.
 >
 > If we run `ls` at this point,
 > we will still see just one file called `plan.txt`.
-> That's because Mercurial saves information about files' history in the special `.hg` directory mentioned earlier so that our filesystem doesn't become cluttered
+> That's because Mercurial saves information about files' history in the
+> special `.hg` directory mentioned earlier so that our filesystem doesn't
+> become cluttered
 > (and so that we can't accidentally edit or delete an old version).

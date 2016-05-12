@@ -109,7 +109,8 @@ To handle that,
 simply do two
 (or more)
 separate commits,
-listing the names of the files to be included in each commit in the `hg commit` command:
+listing the names of the files to be included in each commit in the `hg commit`
+command:
 
 ~~~ {.bash}
 $ hg commit -m "Cite Sastri and Dower (2009)." methods.txt biblio.txt
@@ -191,4 +192,5 @@ summary:     Starting to plan the daily NEMO forecast system.
 > commit your changes,
 > then modify one line,
 > add a fourth line,
-> and display the differences between the file's updated state and its original state.
+> and display the differences between the file's updated state and its
+> original state.

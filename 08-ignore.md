@@ -5,8 +5,8 @@ subtitle: Ignoring Things
 ---
 > ## Learning Objectives {.objectives}
 >
-> *   Configure Mercurial to ignore specific files and explain why it is
->     sometimes useful to do so.
+> * Configure Mercurial to ignore specific files and explain why it is
+>   sometimes useful to do so.
 
 What if we have files that we do not want Mercurial to track for us,
 like backup files created by our editor or intermediate files created during

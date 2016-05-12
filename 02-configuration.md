@@ -8,7 +8,8 @@ subtitle: Configuring Mercurial
 > * Explain what configuration steps are required the first time Mercurial
 >   is used on a computer.
 
-When we use Mercurial on a computer for the first time,
+When we use [Mercurial](http://mercurial.selenic.com/) on a computer for the
+first time,
 we need to configure a few things.
 The command
 
