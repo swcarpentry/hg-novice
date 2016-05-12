@@ -205,8 +205,8 @@ to `kdiff3`, but soon you should see a window that looks like this:
 
 ![Kdiff3 on Windows](fig/hg-kdiff3-conflict-windows.png)
 
-The pane labelled `base` refers to how this file looked like at
-revision `4`, where our conflicting revisions `5` and `6` are based
+The pane labelled `base` refers to this file's state at
+revision `4`, which is the revision our conflicting revisions `5` and `6` are based
 on. Since we were standing on `5` when we started the merge, that is
 the pane labelled `local`. We're attempting to merge this with
 revision `6`, which is labelled `other`. kdiff3
