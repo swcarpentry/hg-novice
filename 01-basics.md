@@ -40,7 +40,7 @@ two users can make independent sets of changes based on the same document.
 
 ![Different versions can be saved](fig/versions.svg)
 
-If there aren't conflicts, you can even try to play two sets of changes onto
+If there are no conflicts, you can even try to play two sets of changes onto
 the same base document.
 
 ![Multiple versions can be merged](fig/merge.svg)

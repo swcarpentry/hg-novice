@@ -19,7 +19,7 @@ You can use any text editor you want
 but please don't use a word processor like Microsoft Word or LibreOffice Write.
 In particular,
 the editor does not have to be the one that you set in your Mercurial
-configuration earlier.)
+configuration earlier.
 In what follows it is assumed that `nano` is used.
 
 ~~~ {.bash}

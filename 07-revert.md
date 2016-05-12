@@ -109,7 +109,7 @@ moving backward and forward in time becomes much easier.
 > (no backup revert) that is the same as typing `hg revert --no-backup`.
 > Note that it is good practice when creating aliases for commands to give them
 > your own names instead of using the alias to redefine the built-in command.
-If we had used the alias to change add the `--no-backup` flag to the `revert`
+> If we had used the alias to change add the `--no-backup` flag to the `revert`
 > command
 >
 > ~~~

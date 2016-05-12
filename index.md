@@ -25,7 +25,7 @@ Version control is better than mailing files back and forth because:
 *   As we have this record of who made what changes when,
     we know who to ask if we have questions later on,
     and,
-    if needed it,
+    if needed,
     revert to a previous version,
     much like the "undo" feature in an editor.
 
