@@ -63,7 +63,7 @@
 <li><p>Version control is usually not the first subject in a workshop, so get learners to create a Bitbucket account after the session before.</p></li>
 <li><p><a href="http://tortoisehg.bitbucket.org/">TortoiseHg</a> is the recommended means of installing Mercurial for Windows learners. The workshop installation instructions should include that.</p></li>
 <li><p>We don’t use a Mercurial GUI in these notes because we want learners to understand what commands are being run. That said, instructors may want to demo the <a href="http://tortoisehg.bitbucket.org/">TortoiseHg</a> GUI (which is available for Windows, OS/X, and Linux) on their desktop at some point during this lesson.</p></li>
-<li><p>The <a href="03-conflict.html">Conflicts</a> section of the lesson uses the <a href="http://kdiff3.sourceforge.net/">KDiff3</a> graphical diff/merge tool. The workshop installation instructions should include directions for OS/X and Linux users to install KDiff3. For Windows users it is bundled with TortoiseHg.</p></li>
+<li><p>The <a href="03-conflict.html">Conflicts</a> section of the lesson uses the <a href="http://kdiff3.sourceforge.net/">KDiff3</a> graphical diff/merge tool. The workshop installation instructions should include directions for OS X and Linux users to install KDiff3. For Windows users it is bundled with TortoiseHg. The Mercurial wiki has some <a href="https://www.mercurial-scm.org/wiki/KDiff3">notes on using Mercurial with kdiff3</a>. On OS X, download kdiff3 and drag the <code>.app</code> directory somewhere suitable (such as into <code>/Applications</code>), then link it into the path with <code>cd ~/local/bin; ln -s /Applications/kdiff3.app/Contents/MacOS/kdiff3 kdiff3</code>. The default OS X Mercurial client has <code>merge</code> use the built-in (ie, system-default) <code>FileMerge</code> tool to do the default, and this might be preferrable to requiring a separate (and clearly <em>very</em> non-platform-native tool.)</p></li>
 <li><p>When appropriate, explain that we teach Mercurial rather than CVS, Subversion, or Git primarily because of its consistent command-line interface, easy to learn basic workflow, and Bitbucket’s policy of providing unlimited collaboration in private repositories for academic users. CVS and Subversion are now seen as legacy systems. Git is also very popular, largely because of the GitHub service. The differences between Mercurial and Git are largely syntactic, so learning one provides the conceptual framework to use either.</p></li>
 </ul>
 <h2 id="a-better-kind-of-backup"><a href="01-backup.html">A Better Kind of Backup</a></h2>
@@ -84,7 +84,7 @@
 </ul>
 <p><strong>Creating a Repository</strong> and <strong>Changing a File</strong></p>
 <ul>
-<li>When you do <code>hg status</code>, Mac users may see a <code>.DS_Store</code> file showing as untracked. This a file that Mac OS creates in each directory.</li>
+<li>When you do <code>hg status</code>, Mac users may see a <code>.DS_Store</code> file showing as untracked. This a file that the OS X Finder creates in each directory that it displays. It’s worth while routinely adding this file to <code>.hgignore</code>.</li>
 </ul>
 <p><strong>Tracking Changes to Files</strong></p>
 <ul>
@@ -98,7 +98,7 @@
 <h2 id="collaborating"><a href="02-collab.html">Collaborating</a></h2>
 <ul>
 <li><p>Make it clear that Mercurial and Bitbucket are not the same thing: Mercurial is an open source version control tool, Bitbucket is a company that hosts Mercurial repositories on the web and provides a web interface to interact with repos that they host.</p></li>
-<li><p>If your learners are advanced enough to be comfortable with SSH, tell them they can use keys to authenticate on GitHub instead of passwords, but don’t try to set this up during class: it takes too long, and is a distraction from the core ideas of the lesson.</p></li>
+<li><p>If your learners are advanced enough to be comfortable with SSH, tell them they can use keys to authenticate on Bitbucket instead of passwords, but don’t try to set this up during class: it takes too long, and is a distraction from the core ideas of the lesson.</p></li>
 <li><p>It is very useful to draw a diagram showing the different repositories involved.</p></li>
 <li><p>Role playing between two instructors can be effective when teaching the collaboration and conflict sections of the lesson. One instructor can play the role of the repository owner, while the second instructor can play the role of the collaborator. If it is possible, try to use two projectors so that the computer screens of both instructors can be seen. This makes for a very clear illustration to the students as to who does what.</p></li>
 <li><p>It is also effective to pair up students during this lesson and assign one member of the pair to take the role of the owner and the other the role of the collaborator. In this setup, challenges can include asking the collaborator to make a change, commit it, and push the change to the remote repository so that the owner can then retrieve it, and vice-versa. The role playing between the instructors can get a bit “dramatic” in the conflicts part of the lesson if the instructors want to inject some humor into the room.</p></li>
