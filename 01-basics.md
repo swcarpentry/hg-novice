@@ -7,7 +7,7 @@ minutes: 5
 > ## Learning Objectives {.objectives}
 >
 > *   Understand the benefits of an automated version control system.
-> *   Understand the basics of how Mercurial works.
+> *   Understand the basics of how [Mercurial](http://mercurial.selenic.com/) works.
 
 We'll start by exploring how version control can be used
 to keep track of what one person did and when.
@@ -44,7 +44,7 @@ across different computers facilitating collaboration among different people.
 >
 > Automated version control systems are nothing new. Tools like RCS, CVS, or
 > Subversion are considered now legacy systems, offering more limited
-> capabilities than modern tools, such as Mercurial and
+> capabilities than modern tools, such as [Mercurial](http://mercurial.selenic.com/) and
 > [Git](http://swcarpentry.github.io/git-novice/). In particular, the
 > latter are *distributed*, meaning that they don't need a centralized server
 > to host the repository.
