@@ -78,6 +78,46 @@ mode = win32
 
 When you are finished,
 save the file and exit your editor.
+
+
+> ## hg: unknown command 'config' {.callout}
+>
+> If your computer responsed to the `hg config --edit` command with
+>
+> ~~~ {.output}
+> hg: unknown command 'config'
+> ~~~
+>
+> it mean that you are using an version of Mercurial older than 3.0 that
+> doesn't have the `hg config` command.
+>
+> You will have to create your configuration file from scratch.
+> Windows users can use:
+>
+> ~~~ {.bash}
+> nano $USERPROFILE/Mercurial.ini
+> ~~~
+>
+> to create the file,
+> and Mac OS X and Linux users can use:
+>
+> ~~~ {.bash}
+> nano $HOME/.hgrc
+> ~~~
+>
+> to create the appropriately named empty file and then type in the lines
+> above.
+
+
+When you saved the file it was stored in your home directory as `.hgrc` on OS X and
+Linux or as `Mercurial.ini` on Windows.
+The fact that these settings are in the Mercurial configuration file in our home
+directory means that they will be used for every Mercurial repository on this
+machine.
+
+The above configuration work only needs to be done the first time you use
+Mercurial on a computer.
+
 You can check that your settings are the way that you want them with the command
 
 ~~~ {.bash}
@@ -89,12 +129,3 @@ extensions.progress=
 extensions.pager=
 ui.username=Doug Latornell <djl@douglatornell.ca>
 ~~~
-
-When you saved the file stored in your home directory as `.hgrc` on OS X and
-Linux or as `Mercurial.ini` on Windows.
-The fact that these settings are in the Mercurial configuration file in our home
-directory means that they will be used for every Mercurial repository on this
-machine.
-
-The above configuration work only needs to be done the first time you use
-Mercurial on a computer.
