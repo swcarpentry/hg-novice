@@ -123,6 +123,29 @@ Make sure to use the URL with your Bitbucket username in it rather than `susan`
 Save the file.
 It will automatically be stored in `forecast/.hg/hgrc`.
 
+
+> ## hg: unknown command 'config' {.callout}
+>
+> If your computer responsed to the `hg config --local` command with
+>
+> ~~~ {.output}
+> hg: unknown command 'config'
+> ~~~
+>
+> it mean that you are using an version of Mercurial older than 3.0 that
+> doesn't have the `hg config` command.
+>
+> You will have to create your local repository's configuration file from scratch.
+> Use:
+>
+> ~~~ {.bash}
+> nano .hg/hgrc
+> ~~~
+>
+> to create the appropriately named empty file and then type in the 2 lines
+> above.
+
+
 We can check that the command has worked by running `hg paths`:
 
 ~~~ {.bash}
