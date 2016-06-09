@@ -231,8 +231,7 @@ but soon you should see a window that looks like this:
 
 ![KDiff3 Merge Conflict](fig/hg-kdiff3-conflict.png)
 
-The pane labeled `base` refers to how this file looked like in
-changeset `6`,
+The pane labeled `base` refers to this file's state in changeset `6`,
 the parent changeset of our conflicting changesets `7` and `8`.
 Since we were standing on `8` when we started the merge,
 that is the pane labeled `local`.
