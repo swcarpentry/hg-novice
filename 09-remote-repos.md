@@ -126,13 +126,13 @@ It will automatically be stored in `forecast/.hg/hgrc`.
 
 > ## hg: unknown command 'config' {.callout}
 >
-> If your computer responsed to the `hg config --local` command with
+> If your computer responds to the `hg config --local` command with
 >
 > ~~~ {.output}
 > hg: unknown command 'config'
 > ~~~
 >
-> it mean that you are using an version of Mercurial older than 3.0 that
+> it means that you are using a version of Mercurial older than 3.0 that
 > doesn't have the `hg config` command.
 >
 > You will have to create your local repository's configuration file from scratch.
