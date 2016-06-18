@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="pandoc">
+    <title>Software Carpentry: Version Control with Mercurial</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-theme.css" />
+    <link rel="stylesheet" type="text/css" href="css/swc.css" />
+    <link rel="alternate" type="application/rss+xml" title="Software Carpentry Blog" href="http://software-carpentry.org/feed.xml"/>
+    <meta charset="UTF-8" />
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body class="lesson">
+    <div class="container card">
+      <div class="banner">
+        <a href="http://software-carpentry.org" title="Software Carpentry">
+          <img alt="Software Carpentry banner" src="img/software-carpentry-banner.png" />
+        </a>
+      </div>
+      <article>
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+                    <a href="index.html"><h1 class="title">Version Control with Mercurial</h1></a>
+          <h2 class="subtitle">Collaboration</h2>
+          <section class="objectives panel panel-warning">
+<div class="panel-heading">
+<h2 id="learning-objectives"><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
+</div>
+<div class="panel-body">
+<ul>
+<li>Explain the differences between public and private repositories on Bitbucket.</li>
+<li>Configure user and group access settings for Bitbucket repositories.</li>
+</ul>
+</div>
+</section>
+<p>So far we’ve focused on how we can use Mercurial to keep track of work for ourselves, on the one computer that we use all of the time, or across several computers. If you think about that as collaboration among your past, present, and future selves, or as collaboration with yourself in different physical locations, it is natural to extend those ideas to collaborating with other people — your supervisor, lab-mates, colleagues in other groups, departments, and institutions, and perhaps even people on the Internet that you’ve never met.</p>
+<p>The key to bringing other people into the picture is having a copy of your repository in a network accessible location, and we’ve already learned how to do that easily via Bitbucket.</p>
+<p>Looking again at the <code>Create Repository</code> page on Bitbucket:</p>
+<div class="figure">
+<img src="fig/bitbucket-create-repo-02.png" alt="Creating a Repository on Bitbucket" />
+<p class="caption">Creating a Repository on Bitbucket</p>
+</div>
+<p>we can see the <code>Access Level</code> setting that allows us to choose whether the repository will be private or public.</p>
+<p>In a private repository the only person who initially has access to the repository is the owner — the person who created it. All other access, whether it be read or write, must be granted explicitly by the repo owner.</p>
+<p>Public repositories, on the other hand, are readable by anyone who chooses to look at the URL. That means that anyone who wants to can create a clone of a public repository and make whatever changes they want <em>in their own clone</em>. The repository owner still has control over who can write to the repository, so those changes can’t be pushed back to the original repo without the owner’s consent.</p>
+<p>Bitbucket offers other public repo features to facilitate collaboration:</p>
+<ul>
+<li>Per-repository issue trackers for project management and bug reports</li>
+<li>Per-repository wikis for documentation</li>
+<li>Email notifications of various events such as pushed commits, new issue creation, etc.</li>
+<li>Forks and pull requests for code review, and contributions from users without write permission to the repo</li>
+</ul>
+<p>Beyond the public/private setting for a Bitbucket repository, who can do what in a repository is controlled via the <code>Access management</code> panel in the repository <code>Settings</code> section:</p>
+<div class="figure">
+<img src="fig/bitbucket-repo-access-mgmt.png" alt="Repository Access Management Settings" />
+<p class="caption">Repository Access Management Settings</p>
+</div>
+<p>You can control access at the level of individual users via their Bitbucket user names, or you can associate users with groups that all have the same access level. The access levels are:</p>
+<ul>
+<li><code>Read</code> — read-only (includes cloning the repo)</li>
+<li><code>Write</code> — read-write (enables pushing changes into the repo)</li>
+<li><code>Admin</code> — read-write plus the ability to change permissions for other users and change all Bitbucket repo settings</li>
+</ul>
+        </div>
+      </div>
+      </article>
+      <div class="footer">
+        <a class="label swc-blue-bg" href="http://software-carpentry.org">Software Carpentry</a>
+        <a class="label swc-blue-bg" href="https://github.com/swcarpentry/hg-novice">Source</a>
+        <a class="label swc-blue-bg" href="mailto:admin@software-carpentry.org">Contact</a>
+        <a class="label swc-blue-bg" href="LICENSE.html">License</a>
+      </div>
+    </div>
+    <!-- Javascript placed at the end of the document so the pages load faster -->
+    <script src="http://software-carpentry.org/v5/js/jquery-1.9.1.min.js"></script>
+    <script src="css/bootstrap/bootstrap-js/bootstrap.js"></script>
+    <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    
+      ga('create', 'UA-37305346-2', 'auto');
+      ga('send', 'pageview');
+    
+    </script>
+  </body>
+</html>

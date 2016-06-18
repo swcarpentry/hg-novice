@@ -35,8 +35,8 @@
 <p>In the <a href="01-backup.html#setting-up">Setting Up</a> section we edited a Mercurial configuration file in our home directory called <code>$USERPROFILE/Mercurial.ini</code> or <code>~/.hgrc</code>. You can quickly open that file for editing with the command <code>hg config --edit</code>.</p>
 <p>If you want to know more about the many configuration options available you can use <code>hg help config</code> or visit <a href="http://www.selenic.com/mercurial/hgrc.5.html">the Mercurial config documenttation</a>.</p>
 <p>One configuration option that can be useful is adding aliases. These are like shorcuts for longer <code>hg</code> commands. For example, if you want to create an <code>hg latest</code> command to show only the five most recent changesets, you can edit your config file with <code>hg config --edit</code> and add a section that looks like:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash">[<span class="kw">aliases</span>]
-<span class="kw">latest</span> = log --limit 5</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">[<span class="kw">aliases</span>]
+<span class="kw">latest</span> = log --limit 5</code></pre></div>
 <p>Each repository can also have its own configuration file stored at <code>.hg/hgrc</code>. That file is where the path to a remote location that the repo may have been cloned from is stored. You can open that file for editing with the command <code>hg config --local</code>.</p>
 <h2 id="non-text-files">Non-text Files</h2>
 <p>Recall when we discussed <a href="03-conflict.html">Conflicts</a> there was a challenge that asked:</p>
@@ -49,19 +49,19 @@
 <p>This has various impacts on Mercurial’s performance and will make it difficult to compare different versions of your project.</p>
 <p>For a basic example to show the difference it makes, we’re going to go see what would have happened if Dracula had tried using outputs from a word processor instead of plain text.</p>
 <p>Create a new directory and go into it:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">mkdir</span> planets-nontext
-$ <span class="kw">cd</span> planets-nontext</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">mkdir</span> planets-nontext
+$ <span class="kw">cd</span> planets-nontext</code></pre></div>
 <p>Use a program such as Microsoft Word or LibreOffice Writer to create a new document. Enter the same text that we began with before:</p>
 <pre class="output"><code>Cold and dry, but everything is my favorite color</code></pre>
 <p>Save the document into the <code>planets-nontext</code> directory with the name of <code>mars.doc</code>. Back in the terminal, run the usual commands for setting up a new Mercurial repository:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">hg</span> init
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">hg</span> init
 $ <span class="kw">hg</span> add mars.doc
-$ <span class="kw">hg</span> commit -m <span class="st">&quot;Starting to think about Mars&quot;</span></code></pre>
+$ <span class="kw">hg</span> commit -m <span class="st">&quot;Starting to think about Mars&quot;</span></code></pre></div>
 <p>Then make the same changes to <code>mars.doc</code> that we (or Vlad) previously made to <code>mars.txt</code>.</p>
 <pre class="output"><code>Cold and dry, but everything is my favorite color
 The two moons may be a problem for Wolfman</code></pre>
 <p>Save and close the word processor. Now see what Git thinks of your changes:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">hg</span> diff</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">hg</span> diff</code></pre></div>
 <pre class="output"><code>diff -r 0f3937fd3863 mars.doc
 Binary file mars.doc has changed</code></pre>
 <p>Compare this to the earlier <code>git diff</code> obtained when using text files:</p>

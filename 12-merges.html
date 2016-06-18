@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="pandoc">
+    <title>Software Carpentry: Version Control with Mercurial</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-theme.css" />
+    <link rel="stylesheet" type="text/css" href="css/swc.css" />
+    <link rel="alternate" type="application/rss+xml" title="Software Carpentry Blog" href="http://software-carpentry.org/feed.xml"/>
+    <meta charset="UTF-8" />
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body class="lesson">
+    <div class="container card">
+      <div class="banner">
+        <a href="http://software-carpentry.org" title="Software Carpentry">
+          <img alt="Software Carpentry banner" src="img/software-carpentry-banner.png" />
+        </a>
+      </div>
+      <article>
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+                    <a href="index.html"><h1 class="title">Version Control with Mercurial</h1></a>
+          <h2 class="subtitle">Merging Changes from Different Clones</h2>
+          <section class="objectives panel panel-warning">
+<div class="panel-heading">
+<h2 id="learning-objectives"><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
+</div>
+<div class="panel-body">
+<ul>
+<li>Explain how Mercurial handles changes that make a repository’s history diverge.</li>
+<li>Explain what merges are.</li>
+</ul>
+</div>
+</section>
+<p>As soon as people can work in parallel, someone’s going to step on someone else’s toes. This will even happen with a single person: if we are working on a piece of software on both our laptop and a workstation in the lab, we could make different changes to each copy. Version control helps us manage these divergent changes by merging many of them automatically.</p>
+<p>To see how automatic merging works let’s go back to the <code>home</code> and <code>work</code> clones of Susan’s <code>forecast</code> repo.</p>
+<p>Let’s add another line to the <code>plan.txt</code> file in our <code>home</code> clone to that it contains:</p>
+<pre class="output"><code>Goal: Run NEMO everyday to forecast storm surge water levels
+
+Need daily high resolution weather forcing from EC.
+Also need daily average Fraser River flow from EC.
+Use the NOAA Neah Bay sea surface height anomaly forecast and observations for the western boundary forcing.</code></pre>
+<p>then commit the change and push it to Bitbucket:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">hg</span> ci -m<span class="st">&quot;Add a line in our home clone.&quot;</span>
+$ <span class="kw">hg</span> push</code></pre></div>
+<pre class="output"><code>pushing to https://bitbucket.org/susan/forecast
+searching for changes
+http authorization required for https://bitbucket.org/susan/forecast
+realm: Bitbucket.org HTTP
+user: susan
+password:
+remote: adding changesets
+remote: adding manifests
+remote: adding file changes
+remote: added 1 changesets with 1 changes to 1 files</code></pre>
+<p>Now let’s switch to the <code>work</code> clone and make a different change there <em>without</em> updating from Bitbucket first. We’ll make the goal of our project more ambitious so that the <code>plan.txt</code> file looks like:</p>
+<pre class="output"><code>Goal: Run NEMO 3 times every day to forecast storm surge water levels
+
+Need daily high resolution weather forcing from EC.
+Also need daily average Fraser River flow from EC.</code></pre>
+<p>We can commit the change locally:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">hg</span> commit -m <span class="st">&quot;Change a line in the work clone.&quot;</span></code></pre></div>
+<p>but Mercurial won’t let us push it to Bitbucket:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">hg</span> push</code></pre></div>
+<pre class="output"><code>pushing to https://bitbucket.org/susan/forecast
+searching for changes
+http authorization required for https://bitbucket.org/susan/forecast
+realm: Bitbucket.org HTTP
+user: susan
+password:
+remote has heads on branch &#39;default&#39; that are not known locally: ce4056d28038
+abort: push creates new remote head e0747e3feea1!
+(pull and merge or see &quot;hg help push&quot; for details about pushing new heads)</code></pre>
+<p>Mercurial detects that our changes have diverged with the changes in the remote repo on Bitbucket and stops us from creating a confusing situation on there. What we have to do is pull the changes from Bitbucket, <a href="reference.html#merge">merge</a> them into the copy we’re currently working in, and then push that. Let’s start by pulling:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">hg</span> pull</code></pre></div>
+<pre class="output"><code>pulling from https://bitbucket.org/susan/forecast
+searching for changes
+adding changesets
+adding manifests
+adding file changes
+added 1 changesets with 1 changes to 1 files (+1 heads)
+(run &#39;hg heads&#39; to see heads, &#39;hg merge&#39; to merge)</code></pre>
+<p><code>hg pull</code> tells us there’s now an extra head in our repo and suggests that we use <code>hg heads</code> to inspect the situation and <code>hg merge</code> to resolve it. Let’s first attempt to understand the situation:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">hg</span> heads</code></pre></div>
+<pre class="output"><code>changeset:   5:ce4056d28038
+tag:         tip
+parent:      3:68fd235a0541
+user:        Susan Allen &lt;sallen@eos.ubc.ca&gt;
+date:        Sun Jun 14 13:07:22 2015 -0700
+summary:     Add a line in our home clone.
+
+changeset:   4:e0747e3feea1
+user:        Susan Allen &lt;sallen@eos.ubc.ca&gt;
+date:        Sun Jun 14 13:16:14 2015 -0700
+summary:     Change a line in the work clone.</code></pre>
+<p>This shows us that our repository currently has two heads. Looking at the graph of our log with <code>hg log --graph</code> or <code>hg log -G</code> may be more informative:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">hg</span> log -G</code></pre></div>
+<pre class="output"><code>o  changeset:   5:ce4056d28038
+|  tag:         tip
+|  parent:      3:68fd235a0541
+|  user:        Susan Allen &lt;sallen@eos.ubc.ca&gt;
+|  date:        Sun Jun 14 13:07:22 2015 -0700
+|  summary:     Add a line in our home clone.
+|
+| @  changeset:   4:e0747e3feea1
+|/   user:        Susan Allen &lt;sallen@eos.ubc.ca&gt;
+|    date:        Sun Jun 14 13:16:14 2015 -0700
+|    summary:     Change a line in the work clone.
+|
+o  changeset:   3:68fd235a0541
+|  user:        Susan Allen &lt;sallen@eos.ubc.ca&gt;
+|  date:        Sun Jun 14 11:04:44 2015 -0700
+|  summary:     Start creating bibliography for the forecast paper.
+|
+o  changeset:   2:d14b5f2372fc
+|  user:        Susan Allen &lt;sallen@eos.ubc.ca&gt;
+|  date:        Sun Jun 14 11:03:17 2015 -0700
+|  summary:     Add note about data source for Fraser River flow forcing.
+|
+o  changeset:   1:41b3e1218ad2
+|  user:        Susan Allen &lt;sallen@eos.ubc.ca&gt;
+|  date:        Sun Jun 14 11:02:05 2015 -0700
+|  summary:     Add note about source for atmospheric forcing.
+|
+o  changeset:   0:983898576cad
+   user:        Susan Allen &lt;sallen@eos.ubc.ca&gt;
+   date:        Sun Jun 14 11:00:20 2015 -0700
+   summary:     Starting to plan the daily NEMO forecast system.
+</code></pre>
+<p>With the graph, we can see more details at a glance. The <code>@</code> marker shows the commit we’re currently standing on, <code>4:e0747e3feea1</code>. We have just pulled changeset <code>5:ce4056d28038</code>, which added a head to our clone, because it was also based off <code>3:68fd235a0541</code>. Our repository history has diverged; i.e. two different changesets have branched off from the same parent commit.</p>
+<p>It is important to note something about revision numbers here (the <code>4</code> and the <code>5</code> before the <code>:</code>). The same commits may have different revision numbers in different clones. These revision numbers are assigned in the order that a clone acquires new commits. On the other hand, the identifiers (<code>e0747e3feea1</code> and <code>ce4056d28038</code> in this case) uniquely identify the changeset no matter in which clone it is. When we communicate with other people, it is important to use identifiers. When we work alone, however, we may use revision numbers as a convenience.</p>
+<p>Now that we understand the situation, let’s resolve it as Mercurial suggested when we pulled, with the <code>hg merge</code> command:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">hg</span> merge</code></pre></div>
+<pre class="output"><code>merging plan.txt
+0 files updated, 1 files merged, 0 files removed, 0 files unresolved
+(branch merge, don&#39;t forget to commit)</code></pre>
+<p>Mercurial has merged the changes that we have to the <code>plan.txt</code> file in the different clones of the repo and is helpfully reminding us that we still need to commit the result of that merge. Before we do that, let’s examine the situation to understand the present state of the repo:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">hg</span> status</code></pre></div>
+<pre class="output"><code>M plan.txt</code></pre>
+<p>The <code>plan.txt</code> file has beem modified.</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">hg</span> diff</code></pre></div>
+<pre class="output"><code>diff -r e0747e3feea1 plan.txt
+--- a/plan.txt  Sun Jun 14 13:16:14 2015 -0700
++++ b/plan.txt  Sun Jun 14 13:43:15 2015 -0700
+@@ -1,4 +1,5 @@
+ Goal: Run NEMO 3 times every day to forecast storm surge water levels
+
+ Need daily high resolution weather forcing from EC.
+ Also need daily average Fraser River flow from EC.
++Use the NOAA Neah Bay sea surface height anomaly forecast and observations for the western boundary forcing.</code></pre>
+<p>The diff shows the changed goal that we did in the <code>work</code> clone, and the line about sea surface height forcing that we added in the <code>home</code> clone.</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">hg</span> summary</code></pre></div>
+<pre class="output"><code>parent: 4:e0747e3feea1
+ Change a line in the work clone.
+parent: 5:ce4056d28038 tip
+ Add a line in our home clone.
+branch: default
+commit: 1 modified (merge)
+update: (current)</code></pre>
+<p>This tells us that our working directory is in a merged state. There are two parents, and one file that has been merged and it ready to be committed.</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">hg</span> log -G</code></pre></div>
+<pre class="output"><code>@  changeset:   5:ce4056d28038
+|  tag:         tip
+|  parent:      3:68fd235a0541
+|  user:        Susan Allen &lt;sallen@eos.ubc.ca&gt;
+|  date:        Sun Jun 14 13:07:22 2015 -0700
+|  summary:     Add a line in our home clone.
+|
+| @  changeset:   4:e0747e3feea1
+|/   user:        Susan Allen &lt;sallen@eos.ubc.ca&gt;
+|    date:        Sun Jun 14 13:16:14 2015 -0700
+|    summary:     Change a line in the work clone.
+|
+o  changeset:   3:68fd235a0541
+|  user:        Susan Allen &lt;sallen@eos.ubc.ca&gt;
+|  date:        Sun Jun 14 11:04:44 2015 -0700
+|  summary:     Start creating bibliography for the forecast paper.
+|
+o  changeset:   2:d14b5f2372fc
+|  user:        Susan Allen &lt;sallen@eos.ubc.ca&gt;
+|  date:        Sun Jun 14 11:03:17 2015 -0700
+|  summary:     Add note about data source for Fraser River flow forcing.
+|
+o  changeset:   1:41b3e1218ad2
+|  user:        Susan Allen &lt;sallen@eos.ubc.ca&gt;
+|  date:        Sun Jun 14 11:02:05 2015 -0700
+|  summary:     Add note about source for atmospheric forcing.
+|
+o  changeset:   0:983898576cad
+   user:        Susan Allen &lt;sallen@eos.ubc.ca&gt;
+   date:        Sun Jun 14 11:00:20 2015 -0700
+   summary:     Starting to plan the daily NEMO forecast system.
+</code></pre>
+<p>The <code>@</code> marker appears in <em>two</em> locations. This indicates that our working directory is in a merged state.</p>
+<p>We’ve looked at things from a lot of different angles now, so let’s finalize the merge by committing it:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">hg</span> commit -m <span class="st">&quot;Merge changes from home.&quot;</span></code></pre></div>
+<p>and take one more look at the graph:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">hg</span> log -G</code></pre></div>
+<pre class="output"><code>@    changeset:   6:d6d860a02aef
+|\   tag:         tip
+| |  parent:      4:e0747e3feea1
+| |  parent:      5:ce4056d28038
+| |  user:        Doug Latornell &lt;djl@douglatornell.ca&gt;
+| |  date:        Sun Jun 14 13:52:57 2015 -0700
+| |  summary:     Merge changes from home.
+| |
+| o  changeset:   5:ce4056d28038
+| |  parent:      3:68fd235a0541
+| |  user:        Doug Latornell &lt;djl@douglatornell.ca&gt;
+| |  date:        Sun Jun 14 13:07:22 2015 -0700
+| |  summary:     Add a line in our home clone.
+| |
+o |  changeset:   4:e0747e3feea1
+|/   user:        Doug Latornell &lt;djl@douglatornell.ca&gt;
+|    date:        Sun Jun 14 13:16:14 2015 -0700
+|    summary:     Change a line in the work clone.
+|
+o  changeset:   3:68fd235a0541
+|  user:        Doug Latornell &lt;djl@douglatornell.ca&gt;
+|  date:        Sun Jun 14 11:04:44 2015 -0700
+|  summary:     Start creating bibliography for the forecast paper.
+|
+o  changeset:   2:d14b5f2372fc
+|  user:        Doug Latornell &lt;djl@douglatornell.ca&gt;
+|  date:        Sun Jun 14 11:03:17 2015 -0700
+|  summary:     Add note about data source for Fraser River flow forcing.
+|
+o  changeset:   1:41b3e1218ad2
+|  user:        Doug Latornell &lt;djl@douglatornell.ca&gt;
+|  date:        Sun Jun 14 11:02:05 2015 -0700
+|  summary:     Add note about source for atmospheric forcing.
+|
+o  changeset:   0:983898576cad
+   user:        Doug Latornell &lt;djl@douglatornell.ca&gt;
+   date:        Sun Jun 14 11:00:20 2015 -0700
+   summary:     Starting to plan the daily NEMO forecast system.
+</code></pre>
+<p>which shows us that the divergence has been merged and our repo is back to having one head. Now, finally, we can push the changes to Bitbucket:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">hg</span> push</code></pre></div>
+<pre class="output"><code>pushing to https://bitbucket.org/susan/forecast
+searching for changes
+http authorization required for https://bitbucket.org/susan/forecast
+realm: Bitbucket.org HTTP
+user: susan
+password:
+remote: adding changesets
+remote: adding manifests
+remote: adding file changes
+remote: added 2 changesets with 2 changes to 1 files</code></pre>
+<p>It should be noted that we could have avoided the merge altogether if we had pulled and updated with the changes from the <code>home</code> clone before we started making changes in the <code>work</code> clone. That highlights a couple of best practices for using version control:</p>
+<ul>
+<li>Make commits often, for small, easy to describe pieces of work.</li>
+<li>Push your changes to Bitbucket (or whatever hub repository you use) before switching from one machine to another.</li>
+<li>Pull and update before you start making changes.</li>
+</ul>
+<p>Doing those things will virtually eliminate merges in repositories where you are working by yourself. In repositories where you are collaborating with other people merges are a fact of life, but the rules above can help reduce the number of merges and make them less traumatic.</p>
+        </div>
+      </div>
+      </article>
+      <div class="footer">
+        <a class="label swc-blue-bg" href="http://software-carpentry.org">Software Carpentry</a>
+        <a class="label swc-blue-bg" href="https://github.com/swcarpentry/hg-novice">Source</a>
+        <a class="label swc-blue-bg" href="mailto:admin@software-carpentry.org">Contact</a>
+        <a class="label swc-blue-bg" href="LICENSE.html">License</a>
+      </div>
+    </div>
+    <!-- Javascript placed at the end of the document so the pages load faster -->
+    <script src="http://software-carpentry.org/v5/js/jquery-1.9.1.min.js"></script>
+    <script src="css/bootstrap/bootstrap-js/bootstrap.js"></script>
+    <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    
+      ga('create', 'UA-37305346-2', 'auto');
+      ga('send', 'pageview');
+    
+    </script>
+  </body>
+</html>

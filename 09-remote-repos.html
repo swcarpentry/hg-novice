@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="pandoc">
+    <title>Software Carpentry: Version Control with Mercurial</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-theme.css" />
+    <link rel="stylesheet" type="text/css" href="css/swc.css" />
+    <link rel="alternate" type="application/rss+xml" title="Software Carpentry Blog" href="http://software-carpentry.org/feed.xml"/>
+    <meta charset="UTF-8" />
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body class="lesson">
+    <div class="container card">
+      <div class="banner">
+        <a href="http://software-carpentry.org" title="Software Carpentry">
+          <img alt="Software Carpentry banner" src="img/software-carpentry-banner.png" />
+        </a>
+      </div>
+      <article>
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+                    <a href="index.html"><h1 class="title">Version Control with Mercurial</h1></a>
+          <h2 class="subtitle">Remote Repositories</h2>
+          <section class="objectives panel panel-warning">
+<div class="panel-heading">
+<h2 id="learning-objectives"><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
+</div>
+<div class="panel-body">
+<ul>
+<li>Explain what remote repositories are and why they are useful.</li>
+<li>Explain what happens when a remote repository is cloned.</li>
+<li>Explain what happens when changes are pushed to or pulled from a remote repository.</li>
+</ul>
+</div>
+</section>
+<p>By now it should be obvious that version control is a powerful tool for organizing our own work on our personal laptop or workstation. It helps us keep track of what we did when, gives us the ability to go back in time in our preoject’s history, and can help us recover from mistakes. But there’s more…</p>
+<p>Mercurial allows us to move our work among copies (clones, actually) of our repositories on different machines. We can use that capability to synchronize files and metadata between our laptop and a lab workstation, or between computers at home and at work, or between our local computer and an HPC cluster, etc. While it is possible to move files and metadata between any two repository copies, in practice it’s easiest to use one copy as a central hub.</p>
+<p>The easiest way to set up a copy of a repo as a central hub that we can access from anywhere that we have a network connection is to use a hosting service like <a href="https://bitbucket.org/">Bitbucket</a>.</p>
+<p>Let’s start by putting a copy of our Salish Sea forecast planning repo on Bitbucket.</p>
+<p>Log in to the Bitbucket site, then click on <code>Create repository</code> under the <code>Create</code> menu at the top of the page:</p>
+<div class="figure">
+<img src="fig/bitbucket-create-repo-01.png" alt="Creating a Repository on Bitbucket (Step 1)" />
+<p class="caption">Creating a Repository on Bitbucket (Step 1)</p>
+</div>
+<p>Name your repository <code>forecast</code> and then click <code>Create Repository</code>:</p>
+<div class="figure">
+<img src="fig/bitbucket-create-repo-02.png" alt="Creating a Repository on Bitbucket (Step 2)" />
+<p class="caption">Creating a Repository on Bitbucket (Step 2)</p>
+</div>
+<p>As soon as the repository is created, Bitbucket displays a page with a URL and some information on how to configure your local repository:</p>
+<div class="figure">
+<img src="fig/bitbucket-create-repo-03.png" alt="Creating a Repository on Bitbucket (Step 3)" />
+<p class="caption">Creating a Repository on Bitbucket (Step 3)</p>
+</div>
+<p>Select <code>I have an existing project</code>, and use the commands shown to “push” the files and metadata from your local <code>forecast</code> repo to the newly created one on Bitbucket:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">cd</span> forecast
+$ <span class="kw">hg</span> push https://bitbucket.org/susan/forecast</code></pre></div>
+<p>The output from that <code>hg push</code> command should look like:</p>
+<pre class="output"><code>pushing to https://bitbucket.org/susan/forecast
+searching for changes
+http authorization required for https://bitbucket.org/susan/forecast
+realm: Bitbucket.org HTTP
+user: susan
+password:
+remote: adding changesets
+remote: adding manifests
+remote: adding file changes
+remote: added 3 changesets with 3 changes to 1 files</code></pre>
+<p>You will have to type your own Bitbucket user name and password.</p>
+<p>The <code>hg push</code> command brought the repository on Bitbucket’s server up-to-date with the one on our own machine. Our local and remote repositories are now in this state:</p>
+<div class="figure">
+<img src="fig/bitbucket-repo-after-first-push.svg" alt="Bitbucket Repository After First Push" />
+<p class="caption">Bitbucket Repository After First Push</p>
+</div>
+<p>The next step is to connect the two repositories so that we don’t have to type the URL every time we do something with Bitbucket. We do this by making the Bitbucket repository a <strong>remote</strong> for the local repository. You’ll need the URL for the Bitbucket repository, which is the same URL from the <code>hg push</code> statement above.</p>
+<p>Use the command:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">hg</span> config --local</code></pre></div>
+<p>to open your local repository’s configuration file in your editor. You should see a template file that looks like:</p>
+<pre><code># example repository config (see &quot;hg help config&quot; for more info)
+[paths]
+# path aliases to other clones of this repo in URLs or filesystem paths
+# (see &quot;hg help config.paths&quot; for more info)
+#
+# default      = http://example.com/hg/example-repo
+# default-push = ssh://jdoe@example.net/hg/jdoes-fork
+# my-fork      = ssh://jdoe@example.net/hg/jdoes-fork
+# my-clone     = /home/jdoe/jdoes-clone
+
+[ui]
+# name and email (local to this repository, optional), e.g.
+# username = Jane Doe &lt;jdoe@example.com&gt;</code></pre>
+<p>Edit the file so that it has just 2 lines:</p>
+<pre><code>[paths]
+default = https://bitbucket.org/susan/forecast</code></pre>
+<p>Make sure to use the URL with your Bitbucket username in it rather than <code>susan</code> (the one from the <code>hg push</code> command above).</p>
+<p>Save the file. It will automatically be stored in <code>forecast/.hg/hgrc</code>.</p>
+<aside class="callout panel panel-info">
+<div class="panel-heading">
+<h2 id="hg-unknown-command-config"><span class="glyphicon glyphicon-pushpin"></span>hg: unknown command ‘config’</h2>
+</div>
+<div class="panel-body">
+<p>If your computer responds to the <code>hg config --local</code> command with</p>
+<pre class="output"><code>hg: unknown command &#39;config&#39;</code></pre>
+<p>it means that you are using a version of Mercurial older than 3.0 that doesn’t have the <code>hg config</code> command.</p>
+<p>You will have to create your local repository’s configuration file from scratch. Use:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">nano</span> .hg/hgrc</code></pre></div>
+<p>to create the appropriately named empty file and then type in the 2 lines above.</p>
+</div>
+</aside>
+<p>We can check that the command has worked by running <code>hg paths</code>:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">hg</span> paths</code></pre></div>
+<pre class="output"><code>default = https://bitbucket.org/susan/forecast</code></pre>
+<p>Now that the default path is set up, we won’t need to specify the target URL when we run <code>hg push</code> in the future; running <code>hg push</code> will automatically push the changes from our local repository to the repository on Bitbucket:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">hg</span> push</code></pre></div>
+<pre class="output"><code>pushing to https://bitbucket.org/susan/forecast
+searching for changes
+http authorization required for https://bitbucket.org/susan/forecast
+realm: Bitbucket.org HTTP
+user: susan
+password:
+no changes found</code></pre>
+<p>As before, you will have to type your own Bitbucket user name and password.</p>
+<p>This push has no effect because the two repositories are already synchronized.</p>
+<p>We can pull changes from the remote repository to the local one as well:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">hg</span> pull</code></pre></div>
+<pre class="output"><code>pulling from https://bitbucket.org/susan/forecast
+searching for changes
+http authorization required for https://bitbucket.org/susan/forecast
+realm: Bitbucket.org HTTP
+user: susan
+password:
+no changes found</code></pre>
+<p>Pulling also has no effect in this case because the two repositories are already synchronized. If we had pushed some changes to the repository on Bitbucket from a clone on another machine, though, this command would download them to our local repository.</p>
+<section class="challenge panel panel-success">
+<div class="panel-heading">
+<h2 id="bitbucket-timestamp"><span class="glyphicon glyphicon-pencil"></span>Bitbucket Timestamp</h2>
+</div>
+<div class="panel-body">
+<p>Create a repository on Bitbucket, clone it, add a file, push those changes to Bitbucket. Look at the <strong>timestamp</strong> of the change on Bitbucket. How does Bitbucket record times, and why?</p>
+</div>
+</section>
+<aside class="callout panel panel-info">
+<div class="panel-heading">
+<h2 id="using-ssh-key-authentication"><span class="glyphicon glyphicon-pushpin"></span>Using ssh Key Authentication</h2>
+</div>
+<div class="panel-body">
+<p>Typing your user name and password every time that you interact with Bitbucket is really tedious. There is an alternative mechanism based on a pair of ‘ssh’ encryption keys that you can generate for yourself. Getting that set up is a distraction from the topics of this workshop, but after the workshop you should read the Bitbucket <a href="https://confluence.atlassian.com/bitbucket/set-up-ssh-for-mercurial-728138122.html">Setting up SSH for Mercurial</a> documentation on your own and set up ssh keys for yourself.</p>
+</div>
+</aside>
+        </div>
+      </div>
+      </article>
+      <div class="footer">
+        <a class="label swc-blue-bg" href="http://software-carpentry.org">Software Carpentry</a>
+        <a class="label swc-blue-bg" href="https://github.com/swcarpentry/hg-novice">Source</a>
+        <a class="label swc-blue-bg" href="mailto:admin@software-carpentry.org">Contact</a>
+        <a class="label swc-blue-bg" href="LICENSE.html">License</a>
+      </div>
+    </div>
+    <!-- Javascript placed at the end of the document so the pages load faster -->
+    <script src="http://software-carpentry.org/v5/js/jquery-1.9.1.min.js"></script>
+    <script src="css/bootstrap/bootstrap-js/bootstrap.js"></script>
+    <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    
+      ga('create', 'UA-37305346-2', 'auto');
+      ga('send', 'pageview');
+    
+    </script>
+  </body>
+</html>
