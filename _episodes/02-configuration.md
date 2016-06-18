@@ -1,21 +1,24 @@
 ---
-layout: page
-title: Version Control with Mercurial
-subtitle: Configuring Mercurial
+title: Configuring Mercurial
+teaching: 10
+exercises: 5
+questions:
+- "FIXME?"
+objectives:
+- "Explain what configuration steps are required the first time Mercurial is used on a computer."
+keypoints:
+- "FIXME"
 ---
-> ## Learning Objective {.objectives}
->
-> * Explain what configuration steps are required the first time Mercurial
->   is used on a computer.
 
 When we use [Mercurial](http://mercurial.selenic.com/) on a computer for the
 first time,
 we need to configure a few things.
 The command
 
-~~~ {.bash}
+~~~
 $ hg config --edit
 ~~~
+{: .bash}
 
 should open a template Mercurial configuration file in an editor for you.
 On Windows the file will likely appear in `Notepad`.
@@ -27,13 +30,14 @@ prefix the command with `EDITOR=<editor-of-your-choice>`.
 `nano` is a nice,
 safe choice if you don't know what else to choose:
 
-~~~ {.bash}
+~~~
 $ EDITOR=nano hg config --edit
 ~~~
+{: .bash}
 
 The file should look a lot like:
 
-~~~ {.output}
+~~~
 # example user config (see "hg help config" for more info)
 [ui]
 # name and email, e.g.
@@ -48,6 +52,7 @@ username =
 # progress =
 # color =
 ~~~
+{: .output}
 
 Edit the file to set `username` to your own name and email address and add your
 favourite editor in the `[ui]` section.
@@ -57,7 +62,7 @@ and `color =` lines in the `[extensions]` section.
 You can leave or delete the other comment lines (that start with `#`) as you wish.
 When you are done your file should look something like:
 
-~~~ {.output}
+~~~
 [ui]
 username = Doug Latornell <djl@douglatornell.ca>
 editor = nano
@@ -67,14 +72,16 @@ pager =
 progress =
 color =
 ~~~
+{: .output}
 
 If you are on Windows,
 please also add a `[color]` section to the file:
 
-~~~ {.output}
+~~~
 [color]
 mode = win32
 ~~~
+{: .output}
 
 When you are finished,
 save the file and exit your editor.
@@ -84,9 +91,10 @@ save the file and exit your editor.
 >
 > If your computer responds to the `hg config --edit` command with
 >
-> ~~~ {.output}
+> ~~~
 > hg: unknown command 'config'
 > ~~~
+> {: .output}
 >
 > it means that you are using a version of Mercurial older than 3.0 that
 > doesn't have the `hg config` command.
@@ -94,16 +102,18 @@ save the file and exit your editor.
 > You will have to create your configuration file from scratch.
 > Windows users can use:
 >
-> ~~~ {.bash}
+> ~~~
 > nano $USERPROFILE/Mercurial.ini
 > ~~~
+> {: .bash}
 >
 > to create the file,
 > and Mac OS X and Linux users can use:
 >
-> ~~~ {.bash}
+> ~~~
 > nano $HOME/.hgrc
 > ~~~
+> {: .bash}
 >
 > to create the appropriately named empty file and then type in the lines
 > above.
@@ -120,12 +130,15 @@ Mercurial on a computer.
 
 You can check that your settings are the way that you want them with the command
 
-~~~ {.bash}
+~~~
 $ hg config ui extensions
 ~~~
-~~~ {.output}
+{: .bash}
+
+~~~
 extensions.color=
 extensions.progress=
 extensions.pager=
 ui.username=Doug Latornell <djl@douglatornell.ca>
 ~~~
+{: .output}

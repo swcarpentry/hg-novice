@@ -1,14 +1,16 @@
 ---
-layout: page
-title: Version Control with Mercurial
-subtitle: Licensing
-minutes: 10
+title: Licensing
+teaching: 10
+exercises: 5
+questions:
+- "FIXME?"
+objectives:
+- "Explain why adding licensing and citation information to a project repository is important."
+- "Choose a proper license."
+- "Explain differences in licensing and social expectations."
+keypoints:
+- "FIXME"
 ---
-> ## Learning Objectives {.objectives}
->
-> *   Explain why adding licensing and citation information to a project repository is important.
-> *   Choose a proper license.
-> *   Explain differences in licensing and social expectations.
 
 When a repository with source code, a manuscript
 or other creative works becomes public, it should include a
@@ -135,6 +137,7 @@ Greg Wilson: "Software Carpentry: Lessons Learned". arXiv:1307.5448, July 2013.
   eprint      = {1307.5448}
 }
 ~~~
+{: .source}
 
 > ## Can I Use Open License? {.challenge}
 >

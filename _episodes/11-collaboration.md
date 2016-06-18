@@ -1,12 +1,15 @@
 ---
-layout: page
-title: Version Control with Mercurial
-subtitle: Collaboration
+title: Collaboration
+teaching: 10
+exercises: 5
+questions:
+- "FIXME?"
+objectives:
+- "Explain the differences between public and private repositories on Bitbucket."
+- "Configure user and group access settings for Bitbucket repositories."
+keypoints:
+- "FIXME"
 ---
-> ## Learning Objectives {.objectives}
->
-> * Explain the differences between public and private repositories on Bitbucket.
-> * Configure user and group access settings for Bitbucket repositories.
 
 So far we've focused on how we can use Mercurial to keep track of work for ourselves,
 on the one computer that we use all of the time,

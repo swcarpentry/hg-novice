@@ -1,12 +1,15 @@
 ---
-layout: page
-title: Version Control with Mercurial
-subtitle: Merge Conflicts
+title: Merge Conflicts
+teaching: 10
+exercises: 5
+questions:
+- "FIXME?"
+objectives:
+- "Explain what merge conflicts are and when they can occur."
+- "Resolve conflicts resulting from a merge using the KDiff3 tool."
+keypoints:
+- "FIXME"
 ---
-> ## Learning Objectives {.objectives}
->
-> * Explain what merge conflicts are and when they can occur.
-> * Resolve conflicts resulting from a merge using the KDiff3 tool.
 
 When Mercurial can't decide how to merge changes automatically it asks us to
 resolve the conflicts that it has detected,
@@ -21,10 +24,12 @@ First though,
 we'll check to see if there are any incoming changes that we should pull and
 update before we start working:
 
-~~~ {.bash}
+~~~
 $ hg incoming
 ~~~
-~~~ {.output}
+{: .bash}
+
+~~~
 comparing with https://bitbucket.org/susan/forecast
 searching for changes
 http authorization required for https://bitbucket.org/susan/forecast
@@ -46,15 +51,18 @@ date:        Sun Jun 14 13:52:57 2015 -0700
 summary:     Merge changes from home.
 
 ~~~
+{: .output}
 
 Those are the the result of our work in the last section on automatic merges.
 
 Pulling and updating:
 
-~~~ {.bash}
+~~~
 $ hg pull
 ~~~
-~~~ {.output}
+{: .bash}
+
+~~~
 pulling from https://bitbucket.org/susan/forecast
 searching for changes
 http authorization required for https://bitbucket.org/susan/forecast
@@ -67,17 +75,21 @@ adding file changes
 added 2 changesets with 2 changes to 1 files
 (run 'hg update' to get a working copy)
 ~~~
+{: .output}
 
-~~~ {.bash}
+~~~
 $ hg update
 ~~~
-~~~ {.output}
+{: .bash}
+
+~~~
 1 files updated, 0 files merged, 0 files removed, 0 files unresolved
 ~~~
+{: .output}
 
 Adding another line to the `plan.txt` file in our `home` clone so that it contains:
 
-~~~ {.output}
+~~~
 Goal: Run NEMO everyday to forecast storm surge water levels
 
 Need daily high resolution weather forcing from EC.
@@ -86,18 +98,20 @@ Use the NOAA Neah Bay sea surface height anomaly forecast and observations for t
 
 Run the model on orcinus.
 ~~~
+{: .output}
 
 then commit the change and push it to Bitbucket:
 
-~~~ {.bash}
+~~~
 $ hg ci -m"Add a line on home about where we'll run the model."
 $ hg push
 ~~~
+{: .bash}
 
 Switch to the `work` clone and make a different change to the same line there
 *without* updating from Bitbucket first.
 
-~~~ {.output}
+~~~
 Goal: Run NEMO 3 times every day to forecast storm surge water levels
 
 Need daily high resolution weather forcing from EC.
@@ -105,19 +119,23 @@ Also need daily average Fraser River flow from EC.
 
 Run the model on west.cloud.
 ~~~
+{: .output}
 
 We can commit the change locally:
 
-~~~ {.bash}
+~~~
 $ hg ci -m"Add a different line on work about where we'll run the model."
 ~~~
+{: .bash}
 
 but Mercurial won't let us push it to Bitbucket:
 
-~~~ {.bash}
+~~~
 $ hg push
 ~~~
-~~~ {.output}
+{: .bash}
+
+~~~
 pushing to https://bitbucket.org/susan/forecast
 searching for changes
 http authorization required for https://bitbucket.org/susan/forecast
@@ -128,6 +146,7 @@ remote has heads on branch 'default' that are not known locally: bd73857a6aea
 abort: push creates new remote head ba1615cd23ae!
 (pull and merge or see "hg help push" for details about pushing new heads)
 ~~~
+{: .output}
 
 Once again,
 Mercurial has detected the divergence of our repo's history and insists that we
@@ -136,10 +155,12 @@ resolve the matter locally before we push to Bitbucket.
 Pulling the changes,
 and looking at the log graph we see:
 
-~~~ {.bash}
+~~~
 $ hg pull
 ~~~
-~~~ {.output}
+{: .bash}
+
+~~~
 pulling from https://bitbucket.org/susan/forecast
 searching for changes
 http authorization required for https://bitbucket.org/susan/forecast
@@ -152,10 +173,14 @@ adding file changes
 added 1 changesets with 1 changes to 1 files (+1 heads)
 (run 'hg heads' to see heads, 'hg merge' to merge)
 ~~~
-~~~ {.bash}
+{: .output}
+
+~~~
 $ hg log --graph
 ~~~
-~~~ {.output}
+{: .bash}
+
+~~~
 o  changeset:   8:bd73857a6aea
 |  tag:         tip
 |  parent:      6:d6d860a02aef
@@ -207,6 +232,7 @@ o  changeset:   0:983898576cad
    summary:     Starting to plan the daily NEMO forecast system.
 
 ~~~
+{: .output}
 
 The commit messages on changesets `7` and `8` are a dead giveaway that there will
 be a problem when we try to merge.
@@ -218,12 +244,15 @@ conflicts that we will want to use a visualization tool to help us resolve.
 Whatever the case,
 we tell Mercurial to use the `kdiff3` tool to help us through the merge:
 
-~~~ {.bash}
+~~~
 $ hg merge --tool=kdiff3
 ~~~
-~~~ {.output}
+{: .bash}
+
+~~~
 merging plan.txt
 ~~~
+{: .output}
 
 It may take a few seconds for Mercurial to pass the necessary information
 to `kdiff3`,
@@ -253,17 +282,19 @@ We can do anything we want:
 
 Let's do the latter and resolve the conflict so it looks like:
 
-~~~ {.output}
+~~~
 Run the model on orcinus or west.cloud.
 ~~~
+{: .output}
 
 When we save the merge result in `kdiff3` and exit,
 Mercurial tells us that:
 
-~~~ {.output}
+~~~
 0 files updated, 1 files merged, 0 files removed, 0 files unresolved
 (branch merge, don't forget to commit)
 ~~~
+{: .output}
 
 indicating that the merge has been successful and is ready to be completed.
 We can use any or all of the same commands that we used after the automatic merge
@@ -277,10 +308,11 @@ in the previous section to inspect the results of the merge:
 In the end,
 we finalize the merge by committing it and pushing it to Bitbucket:
 
-~~~ {.bash}
+~~~
 $ hg commit -m "Merge changes regarding where we'll run the model."
 $ hg push
 ~~~
+{: .bash}
 
 Merge conflicts are generally uncommon when you are working by yourself in a
 repository.

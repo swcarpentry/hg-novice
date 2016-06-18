@@ -1,36 +1,45 @@
 ---
-layout: page
-title: Version Control with Mercurial
-subtitle: Making Changes
+title: Making Changes
+teaching: 10
+exercises: 5
+questions:
+- "FIXME?"
+objectives:
+- "Display the uncommitted changes that have been made to tracked files."
+- "Go through the modify-commit cycle for single and multiple files."
+keypoints:
+- "FIXME"
 ---
-> ## Learning Objectives {.objectives}
->
-> * Display the uncommitted changes that have been made to tracked files.
-> * Go through the modify-commit cycle for single and multiple files.
 
 Now suppose Susan adds more notes to the file.
 (Again, we'll edit with `nano` and then `cat` the file to show its contents;
 you may use a different editor, and don't need to `cat`.)
 
-~~~ {.bash}
+~~~
 $ nano plan.txt
 $ cat plan.txt
 ~~~
-~~~ {.output}
+{: .bash}
+
+~~~
 Goal: Run NEMO everyday to forecast storm surge water levels
 
 Need daily high resolution weather forcing from Environment Canada.
 ~~~
+{: .output}
 
 When we run `hg status` now,
 it tells us that a file it already knows about has been modified:
 
-~~~ {.bash}
+~~~
 $ hg status
 ~~~
-~~~ {.output}
+{: .bash}
+
+~~~
 M plan.txt
 ~~~
+{: .output}
 
 The `M` at the beginning of the line means that Mercurial has noticed that
 we have modified the `plan.txt` file.
@@ -39,10 +48,12 @@ We can double-check our work using `hg diff`,
 which shows us the differences between the current state of the file and the
 most recently committed version:
 
-~~~ {.bash}
+~~~
 $ hg diff
 ~~~
-~~~ {.output}
+{: .bash}
+
+~~~
 diff -r 1320339bbcae plan.txt
 --- a/plan.txt  Tue Jun 09 14:41:27 2015 +0200
 +++ b/plan.txt  Tue Jun 09 15:07:42 2015 +0200
@@ -51,6 +62,7 @@ diff -r 1320339bbcae plan.txt
 +
 +Need daily high resolution weather forcing from Environment Canada.
 ~~~
+{: .output}
 
 The output is cryptic because it is actually a series of commands for tools like
 editors and `patch` telling them how to reconstruct one file given the other.
@@ -68,23 +80,27 @@ If we can break it down into pieces:
 
 Let's commit our change:
 
-~~~ {.bash}
+~~~
 $ hg commit -m "Add note about source for atmospheric forcing."
 ~~~
+{: .bash}
 
 Checking our project's status:
 
-~~~ {.bash}
+~~~
 $ hg status
 ~~~
+{: .bash}
 
 we get no output because all of the changes have been committed.
 We can see our commits with `hg log`:
 
-~~~ {.bash}
+~~~
 $ hg log
 ~~~
-~~~ {.output}
+{: .bash}
+
+~~~
 changeset:   1:b31241913818
 tag:         tip
 user:        Susan Allen <sallen@eos.ubc.ca>
@@ -97,7 +113,7 @@ date:        Tue Jun 09 14:41:27 2015 +0200
 summary:     Starting to plan the daily NEMO forecast system.
 
 ~~~
-
+{: .output}
 
 > ## Committing only some of the changes {.callout}
 >
@@ -115,13 +131,14 @@ summary:     Starting to plan the daily NEMO forecast system.
 > listing the names of the files to be included in each commit in the `hg commit`
 > command:
 >
-> ~~~ {.bash}
+> ~~~
 > $ hg commit -m "Cite Sastri and Dower (2009)." methods.txt biblio.txt
 > ...
 > <later>
 > ...
 > $ hg commit conclusions.txt -m "Update conclusions re: phyto bloom timing mismatches."
 > ~~~
+> {: .bash}
 >
 > Notice that the list of file names can come before or after the commit comment
 > in the `hg commit` command.
@@ -129,20 +146,26 @@ summary:     Starting to plan the daily NEMO forecast system.
 Let's add another line to the file for practice and to make our revision
 history more interesting:
 
-~~~ {.bash}
+~~~
 $ nano plan.txt
 $ cat plan.txt
 ~~~
-~~~ {.output}
+{: .bash}
+
+~~~
 Goal: Run NEMO everyday to forecast storm surge water levels
 
 Need daily high resolution weather forcing from Environment Canada.
 Also need daily average Fraser River flow from Environment Canada.
 ~~~
-~~~ {.bash}
+{: .output}
+
+~~~
 $ hg diff
 ~~~
-~~~ {.output}
+{: .bash}
+
+~~~
 diff -r b31241913818 plan.txt
 --- a/plan.txt  Tue Jun 09 15:16:11 2015 +0200
 +++ b/plan.txt  Tue Jun 09 15:25:33 2015 +0200
@@ -152,6 +175,7 @@ diff -r b31241913818 plan.txt
  Need daily high resolution weather forcing from Environment Canada.
 +Also need daily average Fraser River flow from Environment Canada.
 ~~~
+{: .output}
 
 So far, so good:
 we've added one line to the end of the file
@@ -159,16 +183,19 @@ we've added one line to the end of the file
 Now,
 let's commit our changes:
 
-~~~ {.bash}
+~~~
 $ hg commit plan.txt -m "Add note about data source for Fraser River flow forcing."
 ~~~
+{: .bash}
 
 and look at the history of what we've done so far:
 
-~~~ {.bash}
+~~~
 $ hg log
 ~~~
-~~~ {.output}
+{: .bash}
+
+~~~
 changeset:   2:2e15a7ee29c2
 tag:         tip
 user:        Susan Allen <sallen@eos.ubc.ca>
@@ -186,7 +213,7 @@ date:        Tue Jun 09 14:41:27 2015 +0200
 summary:     Starting to plan the daily NEMO forecast system.
 
 ~~~
-
+{: .output}
 
 > ## `bio` Repository {.challenge}
 >

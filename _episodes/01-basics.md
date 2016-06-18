@@ -1,13 +1,15 @@
 ---
-layout: page
-title: Version Control with Mercurial
 subtitle: Automated Version Control
-minutes: 5
+teaching: 10
+exercises: 5
+questions:
+- "FIXME?"
+objectives:
+- "Understand the benefits of an automated version control system."
+- "Understand the basics of how [Mercurial](http://mercurial.selenic.com/) works."
+keypoints:
+- "FIXME"
 ---
-> ## Learning Objectives {.objectives}
->
-> * Understand the benefits of an automated version control system.
-> * Understand the basics of how [Mercurial](http://mercurial.selenic.com/) works.
 
 We'll start by exploring how version control can be used
 to keep track of what one person did and when.

@@ -1,12 +1,14 @@
 ---
-layout: page
-title: Version Control with Mercurial
-subtitle: Open Science
-minutes: 5
+title: Open Science
+teaching: 10
+exercises: 5
+questions:
+- "FIXME?"
+objectives:
+- "Explain how a version control system can be leveraged as an electronic lab notebook for computational work."
+keypoints:
+- "FIXME"
 ---
-> ## Learning Objectives {.objectives}
->
-> *  Explain how a version control system can be leveraged as an electronic lab notebook for computational work.
 
 > The opposite of "open" isn't "closed".
 > The opposite of "open" is "broken".

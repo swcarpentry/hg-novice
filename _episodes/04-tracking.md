@@ -1,16 +1,17 @@
 ---
-layout: page
-title: Version Control with Mercurial
-subtitle: Tracking Changes to Files
+title: Tracking Changes to Files
+teaching: 10
+exercises: 5
+questions:
+- "FIXME?"
+objectives:
+- "Display the version control status of files in a repository and explain what those statuses mean."
+- "Add files to Mercurial's collection of tracked files."
+- "Record metadata about changes to a file."
+- "Display the history of changes to files in a repository and explain the metadata that is recorded with each changeset."
+keypoints:
+- "FIXME"
 ---
-> ## Learning Objectives {.objectives}
->
-> * Display the version control status of files in a repository and explain
->   what those statuses mean.
-> * Add files to Mercurial's collection of tracked files.
-> * Record metadata about changes to a file.
-> * Display the history of changes to files in a repository and explain
->   the metadata that is recorded with each changeset.
 
 Let's create a file called `plan.txt` in which Susan is going to write her
 initial ideas and notes about the Salish Sea NEMO daily forecast system.
@@ -22,67 +23,84 @@ the editor does not have to be the one that you set in your Mercurial
 configuration earlier.
 In what follows it is assumed that `nano` is used.
 
-~~~ {.bash}
+~~~
 $ nano plan.txt
 ~~~
+{: .bash}
 
 and type into that file:
 
-~~~ {.output}
+~~~
 Goal: Run NEMO everyday to forecast storm surge water levels
 ~~~
+{: .output}
 
 `plan.txt` has now been created and it contains a single line:
 
-~~~ {.bash}
+~~~
 $ ls
 ~~~
-~~~ {.output}
+{: .bash}
+
+~~~
 plan.txt
 ~~~
-~~~ {.bash}
+{: .output}
+
+~~~
 $ cat plan.txt
 ~~~
-~~~ {.output}
+{: .bash}
+
+~~~
 Goal: Run NEMO everyday to forecast storm surge water levels
 ~~~
+{: .output}
 
 We can ask Mercurial to tell us what it knows about the files in our project
 with the `hg status` command.
 Mercurial tells us that it has noticed the new file:
 
-~~~ {.bash}
+~~~
 $ hg status
 ~~~
-~~~ {.output}
+{: .bash}
+
+~~~
 ? plan.txt
 ~~~
+{: .output}
 
 The `?` at the beginning of the line means that Mercurial isn't keeping track
 of the file.
 We can tell Mercurial that it should do so using `hg add`:
 
-~~~ {.bash}
+~~~
 $ hg add plan.txt
 ~~~
+{: .bash}
 
 and then check that the right thing happened:
 
-~~~ {.bash}
+~~~
 $ hg status
 ~~~
-~~~ {.output}
+{: .bash}
+
+~~~
 A plan.txt
 ~~~
+{: .output}
 
 Mercurial now knows that it's supposed to keep track of `plan.txt`,
 but it hasn't yet recorded any changes for posterity as a commit.
 To get it to do that,
 we need to run one more command:
 
-~~~ {.bash}
+~~~
 $ hg commit -m "Starting to plan the daily NEMO forecast system."
 ~~~
+{: .bash}
 
 When we run `hg commit`,
 Mercurial takes the file we have told it about by using `hg add` and stores
@@ -106,19 +124,22 @@ add a blank line between the summary line and your additional notes.
 
 If we run `hg status` now:
 
-~~~ {.bash}
+~~~
 $ hg status
 ~~~
+{: .bash}
 
 we get no output because everything is up to date.
 
 If we want to know what we've done recently,
 we can ask Mercurial to show us the project's history using `hg log`:
 
-~~~ {.bash}
+~~~
 $ hg log
 ~~~
-~~~ {.output}
+{: .bash}
+
+~~~
 changeset:   0:1320339bbcae
 tag:         tip
 user:        Susan Allen <sallen@eos.ubc.ca>
@@ -126,6 +147,7 @@ date:        Tue Jun 09 14:41:27 2015 +0200
 summary:     Starting to plan the daily NEMO forecast system.
 
 ~~~
+{: .output}
 
 `hg log` lists all changes committed to a repository,
 starting with the most recent.

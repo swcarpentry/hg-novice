@@ -1,13 +1,16 @@
 ---
-layout: page
-title: Version Control with Mercurial
-subtitle: Remote Repositories
+title: Remote Repositories
+teaching: 10
+exercises: 5
+questions:
+- "FIXME?"
+objectives:
+- "Explain what remote repositories are and why they are useful."
+- "Explain what happens when a remote repository is cloned."
+- "Explain what happens when changes are pushed to or pulled from a remote repository."
+keypoints:
+- "FIXME"
 ---
-> ## Learning Objectives {.objectives}
->
-> * Explain what remote repositories are and why they are useful.
-> * Explain what happens when a remote repository is cloned.
-> * Explain what happens when changes are pushed to or pulled from a remote repository.
 
 By now it should be obvious that version control is a powerful tool for
 organizing our own work on our personal laptop or workstation.
@@ -52,14 +55,15 @@ Select `I have an existing project`,
 and use the commands shown to "push" the files and metadata from your local `
 forecast` repo to the newly created one on Bitbucket:
 
-~~~ {.bash}
+~~~
 $ cd forecast
 $ hg push https://bitbucket.org/susan/forecast
 ~~~
+{: .bash}
 
 The output from that `hg push` command should look like:
 
-~~~ {.output}
+~~~
 pushing to https://bitbucket.org/susan/forecast
 searching for changes
 http authorization required for https://bitbucket.org/susan/forecast
@@ -71,6 +75,7 @@ remote: adding manifests
 remote: adding file changes
 remote: added 3 changesets with 3 changes to 1 files
 ~~~
+{: .output}
 
 You will have to type your own Bitbucket user name and password.
 
@@ -87,9 +92,10 @@ which is the same URL from the `hg push` statement above.
 
 Use the command:
 
-~~~ {.bash}
+~~~
 $ hg config --local
 ~~~
+{: .bash}
 
 to open your local repository's configuration file in your editor.
 You should see a template file that looks like:
@@ -128,9 +134,10 @@ It will automatically be stored in `forecast/.hg/hgrc`.
 >
 > If your computer responds to the `hg config --local` command with
 >
-> ~~~ {.output}
+> ~~~
 > hg: unknown command 'config'
 > ~~~
+> {: .output}
 >
 > it means that you are using a version of Mercurial older than 3.0 that
 > doesn't have the `hg config` command.
@@ -138,9 +145,10 @@ It will automatically be stored in `forecast/.hg/hgrc`.
 > You will have to create your local repository's configuration file from scratch.
 > Use:
 >
-> ~~~ {.bash}
+> ~~~
 > nano .hg/hgrc
 > ~~~
+> {: .bash}
 >
 > to create the appropriately named empty file and then type in the 2 lines
 > above.
@@ -148,22 +156,27 @@ It will automatically be stored in `forecast/.hg/hgrc`.
 
 We can check that the command has worked by running `hg paths`:
 
-~~~ {.bash}
+~~~
 $ hg paths
 ~~~
-~~~ {.output}
+{: .bash}
+
+~~~
 default = https://bitbucket.org/susan/forecast
 ~~~
+{: .output}
 
 Now that the default path is set up, we won't need to specify the
 target URL when we run `hg push` in the future; running `hg push`
 will automatically push the changes from our local repository
 to the repository on Bitbucket:
 
-~~~ {.bash}
+~~~
 $ hg push
 ~~~
-~~~ {.output}
+{: .bash}
+
+~~~
 pushing to https://bitbucket.org/susan/forecast
 searching for changes
 http authorization required for https://bitbucket.org/susan/forecast
@@ -172,6 +185,7 @@ user: susan
 password:
 no changes found
 ~~~
+{: .output}
 
 As before,
 you will have to type your own Bitbucket user name and password.
@@ -180,10 +194,12 @@ This push has no effect because the two repositories are already synchronized.
 
 We can pull changes from the remote repository to the local one as well:
 
-~~~ {.bash}
+~~~
 $ hg pull
 ~~~
-~~~ {.output}
+{: .bash}
+
+~~~
 pulling from https://bitbucket.org/susan/forecast
 searching for changes
 http authorization required for https://bitbucket.org/susan/forecast
@@ -192,6 +208,7 @@ user: susan
 password:
 no changes found
 ~~~
+{: .output}
 
 Pulling also has no effect in this case because the two repositories are already synchronized.
 If we had pushed some changes to the repository on Bitbucket from a clone on another machine,

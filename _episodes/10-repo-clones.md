@@ -1,14 +1,15 @@
 ---
-layout: page
-title: Version Control with Mercurial
-subtitle: Working with Clone Repositories
+title: Working with Clone Repositories
+teaching: 10
+exercises: 5
+questions:
+- "FIXME?"
+objectives:
+- "Explain how to push, pull, update files, and update metadata among clones of a repository."
+- "Display a simple visualization of the state of a repository and explain how updating the repository affects its state."
+keypoints:
+- "FIXME"
 ---
-> ## Learning Objectives {.objectives}
->
-> * Explain how to push, pull, update files, and update metadata among clones
->   of a repository.
-> * Display a simple visualization of the state of a repository and explain
->   how updating the repository affects its state.
 
 We're going to simulate working with a repository on different machines
 (laptop and lab workstation,
@@ -19,28 +20,31 @@ We'll do this by creating 2 clones of Susan's `forecast` repo from Bitbucket in 
 
 Create 2 directories called `home` and `work` on your desktop:
 
-~~~ {.bash}
+~~~
 $ cd ~/Desktop
 $ mkdir home work
 ~~~
+{: .bash}
 
 In the `work` directory,
 clone the `forecast` repository from Bitbucket:
 
-~~~ {.bash}
+~~~
 $ cd ~/Desktop/work
 $ hg clone https://bitbucket.org/susan/forecast
 ~~~
+{: .bash}
 
 `hg clone` creates a fresh local copy of a remote repository.
 
 Now switch to the `home` directory and clone the `forecast` repo from Bitbucket
 there too:
 
-~~~ {.bash}
+~~~
 $ cd ~/Desktop/home
 $ hg clone https://bitbucket.org/susan/forecast
 ~~~
+{: .bash}
 
 Our computer now has two new copies of the repository:
 
@@ -48,31 +52,36 @@ Our computer now has two new copies of the repository:
 
 Let's change the `work` copy of the repository by adding a new file in which we're going to start building the bibliography for the paper that will eventually be written:
 
-~~~ {.bash}
+~~~
 $ cd ~/Desktop/work/
 $ nano biblio.txt
 ~~~
+{: .bash}
 
 and type into that file:
 
-~~~ {.output}
+~~~
 NEMO Ocean Engine, Version 3.4. Madec G., et al. 2012.
 ~~~
+{: .output}
 
 Tell Mercurial to track our new file,
 and commit it:
 
-~~~{.bash}
+~~
 $ hg add biblio.txt
 $ hg commit -m"Start creating bibliography for the forecast paper."
 ~~~
+{: .bash}
 
 then push the change to Bitbucket:
 
-~~~ {.bash}
+~~~
 $ hg push
 ~~~
-~~~ {.output}
+{: .bash}
+
+~~~
 pushing to https://bitbucket.org/susan/forecast
 searching for changes
 http authorization required for https://bitbucket.org/susan/forecast
@@ -84,6 +93,7 @@ adding manifests
 adding file changes
 added 1 changesets with 1 changes to 1 files
 ~~~
+{: .output}
 
 Note that we didn't have to create a remote path called `default`;
 Mercurial did that automatically when we cloned the repository from Bitbucket.
@@ -94,11 +104,13 @@ Our three repositories now look like this:
 
 We can now download the change into our `home` repository:
 
-~~~ {.bash}
+~~~
 $ cd ~/Desktop/home/
 $ hg pull
 ~~~
-~~~ {.output}
+{: .bash}
+
+~~~
 pulling from https://bitbucket.org/susan/forecast
 searching for changes
 http authorization required for https://bitbucket.org/susan/forecast
@@ -111,13 +123,17 @@ adding file changes
 added 1 changesets with 1 changes to 1 files
 (run 'hg update' to get a working copy)
 ~~~
+{: .output}
+
 If we look at our repository history now with the `hg log --graph` command we can see that the `@` character marks the revision that our working copy of the files is at and the revision that we pulled from Bitbucket is above that,
 meaning it has not yet been applied to our working files:
 
-~~~ {.bash}
+~~~
 $ hg log --graph
 ~~~
-~~~ {.output}
+{: .bash}
+
+~~~
 o  changeset:   3:68fd235a0541
 |  user:        Susan Allen <sallen@eos.ubc.ca>
 |  date:        Sun Jun 14 11:04:44 2015 -0700
@@ -139,16 +155,20 @@ o  changeset:   0:983898576cad
    summary:     Starting to plan the daily NEMO forecast system.
 
 ~~~
+{: .output}
 
 To apply those changes we use `hg update`
 (as Mercurial helpfully suggested at the end of the `hg pull` process):
 
-~~~ {.bash}
+~~~
 $ hg update
 ~~~
-~~~ {.output}
+{: .bash}
+
+~~~
 1 files updated, 0 files merged, 0 files removed, 0 files unresolved
 ~~~
+{: .output}
 
 You can use `hg log --graph` again to see that the `@` has been moved to changeset 3 which tells us that our working copy is up to date.
 

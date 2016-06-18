@@ -26,10 +26,11 @@ For example,
 if you want to create an `hg latest` command to show only the five most recent changesets,
 you can edit your config file with `hg config --edit` and add a section that looks like:
 
-~~~ {.bash}
+~~~
 [aliases]
 latest = log --limit 5
 ~~~
+{: .bash}
 
 Each repository can also have its own configuration file stored at `.hg/hgrc`.
 That file is where the path to a remote location that the repo may have been cloned from is stored.
@@ -65,48 +66,55 @@ using outputs from a word processor instead of plain text.
 
 Create a new directory and go into it:
 
-~~~ {.bash}
+~~~
 $ mkdir planets-nontext
 $ cd planets-nontext
 ~~~
+{: .bash}
 
 Use a program such as Microsoft Word or LibreOffice Writer to create a new document.
 Enter the same text that we began with before:
 
-~~~ {.output}
+~~~
 Cold and dry, but everything is my favorite color
 ~~~
+{: .output}
 
 Save the document into the `planets-nontext` directory with the name of `mars.doc`.
 Back in the terminal, run the usual commands for setting up a new Mercurial repository:
 
-~~~ {.bash}
+~~~
 $ hg init
 $ hg add mars.doc
 $ hg commit -m "Starting to think about Mars"
 ~~~
+{: .bash}
 
 Then make the same changes to `mars.doc` that we (or Vlad) previously made to `mars.txt`.
 
-~~~ {.output}
+~~~
 Cold and dry, but everything is my favorite color
 The two moons may be a problem for Wolfman
 ~~~
+{: .output}
 
 Save and close the word processor.
 Now see what Git thinks of your changes:
 
-~~~ {.bash}
+~~~
 $ hg diff
 ~~~
-~~~ {.output}
+{: .bash}
+
+~~~
 diff -r 0f3937fd3863 mars.doc
 Binary file mars.doc has changed
 ~~~
+{: .output}
 
 Compare this to the earlier `git diff` obtained when using text files:
 
-~~~ {.output}
+~~~
 diff -r 72ab25fa99a1 mars.txt
 --- a/mars.txt  Mon Apr 14 14:41:58 2014 -0400
 +++ b/mars.txt  Mon Apr 14 15:48:53 2014 -0400
@@ -114,6 +122,7 @@ diff -r 72ab25fa99a1 mars.txt
  Cold and dry, but everything is my favorite color
 +The two moons may be a problem for Wolfman
 ~~~
+{: .output}
 
 Notice how plain text files give a much more informative diff.
 You can see exactly which lines changed and what the changes were.

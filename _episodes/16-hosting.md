@@ -1,12 +1,14 @@
 ---
-layout: page
-title: Version Control with Mercurial
-subtitle: Hosting
-minutes: 10
+title: Hosting
+teaching: 10
+exercises: 5
+questions:
+- "FIXME?"
+objectives:
+- "Explain different options for hosting scientific work."
+keypoints:
+- "FIXME"
 ---
-> ## Learning Objectives {.objectives}
->
-> *   Explain different options for hosting scientific work.
 
 The second big question for groups that want to open up their work
 is where to host their code and data.

@@ -1,12 +1,15 @@
 ---
-layout: page
-title: Version Control with Mercurial
-subtitle: Recovering Old Versions
+title: Recovering Old Versions
+teaching: 10
+exercises: 5
+questions:
+- "FIXME?"
+objectives:
+- "Restore older versions of files."
+- "Use configuration aliases to create custom Mercurial commands."
+keypoints:
+- "FIXME"
 ---
-> ## Learning Objectives {.objectives}
->
-> * Restore older versions of files.
-> * Use configuration aliases to create custom Mercurial commands.
 
 All right:
 we can save changes to files and see what we've changed &Mdash;
@@ -14,38 +17,47 @@ how can we restore older versions of things?
 Let's suppose we (somehow) accidentally overwrite Salish Sea NEMO forecast
 planning file with our grocery list:
 
-~~~ {.bash}
+~~~
 $ nano plan.txt
 $ cat plan.txt
 ~~~
-~~~ {.output}
+{: .bash}
+
+~~~
 Ricotta
 Mushroom Tortellini
 Bacon
 ~~~
+{: .output}
 
 `hg status` now tells us that the file has been changed,
 but those changes haven't been committed:
 
-~~~ {.bash}
+~~~
 $ hg status
 ~~~
-~~~ {.output}
+{: .bash}
+
+~~~
 M plan.txt
 ~~~
+{: .output}
 
 We can put things back the way they were by using `hg revert`:
 
-~~~ {.bash}
+~~~
 $ hg revert plan.txt
 $ cat plan.txt
 ~~~
-~~~ {.output}
+{: .bash}
+
+~~~
 Goal: Run NEMO everyday to forecast storm surge water levels
 
 Need daily high resolution weather forcing from EC.
 Also need daily average Fraser River flow from EC.
 ~~~
+{: .output}
 
 As you might guess from its name,
 `hg revert` reverts to (i.e. restores) an old version of a file.
@@ -55,19 +67,23 @@ of the file.
 If we want to go back even further,
 we can use the `--rev` or `-r` flag and a revision number instead:
 
-~~~ {.bash}
+~~~
 $ hg revert --rev 0 plan.txt
 ~~~
+{: .bash}
 
 Mercurial really doesn't want to cause us to lose our work,
 so it defaults to making a backup when we use `hg revert`:
 
-~~~ {.bash}
+~~~
 $ hg status
 ~~~
-~~~ {.output}
+{: .bash}
+
+~~~
 ? plan.txt.orig
 ~~~
+{: .output}
 
 The `plan.txt.orig` file is a copy of `plan.txt` as it stood before the
 `hg revert` command.
