@@ -82,13 +82,13 @@ save the file and exit your editor.
 
 > ## hg: unknown command 'config' {.callout}
 >
-> If your computer responsed to the `hg config --edit` command with
+> If your computer responds to the `hg config --edit` command with
 >
 > ~~~ {.output}
 > hg: unknown command 'config'
 > ~~~
 >
-> it mean that you are using an version of Mercurial older than 3.0 that
+> it means that you are using a version of Mercurial older than 3.0 that
 > doesn't have the `hg config` command.
 >
 > You will have to create your configuration file from scratch.
