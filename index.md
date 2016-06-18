@@ -77,8 +77,8 @@ but the workflow that they encourage.
 10. [Working with Clone Repositories](10-repo-clones.html)
 11. [Collaboration](11-collaboration.html)
 12. [Merging Changes from Different Clones](12-merges.html)
+13. [Merge Conflicts](13-conflicts.html)
 
-3.  [Conflicts](03-conflict.html)
 4.  [Open Science](04-open.html)
 
 ## Other Resources
