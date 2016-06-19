@@ -1,7 +1,6 @@
 ---
 layout: page
-title: Version Control with Mercurial
-subtitle: Discussion
+title: Discussion
 ---
 
 ## Frequently Asked Questions
@@ -15,10 +14,14 @@ it won't be covered by the instructor.
 
 ## More Advanced Mercurial Configuration
 
-In the [Setting Up](01-backup.html#setting-up) section we edited a Mercurial configuration file in our home directory called `$USERPROFILE/Mercurial.ini` or `~/.hgrc`.
-You can quickly open that file for editing with the command `hg config --edit`.
+In the [Setting Up](01-backup.html#setting-up) section we edited a
+Mercurial configuration file in our home directory called
+`$USERPROFILE/Mercurial.ini` or `~/.hgrc`.  You can quickly open that
+file for editing with the command `hg config --edit`.
 
-If you want to know more about the many configuration options available you can use `hg help config` or visit [the Mercurial config documenttation](http://www.selenic.com/mercurial/hgrc.5.html).
+If you want to know more about the many configuration options
+available you can use `hg help config` or visit [the Mercurial config
+documenttation](http://www.selenic.com/mercurial/hgrc.5.html).
 
 One configuration option that can be useful is adding aliases.
 These are like shorcuts for longer `hg` commands.
@@ -32,30 +35,29 @@ latest = log --limit 5
 ~~~
 {: .bash}
 
-Each repository can also have its own configuration file stored at `.hg/hgrc`.
-That file is where the path to a remote location that the repo may have been cloned from is stored.
-You can open that file for editing with the command `hg config --local`.
-
+Each repository can also have its own configuration file stored at
+`.hg/hgrc`.  That file is where the path to a remote location that the
+repo may have been cloned from is stored.  You can open that file for
+editing with the command `hg config --local`.
 
 ## Non-text Files
 
-Recall when we discussed [Conflicts](03-conflict.html)
-there was a challenge that asked:
+Recall when we discussed [Conflicts](03-conflict.html) there was a
+challenge that asked, "What does hg do when there is a conflict in an
+image or some other non-textual file that is stored in version
+control?"  We will now revisit this in more detail.
 
-> What does hg do
-> when there is a conflict in an image or some other non-textual file
-> that is stored in version control?
+Many people want to version control non-text files, such as images,
+PDFs and Microsoft Office or LibreOffice documents.  It is true that
+Mercurial can handle these filetypes (which fall under the banner of
+"binary" file types).  However, just because it *can* be done doesn't
+mean it *should* be done.
 
-We will now revisit this in more detail.
-
-Many people want to version control non-text files, such as images, PDFs and Microsoft Office or LibreOffice documents.
-It is true that Mercurial can handle these filetypes (which fall under the banner of "binary" file types).
-However, just because it *can* be done doesn't mean it *should* be done.
-
-Much of Mercurial's magic comes from being able to do line-by-line comparisons ("diffs") between files.
-This is generally easy for programming source code and marked up text.
-For non-text files, a diff can usually only detect that the files have changed
-but can't say how or where.
+Much of Mercurial's magic comes from being able to do line-by-line
+comparisons ("diffs") between files.  This is generally easy for
+programming source code and marked up text.  For non-text files, a
+diff can usually only detect that the files have changed but can't say
+how or where.
 
 This has various impacts on Mercurial's performance and will make it difficult to
 compare different versions of your project.

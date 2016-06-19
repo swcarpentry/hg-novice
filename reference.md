@@ -1,7 +1,5 @@
 ---
-layout: page
-title: Version Control with Mercurial
-subtitle: Reference
+layout: reference
 ---
 ## A Better Kind of Backup
 

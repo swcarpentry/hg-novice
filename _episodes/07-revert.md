@@ -107,8 +107,7 @@ If the introduction and conclusion are stored in separate files,
 on the other hand,
 moving backward and forward in time becomes much easier.
 
-
-> ## Using Aliases to Create New Mercurial Commands {.callout}
+> ## Using Aliases to Create New Mercurial Commands
 >
 > If we decide that reverting without creating `.orig` backup file is something
 > that we want to do regularly we can use `hg config --edit` to add
@@ -117,6 +116,7 @@ moving backward and forward in time becomes much easier.
 > [alias]
 > nb-revert = revert --no-backup
 > ~~~
+> {: .source}
 >
 > to our Mercurial configuration settings.
 > After we save the configuration file and exit from the editor we have a new
@@ -132,6 +132,8 @@ moving backward and forward in time becomes much easier.
 > [alias]
 > revert = revert --no-backup
 > ~~~
+> {: .source}
 >
 > it would be difficult to get `hg revert` to create `.orig` backup files if we
 > ever wanted it to.
+{: .callout}

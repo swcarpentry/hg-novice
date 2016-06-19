@@ -39,17 +39,17 @@ Let's start by putting a copy of our Salish Sea forecast planning repo on Bitbuc
 Log in to the Bitbucket site,
 then click on `Create repository` under the `Create` menu at the top of the page:
 
-![Creating a Repository on Bitbucket (Step 1)](fig/bitbucket-create-repo-01.png)
+![Creating a Repository on Bitbucket (Step 1)]({{ site.github.url }}/fig/bitbucket-create-repo-01.png)
 
 Name your repository `forecast` and then click `Create Repository`:
 
-![Creating a Repository on Bitbucket (Step 2)](fig/bitbucket-create-repo-02.png)
+![Creating a Repository on Bitbucket (Step 2)]({{ site.github.url }}/fig/bitbucket-create-repo-02.png)
 
 As soon as the repository is created,
 Bitbucket displays a page with a URL and some information on how to configure
 your local repository:
 
-![Creating a Repository on Bitbucket (Step 3)](fig/bitbucket-create-repo-03.png)
+![Creating a Repository on Bitbucket (Step 3)]({{ site.github.url }}/fig/bitbucket-create-repo-03.png)
 
 Select `I have an existing project`,
 and use the commands shown to "push" the files and metadata from your local `
@@ -82,7 +82,7 @@ You will have to type your own Bitbucket user name and password.
 The `hg push` command brought the repository on Bitbucket's server up-to-date with the one on our own machine.
 Our local and remote repositories are now in this state:
 
-![Bitbucket Repository After First Push](fig/bitbucket-repo-after-first-push.svg)
+![Bitbucket Repository After First Push]({{ site.github.url }}/fig/bitbucket-repo-after-first-push.svg)
 
 The next step is to connect the two repositories so that we don't have to type
 the URL every time we do something with Bitbucket.
@@ -115,6 +115,7 @@ You should see a template file that looks like:
 # name and email (local to this repository, optional), e.g.
 # username = Jane Doe <jdoe@example.com>
 ~~~
+{: .source}
 
 Edit the file so that it has just 2 lines:
 
@@ -122,6 +123,7 @@ Edit the file so that it has just 2 lines:
 [paths]
 default = https://bitbucket.org/susan/forecast
 ~~~
+{: .source}
 
 Make sure to use the URL with your Bitbucket username in it rather than `susan`
 (the one from the `hg push` command above).
@@ -129,8 +131,7 @@ Make sure to use the URL with your Bitbucket username in it rather than `susan`
 Save the file.
 It will automatically be stored in `forecast/.hg/hgrc`.
 
-
-> ## hg: unknown command 'config' {.callout}
+> ## hg: unknown command 'config'
 >
 > If your computer responds to the `hg config --local` command with
 >
@@ -152,7 +153,7 @@ It will automatically be stored in `forecast/.hg/hgrc`.
 >
 > to create the appropriately named empty file and then type in the 2 lines
 > above.
-
+{: .callout}
 
 We can check that the command has worked by running `hg paths`:
 
@@ -216,7 +217,7 @@ though,
 this command would download them to our local repository.
 
 
-> ## Bitbucket Timestamp {.challenge}
+> ## Bitbucket Timestamp
 >
 > Create a repository on Bitbucket,
 > clone it,
@@ -224,9 +225,9 @@ this command would download them to our local repository.
 > push those changes to Bitbucket.
 > Look at the **timestamp** of the change on Bitbucket.
 > How does Bitbucket record times, and why?
+{: .challenge}
 
-
-> ## Using ssh Key Authentication {.callout}
+> ## Using ssh Key Authentication
 >
 > Typing your user name and password every time that you interact with
 > Bitbucket is really tedious.
@@ -236,3 +237,4 @@ this command would download them to our local repository.
 > but after the workshop you should read the Bitbucket
 > [Setting up SSH for Mercurial](https://confluence.atlassian.com/bitbucket/set-up-ssh-for-mercurial-728138122.html)
 > documentation on your own and set up ssh keys for yourself.
+{: .callout}

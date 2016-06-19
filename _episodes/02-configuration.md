@@ -87,7 +87,7 @@ When you are finished,
 save the file and exit your editor.
 
 
-> ## hg: unknown command 'config' {.callout}
+> ## hg: unknown command 'config'
 >
 > If your computer responds to the `hg config --edit` command with
 >
@@ -117,7 +117,7 @@ save the file and exit your editor.
 >
 > to create the appropriately named empty file and then type in the lines
 > above.
-
+{: .callout}
 
 When you saved the file it was stored in your home directory as `.hgrc` on OS X and
 Linux or as `Mercurial.ini` on Windows.

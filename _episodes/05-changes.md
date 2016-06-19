@@ -115,7 +115,7 @@ summary:     Starting to plan the daily NEMO forecast system.
 ~~~
 {: .output}
 
-> ## Committing only some of the changes {.callout}
+> ## Committing Only Some of the Changes
 >
 > Of course sometimes we may not want to commit everything at once.
 > For example,
@@ -142,6 +142,7 @@ summary:     Starting to plan the daily NEMO forecast system.
 >
 > Notice that the list of file names can come before or after the commit comment
 > in the `hg commit` command.
+{: .callout}
 
 Let's add another line to the file for practice and to make our revision
 history more interesting:
@@ -215,7 +216,7 @@ summary:     Starting to plan the daily NEMO forecast system.
 ~~~
 {: .output}
 
-> ## `bio` Repository {.challenge}
+> ## `bio` Repository
 >
 > Create a new Mercurial repository on your computer called `bio`.
 > Write a three-line biography for yourself in a file called `me.txt`,
@@ -224,3 +225,4 @@ summary:     Starting to plan the daily NEMO forecast system.
 > add a fourth line,
 > and display the differences between the file's updated state and its
 > original state.
+{: .challenge}

@@ -57,13 +57,11 @@ anyone who distributes a modified version of the code, or anything
 that includes GPL'ed code, must make *their* code freely available as
 well.
 
-The following article provides an excellent overview of licensing and
-licensing options from the perspective of scientists who also write
-code:
-
-> Morin, A., Urban, J., and Sliz, P. “[A Quick Guide to Software
-> Licensing for the Scientist-Programmer](http://dx.doi.org/10.1371/journal.pcbi.1002598)” PLoS Computational Biology
-> 8(7) (2012): e1002598.
+"[A Quick Guide to Software Licensing for the
+Scientist-Programmer](http://dx.doi.org/10.1371/journal.pcbi.1002598)"
+by Morin, Urban, and Sliz provides an excellent overview of licensing
+and licensing options from the perspective of scientists who also
+write code:
 
 At the end of the day what matters is that there is a clear statement
 as to what the license is, and that the license is one already vetted
@@ -139,9 +137,10 @@ Greg Wilson: "Software Carpentry: Lessons Learned". arXiv:1307.5448, July 2013.
 ~~~
 {: .source}
 
-> ## Can I Use Open License? {.challenge}
+> ## Can I Use Open License?
 >
 > Find out whether you are allowed to apply an open license to your software.
 > Can you do this unilaterally,
 > or do you need permission from someone in your institution?
 > If so, who?
+{: .challenge}

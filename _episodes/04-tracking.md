@@ -165,7 +165,7 @@ The listing for each [changeset](reference.html#changeset) includes:
 The revision number is a convenient integer shorthand for the hexidecimal
 identifier.
 
-> ## Where Are My Changes? {.callout}
+> ## Where Are My Changes?
 >
 > If we run `ls` at this point,
 > we will still see just one file called `plan.txt`.
@@ -173,3 +173,4 @@ identifier.
 > special `.hg` directory mentioned earlier so that our filesystem doesn't
 > become cluttered
 > (and so that we can't accidentally edit or delete an old version).
+{: .callout}

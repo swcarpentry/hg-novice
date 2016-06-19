@@ -14,6 +14,7 @@ keypoints:
 > The opposite of "open" is "broken".
 >
 > --- John Wilbanks
+{: .quotation}
 
 Free sharing of information might be the ideal in science,
 but the reality is often more complicated.
@@ -93,16 +94,18 @@ by acting as a shareable electronic lab notebook for computational work:
     control repository is easy to archive for perpetuity, and contains
     the entire history.
 
-> ## Making Code Citable {.callout}
+> ## Making Code Citable
 >
 > [This short guide](https://guides.github.com/activities/citable-code/) from GitHub
 > explains how to create a Digital Object Identifier (DOI) for your code,
 > your papers,
 > or anything else hosted in a version control repository.
+{: .callout}
 
-> ## How Reproducible Is My Work? {.challenge}
+> ## How Reproducible Is My Work?
 >
 > Ask one of your labmates to reproduce a result you recently obtained
 > using only what they can find in your papers or on the web.
 > Try to do the same for one of their results,
 > then try to do it for a result from a lab you work with.
+{: .challenge}

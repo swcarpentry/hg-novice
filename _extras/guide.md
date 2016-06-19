@@ -1,7 +1,6 @@
 ---
 layout: page
-title: Version Control with Mercurial
-subtitle: Instructor's Guide
+title: "Instructor's Guide"
 ---
 Using a software tool to handle the versions of your project files
 lets you focus on the more interesting/innovative aspects of your project.
@@ -26,8 +25,6 @@ lets you focus on the more interesting/innovative aspects of your project.
     *   Every copy of a Mercurial repository is a full backup of a project and its history
 
 ## Overall
-
-*   Time estimate @douglatornell: 2 hours 45 minutes
 
 Version control may be the most important topic that we teach.
 We're teaching Mercurial because it offers a consistent user interface,
@@ -198,9 +195,10 @@ working alone or in teams because it is
     but under different names,
     e.g., pretend one is your computer at work:
 
-    ~~~{.input}
+    ~~~
     $ hg clone https://bitbucket.org/vlad/planets planets-at-work
     ~~~
+    {: .source}
 
 *   It's very common that learners mistype the remote alias or the remote URL
     when adding a remote,
@@ -215,9 +213,10 @@ working alone or in teams because it is
 *   If both repos are in the `Desktop`,
     have them to clone their collaborator repo under a given directory using a second argument:
 
-    ~~~{.input}
+    ~~~
     $ hg clone https://bitbucket.org/vlad/planets vlad-planet`
     ~~~
+    {: .source}
 
 *   Conflicts,
     sometimes weird,

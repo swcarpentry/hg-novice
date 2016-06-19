@@ -53,37 +53,9 @@ No matter which version control system you use,
 the most important thing to learn is not the details of their more obscure commands,
 but the workflow that they encourage.
 
-> ## Prerequisites {.prereq}
+> ## Prerequisites
 >
 > Students should understand how to interact with the Unix shell
 > (e.g., how to change their working directory)
 > before beginning this lesson.
-
-> ## Getting ready {.getready}
->
-> **You are ready to go.**
-
-## Topics
-
-1.  [Automated Version Control](01-basics.html)
-2.  [Configuring Mercurial](02-configuration.html)
-3.  [Creating a Repository](03-create-repo.html)
-4.  [Tracking Files](04-tracking.html)
-5.  [Making Changes](05-changes.html)
-6.  [Exploring History](06-history.html)
-7.  [Recovering Old Versions](07-revert.html)
-8.  [Ignoring Things](08-ignore.html)
-9.  [Remote Repositories](09-remote-repos.html)
-10. [Working with Clone Repositories](10-repo-clones.html)
-11. [Collaboration](11-collaboration.html)
-12. [Merging Changes from Different Clones](12-merges.html)
-13. [Merge Conflicts](13-conflicts.html)
-14. [Open Science](14-open.html)
-15. [Licensing](15-licensing.html)
-16. [Hosting](16-hosting.html)
-
-## Other Resources
-
-*   [Reference](reference.html)
-*   [Discussion](discussion.html)
-*   [Instructor's Guide](instructors.html)
+{: .prereq}
