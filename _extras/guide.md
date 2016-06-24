@@ -91,7 +91,6 @@ working alone or in teams because it is
     The differences between Mercurial and Git are largely syntactic,
     so learning one provides the conceptual framework to use either.
 
-
 ## [A Better Kind of Backup](01-backup.html)
 
 *   Ask, "Who uses 'undo' in their editor?"
@@ -271,7 +270,6 @@ arise naturally once we start talking about using public services like
 Bitbucket to store files.
 Also,
 the discussion gives learners a chance to catch their breath after what is often a frustrating couple of hours.
-
 
 **Hosting**
 

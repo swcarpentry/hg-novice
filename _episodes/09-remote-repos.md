@@ -216,7 +216,6 @@ If we had pushed some changes to the repository on Bitbucket from a clone on ano
 though,
 this command would download them to our local repository.
 
-
 > ## Bitbucket Timestamp
 >
 > Create a repository on Bitbucket,

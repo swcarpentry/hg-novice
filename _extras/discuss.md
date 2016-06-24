@@ -11,7 +11,6 @@ Students who have completed the rest of the lessons might find value in looking 
 Note that since this material isn't essential for basic Mercurial usage,
 it won't be covered by the instructor.
 
-
 ## More Advanced Mercurial Configuration
 
 In the [Setting Up](01-backup.html#setting-up) section we edited a

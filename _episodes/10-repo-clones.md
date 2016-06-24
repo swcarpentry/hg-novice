@@ -18,7 +18,7 @@ local workstation and an HPC cluster,
 etc.).
 We'll do this by creating 2 clones of Susan's `forecast` repo from Bitbucket in different directories on our laptops.
 
-Create 2 directories called `home` and `work` on your desktop:
+Create two directories called `home` and `work` on your desktop:
 
 ~~~
 $ cd ~/Desktop

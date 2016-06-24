@@ -86,7 +86,6 @@ mode = win32
 When you are finished,
 save the file and exit your editor.
 
-
 > ## hg: unknown command 'config'
 >
 > If your computer responds to the `hg config --edit` command with
