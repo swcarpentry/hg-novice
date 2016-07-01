@@ -3,12 +3,13 @@ title: Exploring History
 teaching: 10
 exercises: 5
 questions:
-- "FIXME?"
+- "How do I review my changes?"
+- "How can I recover old versions of files?"
 objectives:
 - "Compare files with older versions of themselves."
 - "Display the changes that were made to files in a previous changeset."
 keypoints:
-- "FIXME"
+- "Use `hg diff` to compare different versions of files."
 ---
 
 If we want to see what we changed when,

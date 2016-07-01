@@ -3,11 +3,11 @@ title: Creating a Repository
 teaching: 10
 exercises: 5
 questions:
-- "FIXME?"
+- "Where does Mercurial store information?"
 objectives:
 - "Explain how to initialize a new Mercurial repository."
 keypoints:
-- "FIXME"
+- "`hg init` initializes a repository."
 ---
 
 We'll start by exploring how version control can be used to keep track of what

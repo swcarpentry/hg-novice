@@ -3,12 +3,12 @@ title: Recovering Old Versions
 teaching: 10
 exercises: 5
 questions:
-- "FIXME?"
+- "How can I recover old versions of files?"
 objectives:
 - "Restore older versions of files."
 - "Use configuration aliases to create custom Mercurial commands."
 keypoints:
-- "FIXME"
+- "Use `hg revert` to recover old versions of files."
 ---
 
 All right:

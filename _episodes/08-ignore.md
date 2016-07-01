@@ -3,11 +3,11 @@ title: Ignoring Things
 teaching: 10
 exercises: 5
 questions:
-- "FIXME?"
+- "How can I tell Mercurial to ignore files I don't want to track?"
 objectives:
 - "Configure Mercurial to ignore specific files and explain why it is sometimes useful to do so."
 keypoints:
-- "FIXME"
+- "Create a `.hgignore` file to specify things that Mercurial should ignore."
 ---
 
 What if we have files that we do not want Mercurial to track for us,

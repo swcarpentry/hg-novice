@@ -3,12 +3,12 @@ title: Collaboration
 teaching: 10
 exercises: 5
 questions:
-- "FIXME?"
+- "How can I control who can see my work?"
 objectives:
 - "Explain the differences between public and private repositories on Bitbucket."
 - "Configure user and group access settings for Bitbucket repositories."
 keypoints:
-- "FIXME"
+- "Set access to 'public' or 'private' to control who can see what."
 ---
 
 So far we've focused on how we can use Mercurial to keep track of work for ourselves,

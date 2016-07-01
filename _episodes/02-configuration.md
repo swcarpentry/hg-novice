@@ -3,11 +3,11 @@ title: Configuring Mercurial
 teaching: 10
 exercises: 5
 questions:
-- "FIXME?"
+- "How do I get set up to use Mercurial?"
 objectives:
 - "Explain what configuration steps are required the first time Mercurial is used on a computer."
 keypoints:
-- "FIXME"
+-   "Use `hg config` to configure a user name, email address, editor, and other preferences once per machine."
 ---
 
 When we use [Mercurial](http://mercurial.selenic.com/) on a computer for the

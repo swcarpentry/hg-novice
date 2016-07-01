@@ -3,12 +3,12 @@ title: Working with Clone Repositories
 teaching: 10
 exercises: 5
 questions:
-- "FIXME?"
+- "How can I make local copies of repositories to work in?"
 objectives:
 - "Explain how to push, pull, update files, and update metadata among clones of a repository."
 - "Display a simple visualization of the state of a repository and explain how updating the repository affects its state."
 keypoints:
-- "FIXME"
+- "Use `hg clone` to make a local copy of a remote repository."
 ---
 
 We're going to simulate working with a repository on different machines

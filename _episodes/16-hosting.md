@@ -3,11 +3,12 @@ title: Hosting
 teaching: 10
 exercises: 5
 questions:
-- "FIXME?"
+- "Where should I host my version control repositories?"
 objectives:
 - "Explain different options for hosting scientific work."
 keypoints:
-- "FIXME"
+- "Projects can be hosted on university servers, on personal domains, or on public forges."
+- "Rules regarding intellectual property and storage of sensitive information apply no matter where code and data are hosted."
 ---
 
 The second big question for groups that want to open up their work

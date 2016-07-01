@@ -3,13 +3,14 @@ title: Remote Repositories
 teaching: 10
 exercises: 5
 questions:
-- "FIXME?"
+- "How can I use Mercurial to store information on other machines?"
 objectives:
 - "Explain what remote repositories are and why they are useful."
 - "Explain what happens when a remote repository is cloned."
 - "Explain what happens when changes are pushed to or pulled from a remote repository."
 keypoints:
-- "FIXME"
+- "Use `hg push` to push changes to remote repositories."
+- "Use `hg pull` to pull changes from remote repositories."
 ---
 
 By now it should be obvious that version control is a powerful tool for

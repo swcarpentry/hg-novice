@@ -3,12 +3,13 @@ title: Making Changes
 teaching: 10
 exercises: 5
 questions:
-- "FIXME?"
+- "How can I change files in a repository?"
 objectives:
 - "Display the uncommitted changes that have been made to tracked files."
 - "Go through the modify-commit cycle for single and multiple files."
 keypoints:
-- "FIXME"
+- "`hg diff` displays differences between commits."
+- "`hg log` shows the history of a repository."
 ---
 
 Now suppose Susan adds more notes to the file.

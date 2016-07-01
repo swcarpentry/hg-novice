@@ -3,13 +3,15 @@ title: Licensing
 teaching: 10
 exercises: 5
 questions:
-- "FIXME?"
+- "What licensing information should I include with my work?"
 objectives:
 - "Explain why adding licensing and citation information to a project repository is important."
 - "Choose a proper license."
 - "Explain differences in licensing and social expectations."
 keypoints:
-- "FIXME"
+- "People who incorporate GPL'd software into their own software must make their software also open under the GPL license; most other open licenses do not require this."
+- "The Creative Commons family of licenses allow people to mix and match requirements and restrictions on attribution, creation of derivative works, further sharing, and commercialization."
+- "People who are not lawyers should not try to write licenses from scratch."
 ---
 
 When a repository with source code, a manuscript

@@ -3,12 +3,12 @@ title: Merging Changes from Different Clones
 teaching: 10
 exercises: 5
 questions:
-- "FIXME?"
+- "How do I combine changes made in different repositories?"
 objectives:
 - "Explain how Mercurial handles changes that make a repository's history diverge."
 - "Explain what merges are."
 keypoints:
-- "FIXME"
+- "Use `hg merge` to combine independent changes to the same set of files."
 ---
 
 As soon as people can work in parallel,

@@ -3,14 +3,19 @@ title: Tracking Changes to Files
 teaching: 10
 exercises: 5
 questions:
-- "FIXME?"
+- "How do I record changes in Mercurial?"
+- "How do I check the status of my version control repository?"
+- "How do I record notes about what changes I made and why?"
 objectives:
 - "Display the version control status of files in a repository and explain what those statuses mean."
 - "Add files to Mercurial's collection of tracked files."
 - "Record metadata about changes to a file."
 - "Display the history of changes to files in a repository and explain the metadata that is recorded with each changeset."
 keypoints:
-- "FIXME"
+- "`hg status` shows the status of a repository."
+- "`hg add` puts files in the staging area."
+- "`hg commit` saves the staged content as a new commit in the local repository."
+- "Always write a log message when committing changes."
 ---
 
 Let's create a file called `plan.txt` in which Susan is going to write her

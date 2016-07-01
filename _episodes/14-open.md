@@ -3,11 +3,11 @@ title: Open Science
 teaching: 10
 exercises: 5
 questions:
-- "FIXME?"
+- "How can version control help me make my work more open?"
 objectives:
 - "Explain how a version control system can be leveraged as an electronic lab notebook for computational work."
 keypoints:
-- "FIXME"
+- "Open scientific work is more useful and more highly cited than closed."
 ---
 
 > The opposite of "open" isn't "closed".
