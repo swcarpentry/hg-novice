@@ -1,6 +1,8 @@
 ---
 layout: reference
+permalink: /reference/
 ---
+
 ## A Better Kind of Backup
 
 *   Create a `~/.hgrc`
