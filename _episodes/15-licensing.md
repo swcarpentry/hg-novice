@@ -74,7 +74,7 @@ because each time a new collaborator starts contributing, they, too,
 hold copyright and will thus need to be asked for approval once a
 license is chosen.
 
-If the content of a repository contains reseach products other than
+If the content of a repository contains research products other than
 software, such as data, and/or creative writing (manuals, technical
 reports, manuscripts), most licenses designed for software are _not_
 suitable.

@@ -167,7 +167,7 @@ The listing for each [changeset](reference.html#changeset) includes:
 * when it was created,
 * and the log message Mercurial was given when the changeset was created.
 
-The revision number is a convenient integer shorthand for the hexidecimal
+The revision number is a convenient integer shorthand for the hexadecimal
 identifier.
 
 > ## Where Are My Changes?

@@ -23,7 +23,7 @@ available you can use `hg help config` or visit [the Mercurial config
 documenttation](http://www.selenic.com/mercurial/hgrc.5.html).
 
 One configuration option that can be useful is adding aliases.
-These are like shorcuts for longer `hg` commands.
+These are like shortcuts for longer `hg` commands.
 For example,
 if you want to create an `hg latest` command to show only the five most recent changesets,
 you can edit your config file with `hg config --edit` and add a section that looks like:
@@ -132,7 +132,7 @@ An uninformative `hg diff` is not the only consequence of using Mercurial on bin
 However, most of the other problems boil down to whether or not a good diff is possible.
 
 This isn't to say you should *never* use Mercurial on binary files.
-A rule of thumb is that it's okay if the binary file won't change very often,
+A rule of thumb is that it's OK if the binary file won't change very often,
 and if it does change,
 you don't care about merging in small differences between versions.
 

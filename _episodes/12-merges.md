@@ -237,7 +237,7 @@ M plan.txt
 ~~~
 {: .output}
 
-The `plan.txt` file has beem modified.
+The `plan.txt` file has been modified.
 
 ~~~
 $ hg diff

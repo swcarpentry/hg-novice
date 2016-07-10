@@ -261,10 +261,10 @@ but soon you should see a window that looks like this:
 
 ![KDiff3 Merge Conflict]({{ site.root }}/fig/hg-kdiff3-conflict.png)
 
-The pane labeled `base` refers to this file's state in changeset `6`,
+The pane labelled `base` refers to this file's state in changeset `6`,
 the parent changeset of our conflicting changesets `7` and `8`.
 Since we were standing on `8` when we started the merge,
-that is the pane labeled `local`.
+that is the pane labelled `local`.
 We're attempting to merge this with changeset `7`,
 which is labelled `other`.
 

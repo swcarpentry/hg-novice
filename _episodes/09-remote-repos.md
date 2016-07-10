@@ -16,7 +16,7 @@ keypoints:
 By now it should be obvious that version control is a powerful tool for
 organizing our own work on our personal laptop or workstation.
 It helps us keep track of what we did when,
-gives us the ability to go back in time in our preoject's history,
+gives us the ability to go back in time in our project's history,
 and can help us recover from mistakes.
 But there's more...
 
