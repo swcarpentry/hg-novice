@@ -12,8 +12,7 @@ keypoints:
 ---
 
 All right:
-we can save changes to files and see what we've changed &Mdash;
-how can we restore older versions of things?
+we can save changes to files and see what we've changed—how can we restore older versions of things?
 Let's suppose we (somehow) accidentally overwrite Salish Sea NEMO forecast
 planning file with our grocery list:
 

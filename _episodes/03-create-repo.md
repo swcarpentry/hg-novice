@@ -30,7 +30,7 @@ $ cd forecast
 ~~~
 {: .bash}
 
-and tell Mercurial to make it a [repository](reference.html#repository) &mdash;
+and tell Mercurial to make it a [repository](reference.html#repository):
 a place where Mercurial can store versions of our files:
 
 ~~~
