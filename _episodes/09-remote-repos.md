@@ -40,17 +40,17 @@ Let's start by putting a copy of our Salish Sea forecast planning repo on Bitbuc
 Log in to the Bitbucket site,
 then click on `Create repository` under the `Create` menu at the top of the page:
 
-![Creating a Repository on Bitbucket (Step 1)]({{ site.root }}/fig/bitbucket-create-repo-01.png)
+![Creating a Repository on Bitbucket (Step 1)]({{ site.github.url }}/fig/bitbucket-create-repo-01.png)
 
 Name your repository `forecast` and then click `Create Repository`:
 
-![Creating a Repository on Bitbucket (Step 2)]({{ site.root }}/fig/bitbucket-create-repo-02.png)
+![Creating a Repository on Bitbucket (Step 2)]({{ site.github.url }}/fig/bitbucket-create-repo-02.png)
 
 As soon as the repository is created,
 Bitbucket displays a page with a URL and some information on how to configure
 your local repository:
 
-![Creating a Repository on Bitbucket (Step 3)]({{ site.root }}/fig/bitbucket-create-repo-03.png)
+![Creating a Repository on Bitbucket (Step 3)]({{ site.github.url }}/fig/bitbucket-create-repo-03.png)
 
 Select `I have an existing project`,
 and use the commands shown to "push" the files and metadata from your local `
@@ -83,7 +83,7 @@ You will have to type your own Bitbucket user name and password.
 The `hg push` command brought the repository on Bitbucket's server up-to-date with the one on our own machine.
 Our local and remote repositories are now in this state:
 
-![Bitbucket Repository After First Push]({{ site.root }}/fig/bitbucket-repo-after-first-push.svg)
+![Bitbucket Repository After First Push]({{ site.github.url }}/fig/bitbucket-repo-after-first-push.svg)
 
 The next step is to connect the two repositories so that we don't have to type
 the URL every time we do something with Bitbucket.

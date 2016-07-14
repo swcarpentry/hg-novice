@@ -30,7 +30,7 @@ and we've already learned how to do that easily via Bitbucket.
 
 Looking again at the `Create Repository` page on Bitbucket:
 
-![Creating a Repository on Bitbucket]({{ site.root }}/fig/bitbucket-create-repo-02.png)
+![Creating a Repository on Bitbucket]({{ site.github.url }}/fig/bitbucket-create-repo-02.png)
 
 we can see the `Access Level` setting that allows us to choose whether the repository will be private or public.
 
@@ -59,7 +59,7 @@ and contributions from users without write permission to the repo
 Beyond the public/private setting for a Bitbucket repository,
 who can do what in a repository is controlled via the `Access management` panel in the repository `Settings` section:
 
-![Repository Access Management Settings]({{ site.root }}/fig/bitbucket-repo-access-mgmt.png)
+![Repository Access Management Settings]({{ site.github.url }}/fig/bitbucket-repo-access-mgmt.png)
 
 You can control access at the level of individual users via their Bitbucket user names,
 or you can associate users with groups that all have the same access level.

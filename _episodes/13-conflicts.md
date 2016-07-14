@@ -259,7 +259,7 @@ It may take a few seconds for Mercurial to pass the necessary information
 to `kdiff3`,
 but soon you should see a window that looks like this:
 
-![KDiff3 Merge Conflict]({{ site.root }}/fig/hg-kdiff3-conflict.png)
+![KDiff3 Merge Conflict]({{ site.github.url }}/fig/hg-kdiff3-conflict.png)
 
 The pane labelled `base` refers to this file's state in changeset `6`,
 the parent changeset of our conflicting changesets `7` and `8`.
