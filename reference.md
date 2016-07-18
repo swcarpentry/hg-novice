@@ -1,8 +1,8 @@
 ---
-layout: page
-title: Version Control with Mercurial
-subtitle: Reference
+layout: reference
+permalink: /reference/
 ---
+
 ## A Better Kind of Backup
 
 *   Create a `~/.hgrc`

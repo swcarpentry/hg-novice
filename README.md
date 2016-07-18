@@ -1,12 +1,15 @@
 hg-novice
 =========
 
-First encounter with Mercurial from the command line.
-
-> Please see [https://github.com/swcarpentry/lesson-example](https://github.com/swcarpentry/lesson-example)
-> for instructions on formatting, building, and submitting lessons,
-> or run `make` in this directory for a list of helpful commands.
+An introduction to version control using Mercurial on the command line.
+Please see <https://swcarpentry.github.io/hg-novice/> for a rendered version of this material,
+[the lesson template documentation][lesson-example]
+for instructions on formatting, building, and submitting material,
+or run `make` in this directory for a list of helpful commands.
 
 Maintainer:
 
-* [Doug Latornell](http://software-carpentry.org/team/#latornell_d)
+* [Doug Latornell][latornell-doug]
+
+[latornell-doug]: http://software-carpentry.org/team/#latornell_d
+[lesson-example]: https://swcarpentry.github.com/lesson-example/
