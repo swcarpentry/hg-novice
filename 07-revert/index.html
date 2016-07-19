@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="last-modified" content="2016-07-19 12:34:39 +0200">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="search-domain" value="/swc-releases/2016.06/hg-novice">
+    <link rel="stylesheet" type="text/css" href="/swc-releases/2016.06/hg-novice/assets/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="/swc-releases/2016.06/hg-novice/assets/css/bootstrap-theme.css" />
+    <link rel="stylesheet" type="text/css" href="/swc-releases/2016.06/hg-novice/assets/css/lesson.css" />
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon-swc.ico" />
+    
+    
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+    <title>Version Control with Mercurial: Recovering Old Versions</title>
+  </head>
+  <body>
+    <div class="container">
+      <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      
+      
+      <a href="https://software-carpentry.org" class="pull-left">
+        <img class="navbar-logo" src="/swc-releases/2016.06/hg-novice/assets/img/swc-icon-blue.svg" alt="Software Carpentry logo" />
+      </a>
+      
+
+      
+      <a class="navbar-brand" href="/swc-releases/2016.06/hg-novice/">Home</a>
+
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+
+	
+        <li><a href="/swc-releases/2016.06/hg-novice/conduct/">Code of Conduct</a></li>
+
+	
+        
+        <li><a href="/swc-releases/2016.06/hg-novice/setup/">Setup</a></li>
+        <li><a href="/swc-releases/2016.06/hg-novice/reference/">Reference</a></li>
+        <li class="dropdown">
+          <a href="/swc-releases/2016.06/hg-novice/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Episodes <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            <li><a href="/swc-releases/2016.06/hg-novice/01-basics/">Automated Version Control</a></li>
+            
+            <li><a href="/swc-releases/2016.06/hg-novice/02-configuration/">Configuring Mercurial</a></li>
+            
+            <li><a href="/swc-releases/2016.06/hg-novice/03-create-repo/">Creating a Repository</a></li>
+            
+            <li><a href="/swc-releases/2016.06/hg-novice/04-tracking/">Tracking Changes to Files</a></li>
+            
+            <li><a href="/swc-releases/2016.06/hg-novice/05-changes/">Making Changes</a></li>
+            
+            <li><a href="/swc-releases/2016.06/hg-novice/06-history/">Exploring History</a></li>
+            
+            <li><a href="/swc-releases/2016.06/hg-novice/07-revert/">Recovering Old Versions</a></li>
+            
+            <li><a href="/swc-releases/2016.06/hg-novice/08-ignore/">Ignoring Things</a></li>
+            
+            <li><a href="/swc-releases/2016.06/hg-novice/09-remote-repos/">Remote Repositories</a></li>
+            
+            <li><a href="/swc-releases/2016.06/hg-novice/10-repo-clones/">Working with Clone Repositories</a></li>
+            
+            <li><a href="/swc-releases/2016.06/hg-novice/11-collaboration/">Collaboration</a></li>
+            
+            <li><a href="/swc-releases/2016.06/hg-novice/12-merges/">Merging Changes from Different Clones</a></li>
+            
+            <li><a href="/swc-releases/2016.06/hg-novice/13-conflicts/">Merge Conflicts</a></li>
+            
+            <li><a href="/swc-releases/2016.06/hg-novice/14-open/">Open Science</a></li>
+            
+            <li><a href="/swc-releases/2016.06/hg-novice/15-licensing/">Licensing</a></li>
+            
+            <li><a href="/swc-releases/2016.06/hg-novice/16-hosting/">Hosting</a></li>
+            
+          </ul>
+        </li>
+	
+
+	
+	
+        <li class="dropdown">
+          <a href="/swc-releases/2016.06/hg-novice/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Extras <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            <li><a href="/swc-releases/2016.06/hg-novice/about/">About</a></li>
+            
+            <li><a href="/swc-releases/2016.06/hg-novice/extras/discuss.html">Discussion</a></li>
+            
+            <li><a href="/swc-releases/2016.06/hg-novice/figures/">Figures</a></li>
+            
+            <li><a href="/swc-releases/2016.06/hg-novice/extras/guide.html">Instructor's Guide</a></li>
+            
+          </ul>
+        </li>
+	
+
+	
+        <li><a href="/swc-releases/2016.06/hg-novice/license/">License</a></li>
+      </ul>
+      <form class="navbar-form navbar-right" role="search" id="search" onsubmit="google_search(); return false;">
+        <div class="form-group">
+          <input type="text" id="google-search" placeholder="Search...">
+        </div>
+      </form>
+    </div>
+  </div>
+</nav>
+
+
+
+
+
+<div class="row">
+  <div class="col-md-1">
+    <h3>
+      
+      <a href="/swc-releases/2016.06/hg-novice/06-history/"><span class="glyphicon glyphicon-menu-left"></span></a>
+      
+    </h3>
+  </div>
+  <div class="col-md-10">
+    <h3 class="maintitle"><a href="/swc-releases/2016.06/hg-novice/">Version Control with Mercurial</a></h3>
+    <h1 class="maintitle">Recovering Old Versions</h1>
+  </div>
+  <div class="col-md-1">
+    <h3>
+      
+      <a href="/swc-releases/2016.06/hg-novice/08-ignore/"><span class="glyphicon glyphicon-menu-right"></span></a>
+      
+    </h3>
+  </div>
+</div>
+
+
+<blockquote class="objectives">
+  <h2>Overview</h2>
+
+  <div class="row">
+    <div class="col-md-3">
+      <strong>Teaching:</strong> 10 min
+      </br>
+      <strong>Exercises:</strong> 5 min
+    </div>
+    <div class="col-md-9">
+      <strong>Questions</strong>
+      <ul>
+	
+	<li><p>How can I recover old versions of files?</p>
+</li>
+	
+      </ul>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-9">
+      <strong>Objectives</strong>
+      <ul>
+	
+	<li><p>Restore older versions of files.</p>
+</li>
+	
+	<li><p>Use configuration aliases to create custom Mercurial commands.</p>
+</li>
+	
+      </ul>
+    </div>
+  </div>
+  
+</blockquote>
+
+<p>All right:
+we can save changes to files and see what we’ve changed—how can we restore older versions of things?
+Let’s suppose we (somehow) accidentally overwrite Salish Sea NEMO forecast
+planning file with our grocery list:</p>
+
+<div class="bash highlighter-rouge"><pre class="highlight"><code>$ nano plan.txt
+$ cat plan.txt
+</code></pre>
+</div>
+
+<div class="output highlighter-rouge"><pre class="highlight"><code>Ricotta
+Mushroom Tortellini
+Bacon
+</code></pre>
+</div>
+
+<p><code class="highlighter-rouge">hg status</code> now tells us that the file has been changed,
+but those changes haven’t been committed:</p>
+
+<div class="bash highlighter-rouge"><pre class="highlight"><code>$ hg status
+</code></pre>
+</div>
+
+<div class="output highlighter-rouge"><pre class="highlight"><code>M plan.txt
+</code></pre>
+</div>
+
+<p>We can put things back the way they were by using <code class="highlighter-rouge">hg revert</code>:</p>
+
+<div class="bash highlighter-rouge"><pre class="highlight"><code>$ hg revert plan.txt
+$ cat plan.txt
+</code></pre>
+</div>
+
+<div class="output highlighter-rouge"><pre class="highlight"><code>Goal: Run NEMO everyday to forecast storm surge water levels
+
+Need daily high resolution weather forcing from EC.
+Also need daily average Fraser River flow from EC.
+</code></pre>
+</div>
+
+<p>As you might guess from its name,
+<code class="highlighter-rouge">hg revert</code> reverts to (i.e. restores) an old version of a file.
+In this case,
+we’re telling Mercurial that we want to recover the last committed version
+of the file.
+If we want to go back even further,
+we can use the <code class="highlighter-rouge">--rev</code> or <code class="highlighter-rouge">-r</code> flag and a revision number instead:</p>
+
+<div class="bash highlighter-rouge"><pre class="highlight"><code>$ hg revert --rev 0 plan.txt
+</code></pre>
+</div>
+
+<p>Mercurial really doesn’t want to cause us to lose our work,
+so it defaults to making a backup when we use <code class="highlighter-rouge">hg revert</code>:</p>
+
+<div class="bash highlighter-rouge"><pre class="highlight"><code>$ hg status
+</code></pre>
+</div>
+
+<div class="output highlighter-rouge"><pre class="highlight"><code>? plan.txt.orig
+</code></pre>
+</div>
+
+<p>The <code class="highlighter-rouge">plan.txt.orig</code> file is a copy of <code class="highlighter-rouge">plan.txt</code> as it stood before the
+<code class="highlighter-rouge">hg revert</code> command.
+It’s not tracked by Mercurial.
+It’s just there in case we made a mistake and really didn’t want to revert,
+or in case there’s some content from before the revert that we decide that
+we really do want to copy into <code class="highlighter-rouge">plan.txt</code>.
+When we’re sure that we don’t need <code class="highlighter-rouge">*.orig</code> files we can just go ahead and
+delete them.
+If we really don’t want Mercurial to create <code class="highlighter-rouge">*.orig</code> files when we use
+<code class="highlighter-rouge">hg revert</code>,
+we can use the <code class="highlighter-rouge">--no-backup</code> option,
+or its short version <code class="highlighter-rouge">-C</code>.</p>
+
+<p>The fact that files can be reverted one by one tends to change the way people
+organize their work.
+If everything is in one large document,
+it’s hard (but not impossible) to undo changes to the introduction without
+also undoing changes made later to the conclusion.
+If the introduction and conclusion are stored in separate files,
+on the other hand,
+moving backward and forward in time becomes much easier.</p>
+
+<blockquote class="callout">
+  <h2 id="using-aliases-to-create-new-mercurial-commands">Using Aliases to Create New Mercurial Commands</h2>
+
+  <p>If we decide that reverting without creating <code class="highlighter-rouge">.orig</code> backup file is something
+that we want to do regularly we can use <code class="highlighter-rouge">hg config --edit</code> to add</p>
+
+  <div class="source highlighter-rouge"><pre class="highlight"><code>[alias]
+nb-revert = revert --no-backup
+</code></pre>
+  </div>
+
+  <p>to our Mercurial configuration settings.
+After we save the configuration file and exit from the editor we have a new
+command,
+<code class="highlighter-rouge">hg nb-revert</code>
+(no backup revert) that is the same as typing <code class="highlighter-rouge">hg revert --no-backup</code>.
+Note that it is good practice when creating aliases for commands to give them
+your own names instead of using the alias to redefine the built-in command.
+If we had used the alias to change add the <code class="highlighter-rouge">--no-backup</code> flag to the <code class="highlighter-rouge">revert</code>
+command</p>
+
+  <div class="source highlighter-rouge"><pre class="highlight"><code>[alias]
+revert = revert --no-backup
+</code></pre>
+  </div>
+
+  <p>it would be difficult to get <code class="highlighter-rouge">hg revert</code> to create <code class="highlighter-rouge">.orig</code> backup files if we
+ever wanted it to.</p>
+</blockquote>
+
+<blockquote class="keypoints">
+  <h2>Key Points</h2>
+  <ul>
+    
+    <li><p>Use <code class="highlighter-rouge">hg revert</code> to recover old versions of files.</p>
+</li>
+    
+  </ul>
+</blockquote>
+
+
+      
+      <hr/>
+<footer>
+  <div class="row">
+    <div class="col-md-6" align="left">
+      <h4>
+	Copyright &copy; 2016
+	<a href="https://software-carpentry.org">Software Carpentry Foundation</a>
+	
+      </h4>
+    </div>
+    <div class="col-md-6" align="right">
+      <h4>
+	<a href="/">Source</a>
+	/
+	<a href="/blob/gh-pages/CONTRIBUTING.md">Contributing</a>
+	/
+	<a href="mailto:lessons@software-carpentry.org">Contact</a>
+      </h4>
+    </div>
+  </div>
+</footer>
+
+      
+    </div>
+    <script src="/swc-releases/2016.06/hg-novice/assets/js/jquery.min.js"></script>
+<script src="/swc-releases/2016.06/hg-novice/assets/js/bootstrap.min.js"></script>
+<script src="/swc-releases/2016.06/hg-novice/assets/js/lesson.js"></script>
+
+  </body>
+</html>
