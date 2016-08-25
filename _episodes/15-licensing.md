@@ -54,7 +54,7 @@ the most popular, including the following:
 
 The GPL is different from most other open source licenses in that it
 is
-[infective](reference.html#infective):
+[infective]({{ site.github.url }}/reference/#infective):
 anyone who distributes a modified version of the code, or anything
 that includes GPL'ed code, must make *their* code freely available as
 well.
@@ -113,7 +113,7 @@ suitable.
   ([CC-BY-SA](http://creativecommons.org/licenses/by-sa/4.0/))
   licenses are considered "[Open](http://opendefinition.org/)".
 
-[Software Carpentry](http://software-carpentry.org/license.html)
+[Software Carpentry]({{ site.swc_site }}/license/)
 uses CC-BY for its lessons and the MIT License for its code
 in order to encourage the widest possible re-use.
 Again,
