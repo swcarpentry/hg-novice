@@ -13,7 +13,7 @@ it won't be covered by the instructor.
 
 ## More Advanced Mercurial Configuration
 
-In the [Setting Up](01-backup.html#setting-up) section we edited a
+In the [Setting Up]({{ site.github.url }}/01-backup/#setting-up) section we edited a
 Mercurial configuration file in our home directory called
 `$USERPROFILE/Mercurial.ini` or `~/.hgrc`.  You can quickly open that
 file for editing with the command `hg config --edit`.
@@ -41,7 +41,7 @@ editing with the command `hg config --local`.
 
 ## Non-text Files
 
-Recall when we discussed [Conflicts](03-conflict.html) there was a
+Recall when we discussed [Conflicts]({{ site.github.url }}/03-conflict/) there was a
 challenge that asked, "What does hg do when there is a conflict in an
 image or some other non-textual file that is stored in version
 control?"  We will now revisit this in more detail.
