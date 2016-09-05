@@ -1,7 +1,8 @@
 ---
 layout: lesson
-title: Version Control with Mercurial
+root: .
 ---
+
 Version control is the lab notebook of the digital world:
 it's what professionals use to keep track of what they've done
 and to collaborate with other people.

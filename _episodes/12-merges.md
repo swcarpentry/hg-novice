@@ -94,7 +94,7 @@ abort: push creates new remote head e0747e3feea1!
 Mercurial detects that our changes have diverged with the changes in the remote
 repo on Bitbucket and stops us from creating a confusing situation on there.
 What we have to do is pull the changes from Bitbucket,
-[merge]({{ site.github.url }}/reference/#merge) them into the copy we're currently working in,
+[merge]({{ page.root }}/reference/#merge) them into the copy we're currently working in,
 and then push that.
 Let's start by pulling:
 

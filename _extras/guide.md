@@ -49,9 +49,9 @@ working alone or in teams because it is
 
 ## Teaching Notes
 
-*   Make sure the network is working *before* starting the [Collaborating}({{ site.github.url }}/02-collab/) section of this lesson.
-    [A Better Kind of Backup}({{ site.github.url }}/01-backup/) focuses on individual use of Mercurial on and can be done without network access.
-    [Conflicts}({{ site.github.url }}/03-conflict/) can also be taught without network access and Bitbucket by creating 2 clones of the repository and pulling changes between them.
+*   Make sure the network is working *before* starting the [Collaborating}({{ page.root }}/02-collab/) section of this lesson.
+    [A Better Kind of Backup}({{ page.root }}/01-backup/) focuses on individual use of Mercurial on and can be done without network access.
+    [Conflicts}({{ page.root }}/03-conflict/) can also be taught without network access and Bitbucket by creating 2 clones of the repository and pulling changes between them.
 
 *   Drawings are particularly useful in this lesson:
     if you have a whiteboard,
@@ -69,7 +69,7 @@ working alone or in teams because it is
     (which is available for Windows, OS/X, and Linux)
     on their desktop at some point during this lesson.
 
-*   The [Conflicts}({{ site.github.url }}/03-conflict/) section of the lesson uses the [KDiff3](http://kdiff3.sourceforge.net/) graphical diff/merge tool.
+*   The [Conflicts}({{ page.root }}/03-conflict/) section of the lesson uses the [KDiff3](http://kdiff3.sourceforge.net/) graphical diff/merge tool.
     The workshop installation instructions should include directions for OS X and Linux users to install KDiff3.
     For Windows users it is bundled with TortoiseHg.
     The Mercurial wiki has some [notes on using Mercurial with kdiff3](https://www.mercurial-scm.org/wiki/KDiff3).
@@ -92,7 +92,7 @@ working alone or in teams because it is
     The differences between Mercurial and Git are largely syntactic,
     so learning one provides the conceptual framework to use either.
 
-## [A Better Kind of Backup}({{ site.github.url }}/01-backup/)
+## [A Better Kind of Backup}({{ page.root }}/01-backup/)
 
 *   Ask, "Who uses 'undo' in their editor?"
     All say "Me".
@@ -139,7 +139,7 @@ working alone or in teams because it is
 
 *   This is a good moment to show a diff with the KDiff3 graphical diff tool.
     If you skip it because you're short on time,
-    show the graphical diff view of a commit on Bitbucket in the [Collaborating}({{ site.github.url }}/02-collab/) section.
+    show the graphical diff view of a commit on Bitbucket in the [Collaborating}({{ page.root }}/02-collab/) section.
 
 **Exploring History** and **Recovering Old Versions**
 
@@ -147,7 +147,7 @@ working alone or in teams because it is
     by listing the file names one after the other in the `hg revert` command,
     and that shell wildcard characters can also be used.
 
-## [Collaborating}({{ site.github.url }}/02-collab/)
+## [Collaborating}({{ page.root }}/02-collab/)
 
 *   Make it clear that Mercurial and Bitbucket are not the same thing:
     Mercurial is an open source version control tool,
@@ -222,7 +222,7 @@ working alone or in teams because it is
     sometimes weird,
     will start to arise. Stay tight: conflicts are next.
 
-## [Conflicts}({{ site.github.url }}/03-conflict/)
+## [Conflicts}({{ page.root }}/03-conflict/)
 
 *   Explain that conflict are not a very common occurrence.
     Mercurial is good at merging changes made by different people,
@@ -261,7 +261,7 @@ working alone or in teams because it is
 
 *   Use `hg merge --tool=kdiff3` to ensure that the KDiff3 GUI diff/merge tool is launched to handle resolution of the conflict.
 
-## [Open Science}({{ site.github.url }}/04-open/)
+## [Open Science}({{ page.root }}/04-open/)
 
 **Licensing**
 
