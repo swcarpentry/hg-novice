@@ -56,6 +56,7 @@ permalink: /reference/
 
 ## Glossary
 
+{:auto_ids}
 changeset
 :   A group of changes to one or more files
     that are [committed](#commit) to a [version control](#version-control) [repository](#repository)
