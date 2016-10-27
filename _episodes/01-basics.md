@@ -6,7 +6,7 @@ questions:
 - "What is version control and why should I use it?"
 objectives:
 - "Understand the benefits of an automated version control system."
-- "Understand the basics of how [Mercurial](http://mercurial.selenic.com/) works."
+- "Understand the basics of how [Mercurial](https://www.mercurial-scm.org/) works."
 keypoints:
 - "Version control is like an unlimited 'undo'."
 - "Version control also allows many people to work in parallel."
