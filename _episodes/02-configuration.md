@@ -10,7 +10,7 @@ keypoints:
 -   "Use `hg config` to configure a user name, email address, editor, and other preferences once per machine."
 ---
 
-When we use [Mercurial](http://mercurial.selenic.com/) on a computer for the
+When we use [Mercurial](https://www.mercurial-scm.org/) on a computer for the
 first time,
 we need to configure a few things.
 The command
