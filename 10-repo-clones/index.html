@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="last-modified" content="2017-02-08 23:51:16 +0100">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- meta "search-domain" used for google site search function google_search() -->
+    <meta name="search-domain" value="/swc-releases/2017.02/hg-novice">
+    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/lesson.css" />
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon-swc.ico" />
+    
+    
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+    <title>Version Control with Mercurial: Working with Clone Repositories</title>
+  </head>
+  <body>
+    <div class="container">
+      <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      
+      
+      <a href="https://software-carpentry.org" class="pull-left">
+        <img class="navbar-logo" src="../assets/img/swc-icon-blue.svg" alt="Software Carpentry logo" />
+      </a>
+      
+
+      
+      <a class="navbar-brand" href="../">Home</a>
+
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+
+	
+        <li><a href="../conduct/">Code of Conduct</a></li>
+
+	
+        
+        <li><a href="../setup/">Setup</a></li>
+        <li><a href="../reference/">Reference</a></li>
+        <li class="dropdown">
+          <a href="../" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Episodes <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            <li><a href="../01-basics/">Automated Version Control</a></li>
+            
+            <li><a href="../02-configuration/">Configuring Mercurial</a></li>
+            
+            <li><a href="../03-create-repo/">Creating a Repository</a></li>
+            
+            <li><a href="../04-tracking/">Tracking Changes to Files</a></li>
+            
+            <li><a href="../05-changes/">Making Changes</a></li>
+            
+            <li><a href="../06-history/">Exploring History</a></li>
+            
+            <li><a href="../07-revert/">Recovering Old Versions</a></li>
+            
+            <li><a href="../08-ignore/">Ignoring Things</a></li>
+            
+            <li><a href="../09-remote-repos/">Remote Repositories</a></li>
+            
+            <li><a href="../10-repo-clones/">Working with Clone Repositories</a></li>
+            
+            <li><a href="../11-collaboration/">Collaboration</a></li>
+            
+            <li><a href="../12-merges/">Merging Changes from Different Clones</a></li>
+            
+            <li><a href="../13-conflicts/">Merge Conflicts</a></li>
+            
+            <li><a href="../14-open/">Open Science</a></li>
+            
+            <li><a href="../15-licensing/">Licensing</a></li>
+            
+            <li><a href="../16-hosting/">Hosting</a></li>
+            
+          </ul>
+        </li>
+	
+
+	
+	
+        <li class="dropdown">
+          <a href="../" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Extras <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            <li><a href="../about/">About</a></li>
+            
+            <li><a href="../extras/discuss.html">Discussion</a></li>
+            
+            <li><a href="../figures/">Figures</a></li>
+            
+            <li><a href="../guide/">Instructor Notes</a></li>
+            
+          </ul>
+        </li>
+	
+
+	
+        <li><a href="../license/">License</a></li>
+      </ul>
+      <form class="navbar-form navbar-right" role="search" id="search" onsubmit="google_search(); return false;">
+        <div class="form-group">
+          <input type="text" id="google-search" placeholder="Search..." aria-label="Google site search">
+        </div>
+      </form>
+    </div>
+  </div>
+</nav>
+
+
+
+
+
+<div class="row">
+  <div class="col-md-1">
+    <h3>
+      
+      <a href="../09-remote-repos/"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span><span class="sr-only">previous episode</span></a>
+      
+    </h3>
+  </div>
+  <div class="col-md-10">
+    
+    <h3 class="maintitle"><a href="../">Version Control with Mercurial</a></h3>
+    <h1 class="maintitle">Working with Clone Repositories</h1>
+    
+  </div>
+  <div class="col-md-1">
+    <h3>
+      
+      <a href="../11-collaboration/"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span><span class="sr-only">next episode</span></a>
+      
+    </h3>
+  </div>
+</div>
+
+
+<blockquote class="objectives">
+  <h2>Overview</h2>
+
+  <div class="row">
+    <div class="col-md-3">
+      <strong>Teaching:</strong> 10 min
+      <br/>
+      <strong>Exercises:</strong> 5 min
+    </div>
+    <div class="col-md-9">
+      <strong>Questions</strong>
+      <ul>
+	
+	<li><p>How can I make local copies of repositories to work in?</p>
+</li>
+	
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-9">
+      <strong>Objectives</strong>
+      <ul>
+	
+	<li><p>Explain how to push, pull, update files, and update metadata among clones of a repository.</p>
+</li>
+	
+	<li><p>Display a simple visualization of the state of a repository and explain how updating the repository affects its state.</p>
+</li>
+	
+      </ul>
+    </div>
+  </div>
+
+</blockquote>
+
+<p>We’re going to simulate working with a repository on different machines
+(laptop and lab workstation,
+home and work PCs,
+local workstation and an HPC cluster,
+etc.).
+We’ll do this by creating 2 clones of Susan’s <code class="highlighter-rouge">forecast</code> repo from Bitbucket in different directories on our laptops.</p>
+
+<p>Create two directories called <code class="highlighter-rouge">home</code> and <code class="highlighter-rouge">work</code> on your desktop:</p>
+
+<div class="bash highlighter-rouge"><pre class="highlight"><code>$ cd ~/Desktop
+$ mkdir home work
+</code></pre>
+</div>
+
+<p>In the <code class="highlighter-rouge">work</code> directory,
+clone the <code class="highlighter-rouge">forecast</code> repository from Bitbucket:</p>
+
+<div class="bash highlighter-rouge"><pre class="highlight"><code>$ cd ~/Desktop/work
+$ hg clone https://bitbucket.org/susan/forecast
+</code></pre>
+</div>
+
+<p><code class="highlighter-rouge">hg clone</code> creates a fresh local copy of a remote repository.</p>
+
+<p>Now switch to the <code class="highlighter-rouge">home</code> directory and clone the <code class="highlighter-rouge">forecast</code> repo from Bitbucket
+there too:</p>
+
+<div class="bash highlighter-rouge"><pre class="highlight"><code>$ cd ~/Desktop/home
+$ hg clone https://bitbucket.org/susan/forecast
+</code></pre>
+</div>
+
+<p>Our computer now has two new copies of the repository:</p>
+
+<p><img src="../fig/hg-after-home-work-clones.svg" alt="After Creating `work` and `home` Clones of Repository" /></p>
+
+<p>Let’s change the <code class="highlighter-rouge">work</code> copy of the repository by adding a new file in which we’re going to start building the bibliography for the paper that will eventually be written:</p>
+
+<div class="bash highlighter-rouge"><pre class="highlight"><code>$ cd ~/Desktop/work/
+$ nano biblio.txt
+</code></pre>
+</div>
+
+<p>and type into that file:</p>
+
+<div class="output highlighter-rouge"><pre class="highlight"><code>NEMO Ocean Engine, Version 3.4. Madec G., et al. 2012.
+</code></pre>
+</div>
+
+<p>Tell Mercurial to track our new file,
+and commit it:</p>
+
+<p>~~
+$ hg add biblio.txt
+$ hg commit -m”Start creating bibliography for the forecast paper.”</p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="err">:</span><span class="w"> </span><span class="err">.bash</span><span class="p">}</span><span class="w">
+
+</span><span class="err">then</span><span class="w"> </span><span class="err">push</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">change</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">Bitbucket:</span><span class="w">
+
+</span></code></pre>
+</div>
+<p>$ hg push</p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="err">:</span><span class="w"> </span><span class="err">.bash</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+</div>
+<p>pushing to https://bitbucket.org/susan/forecast
+searching for changes
+http authorization required for https://bitbucket.org/susan/forecast
+realm: Bitbucket.org HTTP
+user: susan
+password:
+adding changesets
+adding manifests
+adding file changes
+added 1 changesets with 1 changes to 1 files</p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="err">:</span><span class="w"> </span><span class="err">.output</span><span class="p">}</span><span class="w">
+
+</span><span class="err">Note</span><span class="w"> </span><span class="err">that</span><span class="w"> </span><span class="err">we</span><span class="w"> </span><span class="err">didn't</span><span class="w"> </span><span class="err">have</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">create</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">remote</span><span class="w"> </span><span class="err">path</span><span class="w"> </span><span class="err">called</span><span class="w"> </span><span class="err">`default`;</span><span class="w">
+</span><span class="err">Mercurial</span><span class="w"> </span><span class="err">did</span><span class="w"> </span><span class="err">that</span><span class="w"> </span><span class="err">automatically</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">we</span><span class="w"> </span><span class="err">cloned</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">repository</span><span class="w"> </span><span class="err">from</span><span class="w"> </span><span class="err">Bitbucket.</span><span class="w">
+
+</span><span class="err">Our</span><span class="w"> </span><span class="err">three</span><span class="w"> </span><span class="err">repositories</span><span class="w"> </span><span class="err">now</span><span class="w"> </span><span class="err">look</span><span class="w"> </span><span class="err">like</span><span class="w"> </span><span class="err">this:</span><span class="w">
+
+</span><span class="err">!</span><span class="p">[</span><span class="err">After</span><span class="w"> </span><span class="err">Pushing</span><span class="w"> </span><span class="err">Change</span><span class="w"> </span><span class="err">from</span><span class="w"> </span><span class="err">`work`</span><span class="w"> </span><span class="err">Repository</span><span class="p">]</span><span class="err">(../fig/hg-after-change-to-work-clone.svg)</span><span class="w">
+
+</span><span class="err">We</span><span class="w"> </span><span class="err">can</span><span class="w"> </span><span class="err">now</span><span class="w"> </span><span class="err">download</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">change</span><span class="w"> </span><span class="err">into</span><span class="w"> </span><span class="err">our</span><span class="w"> </span><span class="err">`home`</span><span class="w"> </span><span class="err">repository:</span><span class="w">
+
+</span></code></pre>
+</div>
+<p>$ cd ~/Desktop/home/
+$ hg pull</p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="err">:</span><span class="w"> </span><span class="err">.bash</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+</div>
+<p>pulling from https://bitbucket.org/susan/forecast
+searching for changes
+http authorization required for https://bitbucket.org/susan/forecast
+realm: Bitbucket.org HTTP
+user: susan
+password:
+adding changesets
+adding manifests
+adding file changes
+added 1 changesets with 1 changes to 1 files
+(run ‘hg update’ to get a working copy)</p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="err">:</span><span class="w"> </span><span class="err">.output</span><span class="p">}</span><span class="w">
+
+</span><span class="err">If</span><span class="w"> </span><span class="err">we</span><span class="w"> </span><span class="err">look</span><span class="w"> </span><span class="err">at</span><span class="w"> </span><span class="err">our</span><span class="w"> </span><span class="err">repository</span><span class="w"> </span><span class="err">history</span><span class="w"> </span><span class="err">now</span><span class="w"> </span><span class="err">with</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">`hg</span><span class="w"> </span><span class="err">log</span><span class="w"> </span><span class="err">--graph`</span><span class="w"> </span><span class="err">command</span><span class="w"> </span><span class="err">we</span><span class="w"> </span><span class="err">can</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">that</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">`@`</span><span class="w"> </span><span class="err">character</span><span class="w"> </span><span class="err">marks</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">revision</span><span class="w"> </span><span class="err">that</span><span class="w"> </span><span class="err">our</span><span class="w"> </span><span class="err">working</span><span class="w"> </span><span class="err">copy</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">files</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="err">at</span><span class="w"> </span><span class="err">and</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">revision</span><span class="w"> </span><span class="err">that</span><span class="w"> </span><span class="err">we</span><span class="w"> </span><span class="err">pulled</span><span class="w"> </span><span class="err">from</span><span class="w"> </span><span class="err">Bitbucket</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="err">above</span><span class="w"> </span><span class="err">that,</span><span class="w">
+</span><span class="err">meaning</span><span class="w"> </span><span class="err">it</span><span class="w"> </span><span class="err">has</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">yet</span><span class="w"> </span><span class="err">been</span><span class="w"> </span><span class="err">applied</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">our</span><span class="w"> </span><span class="err">working</span><span class="w"> </span><span class="err">files:</span><span class="w">
+
+</span></code></pre>
+</div>
+<p>$ hg log –graph</p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="err">:</span><span class="w"> </span><span class="err">.bash</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+</div>
+<p>o  changeset:   3:68fd235a0541
+|  user:        Susan Allen <a href="mailto:sallen@eos.ubc.ca">sallen@eos.ubc.ca</a>
+|  date:        Sun Jun 14 11:04:44 2015 -0700
+|  summary:     Start creating bibliography for the forecast paper.
+|
+@  changeset:   2:d14b5f2372fc
+|  user:        Susan Allen <a href="mailto:sallen@eos.ubc.ca">sallen@eos.ubc.ca</a>
+|  date:        Sun Jun 14 11:03:17 2015 -0700
+|  summary:     Add note about data source for Fraser River flow forcing.
+|
+o  changeset:   1:41b3e1218ad2
+|  user:        Susan Allen <a href="mailto:sallen@eos.ubc.ca">sallen@eos.ubc.ca</a>
+|  date:        Sun Jun 14 11:02:05 2015 -0700
+|  summary:     Add note about source for atmospheric forcing.
+|
+o  changeset:   0:983898576cad
+   user:        Susan Allen <a href="mailto:sallen@eos.ubc.ca">sallen@eos.ubc.ca</a>
+   date:        Sun Jun 14 11:00:20 2015 -0700
+   summary:     Starting to plan the daily NEMO forecast system.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="err">:</span><span class="w"> </span><span class="err">.output</span><span class="p">}</span><span class="w">
+
+</span><span class="err">To</span><span class="w"> </span><span class="err">apply</span><span class="w"> </span><span class="err">those</span><span class="w"> </span><span class="err">changes</span><span class="w"> </span><span class="err">we</span><span class="w"> </span><span class="err">use</span><span class="w"> </span><span class="err">`hg</span><span class="w"> </span><span class="err">update`</span><span class="w">
+</span><span class="err">(as</span><span class="w"> </span><span class="err">Mercurial</span><span class="w"> </span><span class="err">helpfully</span><span class="w"> </span><span class="err">suggested</span><span class="w"> </span><span class="err">at</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">end</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">`hg</span><span class="w"> </span><span class="err">pull`</span><span class="w"> </span><span class="err">process):</span><span class="w">
+
+</span></code></pre>
+</div>
+<p>$ hg update</p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="err">:</span><span class="w"> </span><span class="err">.bash</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+</div>
+<p class="output">1 files updated, 0 files merged, 0 files removed, 0 files unresolved
+~~~</p>
+
+<p>You can use <code class="highlighter-rouge">hg log --graph</code> again to see that the <code class="highlighter-rouge">@</code> has been moved to changeset 3 which tells us that our working copy is up to date.</p>
+
+<p>Here is what our two local repositories and our Bitbucket repository look like now,
+showing how the <code class="highlighter-rouge">biblio.txt</code> file has been copied from Bitbucket to our <code class="highlighter-rouge">home</code> repository clone:</p>
+
+<p><img src="../fig/hg-after-pulling-to-home-clone.svg" alt="After Pulling Change to 'home' Repository" /></p>
+
+<p>Generally,
+we are unlikely to have multiple copies of the same remote repository on our laptop at once.
+Instead,
+one of those copies would be on our laptop,
+and the other on a lab workstation (for example).
+Pushing and pulling changes gives us a reliable way to share work between different machines,
+and,
+as we will see shortly,
+different people.</p>
+
+<blockquote class="keypoints">
+  <h2>Key Points</h2>
+  <ul>
+    
+    <li><p>Use <code class="highlighter-rouge">hg clone</code> to make a local copy of a remote repository.</p>
+</li>
+    
+  </ul>
+</blockquote>
+
+
+
+
+
+<div class="row">
+  <div class="col-md-1">
+    <h3>
+      
+      <a href="../09-remote-repos/"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span><span class="sr-only">previous episode</span></a>
+      
+    </h3>
+  </div>
+  <div class="col-md-10">
+    
+  </div>
+  <div class="col-md-1">
+    <h3>
+      
+      <a href="../11-collaboration/"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span><span class="sr-only">next episode</span></a>
+      
+    </h3>
+  </div>
+</div>
+
+
+      
+      <footer>
+  <div class="row">
+    <div class="col-md-6" align="left">
+      <h4>
+	Copyright &copy; 2016
+	<a href="https://software-carpentry.org">Software Carpentry Foundation</a>
+	
+      </h4>
+    </div>
+    <div class="col-md-6" align="right">
+      <h4>
+	<a href="/">Source</a>
+	/
+	<a href="/blob/gh-pages/CONTRIBUTING.md">Contributing</a>
+	/
+	<a href="mailto:lessons@software-carpentry.org">Contact</a>
+      </h4>
+    </div>
+  </div>
+</footer>
+
+      
+    </div>
+    <script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/bootstrap.min.js"></script>
+<script src="../assets/js/lesson.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-37305346-2', 'auto');
+  ga('send', 'pageview');
+</script>
+
+  </body>
+</html>
