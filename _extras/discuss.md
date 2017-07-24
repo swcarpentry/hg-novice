@@ -20,7 +20,7 @@ file for editing with the command `hg config --edit`.
 
 If you want to know more about the many configuration options
 available you can use `hg help config` or visit [the Mercurial config
-documenttation](http://www.selenic.com/mercurial/hgrc.5.html).
+documenttation](https://www.selenic.com/mercurial/hgrc.5.html).
 
 One configuration option that can be useful is adding aliases.
 These are like shortcuts for longer `hg` commands.

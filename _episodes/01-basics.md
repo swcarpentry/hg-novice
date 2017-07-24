@@ -61,7 +61,7 @@ across different computers facilitating collaboration among different people.
 > Automated version control systems are nothing new. Tools like RCS, CVS, or
 > Subversion are considered now legacy systems, offering more limited
 > capabilities than modern tools, such as
-> [Mercurial](http://mercurial.selenic.com/) and
+> [Mercurial](https://www.mercurial-scm.org/) and
 > [Git](http://swcarpentry.github.io/git-novice/).
 > In particular,
 > the latter are *distributed*, meaning that they don't need a centralized
