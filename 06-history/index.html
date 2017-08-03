@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="last-modified" content="2017-08-04 00:19:58 +0200">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- meta "search-domain" used for google site search function google_search() -->
+    <meta name="search-domain" value="/swc-releases/2017.08/hg-novice">
+    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/lesson.css" />
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon-swc.ico" />
+    
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+    <title>Version Control with Mercurial: Exploring History</title>
+  </head>
+  <body>
+    <div class="container">
+      
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      
+      
+
+      
+      <a class="navbar-brand" href="../">Home</a>
+
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+
+	
+        <li><a href="../conduct/">Code of Conduct</a></li>
+
+	
+        
+        <li><a href="../setup/">Setup</a></li>
+        <li class="dropdown">
+          <a href="../" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Episodes <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            <li><a href="../01-basics/">Automated Version Control</a></li>
+            
+            <li><a href="../02-configuration/">Configuring Mercurial</a></li>
+            
+            <li><a href="../03-create-repo/">Creating a Repository</a></li>
+            
+            <li><a href="../04-tracking/">Tracking Changes to Files</a></li>
+            
+            <li><a href="../05-changes/">Making Changes</a></li>
+            
+            <li><a href="../06-history/">Exploring History</a></li>
+            
+            <li><a href="../07-revert/">Recovering Old Versions</a></li>
+            
+            <li><a href="../08-ignore/">Ignoring Things</a></li>
+            
+            <li><a href="../09-remote-repos/">Remote Repositories</a></li>
+            
+            <li><a href="../10-repo-clones/">Working with Clone Repositories</a></li>
+            
+            <li><a href="../11-collaboration/">Collaboration</a></li>
+            
+            <li><a href="../12-merges/">Merging Changes from Different Clones</a></li>
+            
+            <li><a href="../13-conflicts/">Merge Conflicts</a></li>
+            
+            <li><a href="../14-open/">Open Science</a></li>
+            
+            <li><a href="../15-licensing/">Licensing</a></li>
+            
+            <li><a href="../16-hosting/">Hosting</a></li>
+            
+	    <li role="separator" class="divider"></li>
+            <li><a href="../aio/">All in one page (Beta)</a></li>
+          </ul>
+        </li>
+	
+
+	
+	
+        <li class="dropdown">
+          <a href="../" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Extras <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="../reference/">Reference</a></li>
+            
+            <li><a href="../about/">About</a></li>
+            
+            <li><a href="../extras/discuss.html">Discussion</a></li>
+            
+            <li><a href="../figures/">Figures</a></li>
+            
+            <li><a href="../guide/">Instructor Notes</a></li>
+            
+          </ul>
+        </li>
+	
+
+	
+        <li><a href="../license/">License</a></li>
+	
+	<li><a href="/edit/gh-pages/_episodes/06-history.md">Improve this page <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a></li>
+	
+      </ul>
+      <form class="navbar-form navbar-right" role="search" id="search" onsubmit="google_search(); return false;">
+        <div class="form-group">
+          <input type="text" id="google-search" placeholder="Search..." aria-label="Google site search">
+        </div>
+      </form>
+    </div>
+  </div>
+</nav>
+
+
+<div class="row">
+  <div class="col-md-1">
+    <h3>
+      
+      <a href="../05-changes/"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span><span class="sr-only">previous episode</span></a>
+      
+    </h3>
+  </div>
+  <div class="col-md-10">
+    
+    <h3 class="maintitle"><a href="../">Version Control with Mercurial</a></h3>
+    
+  </div>
+  <div class="col-md-1">
+    <h3>
+      
+      <a href="../07-revert/"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span><span class="sr-only">next episode</span></a>
+      
+    </h3>
+  </div>
+</div>
+
+<article>
+<div class="row">
+  <div class="col-md-1">
+  </div>
+  <div class="col-md-10">
+    <h1 class="maintitle">Exploring History</h1>
+  </div>
+  <div class="col-md-1">
+  </div>
+</div>
+
+
+<blockquote class="objectives">
+  <h2>Overview</h2>
+
+  <div class="row">
+    <div class="col-md-3">
+      <strong>Teaching:</strong> 10 min
+      <br/>
+      <strong>Exercises:</strong> 5 min
+    </div>
+    <div class="col-md-9">
+      <strong>Questions</strong>
+      <ul>
+	
+	<li><p>How do I review my changes?</p>
+</li>
+	
+	<li><p>How can I recover old versions of files?</p>
+</li>
+	
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-9">
+      <strong>Objectives</strong>
+      <ul>
+	
+	<li><p>Compare files with older versions of themselves.</p>
+</li>
+	
+	<li><p>Display the changes that were made to files in a previous changeset.</p>
+</li>
+	
+      </ul>
+    </div>
+  </div>
+
+</blockquote>
+
+<p>If we want to see what we changed when,
+we use <code class="highlighter-rouge">hg diff</code> again,
+but refer to old versions using the <code class="highlighter-rouge">--rev</code> or <code class="highlighter-rouge">-r</code> flag and the revision numbers:</p>
+
+<div class="bash highlighter-rouge"><pre class="highlight"><code>$ hg diff --rev 1:2 plan.txt
+</code></pre>
+</div>
+
+<div class="output highlighter-rouge"><pre class="highlight"><code><span class="gh">diff -r b31241913818 -r 2e15a7ee29c2 plan.txt
+</span><span class="gd">--- a/plan.txt  Tue Jun 09 15:16:11 2015 +0200
+</span><span class="gi">+++ b/plan.txt  Tue Jun 09 15:28:25 2015 +0200
+</span><span class="gu">@@ -1,3 +1,4 @@
+</span> Goal: Run NEMO everyday to forecast storm surge water levels
+
+ Need daily high resolution weather forcing from EC.
+<span class="gi">+Also need daily average Fraser River flow from EC.
+</span></code></pre>
+</div>
+
+<div class="bash highlighter-rouge"><pre class="highlight"><code>$ hg diff -r 0:2 plan.txt
+</code></pre>
+</div>
+
+<div class="output highlighter-rouge"><pre class="highlight"><code><span class="gh">diff -r 1320339bbcae -r 2e15a7ee29c2 plan.txt
+</span><span class="gd">--- a/plan.txt  Tue Jun 09 14:41:27 2015 +0200
+</span><span class="gi">+++ b/plan.txt  Tue Jun 09 15:28:25 2015 +0200
+</span><span class="gu">@@ -1,1 +1,4 @@
+</span> Goal: Run NEMO everyday to forecast storm surge water levels
+<span class="gi">+
++Need daily high resolution weather forcing from EC.
++Also need daily average Fraser River flow from EC.
+</span></code></pre>
+</div>
+
+<p>In this way,
+we build up a chain of revisions.
+The most recent end of the chain is the changeset with the highest revision number.</p>
+
+<p>To see what changes were made between a particular changeset and its parent
+use the <code class="highlighter-rouge">--change</code> or <code class="highlighter-rouge">-c</code> flag:</p>
+
+<div class="bash highlighter-rouge"><pre class="highlight"><code>$ hg diff --change 1
+</code></pre>
+</div>
+
+<div class="output highlighter-rouge"><pre class="highlight"><code><span class="gh">diff -r 1320339bbcae -r b31241913818 plan.txt
+</span><span class="gd">--- a/plan.txt  Tue Jun 09 14:41:27 2015 +0200
+</span><span class="gi">+++ b/plan.txt  Tue Jun 09 15:16:11 2015 +0200
+</span><span class="gu">@@ -1,1 +1,3 @@
+</span> Goal: Run NEMO everyday to forecast storm surge water levels
+<span class="gi">+
++Need daily high resolution weather forcing from EC.
+</span></code></pre>
+</div>
+
+
+<blockquote class="keypoints">
+  <h2>Key Points</h2>
+  <ul>
+    
+    <li><p>Use <code class="highlighter-rouge">hg diff</code> to compare different versions of files.</p>
+</li>
+    
+  </ul>
+</blockquote>
+
+</article>
+
+<div class="row">
+  <div class="col-md-1">
+    <h3>
+      
+      <a href="../05-changes/"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span><span class="sr-only">previous episode</span></a>
+      
+    </h3>
+  </div>
+  <div class="col-md-10">
+    
+  </div>
+  <div class="col-md-1">
+    <h3>
+      
+      <a href="../07-revert/"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span><span class="sr-only">next episode</span></a>
+      
+    </h3>
+  </div>
+</div>
+
+
+      
+      
+<footer>
+  <div class="row">
+    <div class="col-md-6" align="left">
+      <h4>
+	Copyright &copy; 2016–2017
+	
+	<a href="https://software-carpentry.org">Software Carpentry Foundation</a>
+	
+      </h4>
+    </div>
+    <div class="col-md-6" align="right">
+      <h4>
+	
+	<a href="/edit/gh-pages/_episodes/06-history.md">Edit on GitHub</a>
+	
+	/
+	<a href="/blob/gh-pages/CONTRIBUTING.md">Contributing</a>
+	/
+	<a href="/">Source</a>
+	/
+	<a href="/blob/gh-pages/CITATION">Cite</a>
+	/
+	<a href="">Contact</a>
+      </h4>
+    </div>
+  </div>
+</footer>
+
+      
+    </div>
+    
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/bootstrap.min.js"></script>
+<script src="../assets/js/lesson.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-37305346-2', 'auto');
+  ga('send', 'pageview');
+</script>
+
+  </body>
+</html>
