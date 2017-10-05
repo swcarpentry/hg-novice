@@ -41,7 +41,7 @@ Keeping a record of what was changed,
 when,
 and why is extremely useful for all researchers if they ever need to come back
 to the project later on
-(e.g., a year later, when memory has faded).
+(e.g. a year later, when memory has faded).
 
 This lesson shows how to use
 a popular open source version control system called
