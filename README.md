@@ -12,4 +12,4 @@ Maintainer:
 * [Doug Latornell][latornell-doug]
 
 [latornell-doug]: http://software-carpentry.org/team/#latornell_d
-[lesson-example]: https://carpentries.github.com/lesson-example/
+[lesson-example]: https://carpentries.github.io/lesson-example/
