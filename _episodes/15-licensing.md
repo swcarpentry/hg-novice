@@ -54,7 +54,7 @@ the most popular, including the following:
 
 The GPL is different from most other open source licenses in that it
 is
-[infective]({{ page.root }}/reference/#infective):
+[infective]({% link reference.md %}#infective):
 anyone who distributes a modified version of the code, or anything
 that includes GPL'ed code, must make *their* code freely available as
 well.
