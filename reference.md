@@ -1,6 +1,5 @@
 ---
 layout: reference
-permalink: /reference/
 ---
 
 ## A Better Kind of Backup

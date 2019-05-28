@@ -1,7 +1,6 @@
 ---
 layout: page
 title: "Setup"
-permalink: /setup/
 ---
 
 Please use [TortoiseHg](http://tortoisehg.bitbucket.org/) to install Mercurial on Windows,
