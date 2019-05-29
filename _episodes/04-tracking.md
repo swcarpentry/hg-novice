@@ -110,8 +110,8 @@ $ hg commit -m "Starting to plan the daily NEMO forecast system."
 When we run `hg commit`,
 Mercurial takes the file we have told it about by using `hg add` and stores
 a copy permanently inside the special `.hg` directory.
-That permanent copy is called a [commit]({{ page.root }}/reference/#commit)
-(or [revision]({{ page.root }}/reference/#revision)).
+That permanent copy is called a [commit]({% link reference.md %}#commit)
+(or [revision]({% link reference.md %}#revision)).
 
 We use the `-m` flag (for "message") to record a comment that will help us
 remember later on what we did and why.
@@ -156,7 +156,7 @@ summary:     Starting to plan the daily NEMO forecast system.
 
 `hg log` lists all changes committed to a repository,
 starting with the most recent.
-The listing for each [changeset]({{ page.root }}/reference/#changeset) includes:
+The listing for each [changeset]({% link reference.md %}#changeset) includes:
 
 * the changeset's revision number and identifier
   (`0` and `1320339bbcae` in this case,

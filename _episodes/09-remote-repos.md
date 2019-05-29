@@ -235,6 +235,6 @@ this command would download them to our local repository.
 > that you can generate for yourself.
 > Getting that set up is a distraction from the topics of this workshop,
 > but after the workshop you should read the Bitbucket
-> [Setting up SSH for Mercurial](https://confluence.atlassian.com/bitbucket/set-up-ssh-for-mercurial-728138122.html)
+> [Setting up SSH for Mercurial](https://confluence.atlassian.com/bitbucket/set-up-an-ssh-key-728138079.html)
 > documentation on your own and set up ssh keys for yourself.
 {: .callout}

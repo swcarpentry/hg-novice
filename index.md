@@ -1,6 +1,5 @@
 ---
 layout: lesson
-root: .
 ---
 
 Version control is the lab notebook of the digital world:

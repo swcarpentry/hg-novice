@@ -20,7 +20,7 @@ Lots of projects
 (and therefore version control repositories)
 start with a single text file in which someone writes down some initial ideas.
 
-Now that we have Mercurial [configured]({{ page.root }}/02-configuration/),
+Now that we have Mercurial [configured]({% link _episodes/02-configuration.md %}),
 we can start using it.
 Let's create a directory for Susan's NEMO forecast project:
 
@@ -30,7 +30,7 @@ $ cd forecast
 ~~~
 {: .bash}
 
-and tell Mercurial to make it a [repository]({{ page.root }}/reference/#repository):
+and tell Mercurial to make it a [repository]({% link reference.md %}#repository):
 a place where Mercurial can store versions of our files:
 
 ~~~
