@@ -41,7 +41,7 @@ editing with the command `hg config --local`.
 
 ## Non-text Files
 
-Recall when we discussed [Conflicts]({% link _episodes/13-conflict.md %}) there was a
+Recall when we discussed [Conflicts]({% link _episodes/13-conflicts.md %}) there was a
 challenge that asked, "What does hg do when there is a conflict in an
 image or some other non-textual file that is stored in version
 control?"  We will now revisit this in more detail.
