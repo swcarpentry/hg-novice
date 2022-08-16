@@ -33,10 +33,9 @@ and sidesteps problems that can arise when moving from one institution to anothe
 but requires more time and effort to set up than either
 the option above or the option below.
 
-The third option is to use a public hosting service like
-[BitBucket](http://bitbucket.org), [GitHub](http://github.com), or
-[SourceForge](http://sourceforge.net).  Each of these services provides a web
-interface that enables people to create, view, and edit their code repositories.
+The third option is to use a public hosting service like [BitBucket](http://bitbucket.org),
+[GitHub](http://github.com), [SourceForge](http://sourceforge.net) or [Sourcehut](https://sourcehut.org).
+Each of these services provides a web interface that enables people to create, view, and edit their code repositories.
 These services also provide communication and project management tools including
 issue tracking, wiki pages, email notifications, and code reviews.  These
 services benefit from economies of scale and network effects: it's easier to run
